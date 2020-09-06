@@ -1,0 +1,128 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Kufam' ,'San Francisco', Tahoma, Roboto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+span,
+a,
+div,
+p {
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    color: #000;
+    list-style: none;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.image {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;    
+}
+
+.title { 
+    font-size: 30px;
+    padding: 20px 0;
+}
+
+.text {
+    line-height: 170%;
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+
+.page {
+   .header {
+        padding: 20px 0;
+        background-color: #122538;
+
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+        
+            span {
+                color: #fff;
+                font-size: 16px;
+                cursor: pointer;
+                padding: 0 10px;
+            }
+        }
+
+        .down-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 50px;
+
+            .catalog {
+                .btn-show-catalog {
+                    background: transparent;
+                    border: 1px solid white;
+                    padding: 10px 20px;
+                    border-radius: 5px;
+                    color: #fff;
+                    font-size: 16px;
+                    outline: none;
+                    cursor: pointer;
+                
+                    .icon {
+                        font-size: 20px;
+                        padding-right: 10px;
+                        color: #fff;
+                    }
+                }
+            }
+
+            form {
+                input {
+                    background-color: #fff;
+                    outline: none;
+                    padding: 10px 50px;
+                    border: 0;
+                    border-radius: 5px;
+                    font-size: 16px;
+                    margin: 0;
+
+                    &:last-child {
+                        color: #fff;
+                        background-color: #00a046;
+                        padding: 10px 15px;
+                        margin: -10px;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+            .menu {
+                button {
+                    background-color: transparent;
+                    color: #fff;
+                    margin: 0 5px;
+                    outline: none;
+                    cursor: pointer;
+                    padding: 10px;
+                    border: 1px solid white;
+                    border-radius: 5px;
+                    font-size: 16px;
+                }
+            }
+        }
+   }    
+}
