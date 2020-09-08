@@ -4,12 +4,15 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Kufam&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<link rel="stylesheet" type="text/css" href="css/slick-reset.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
 	<link rel="stylesheet" href="less/style.css">
 	<title>Document</title>
 </head>
 <body>
 	<div class="page">
+		<div class="layout"></div>
 		<div class="header">
 			<div class="wrapper">
 				<div class="top-header">
@@ -49,35 +52,630 @@
 		</div>
 		<div class="content-page">
 			<div class="wrapper">
-				<aside class="left-bar">
-					<div class="menu-left-bar">
-						<a href="">Ноутбуки и копьютеры <span>→</span></a>
-						<a href="">Смартфоны, ТВ и электроника <span>→</span></a>
-						<a href="">Бытовая техника <span>→</span></a>
-						<a href="">Товары для дома <span>→</span></a>
-						<a href="">Инструменты и автотовары <span>→</span></a>
-						<a href="">Сантехника и ремонт <span>→</span></a>
-						<a href="">Дача, сад и огород <span>→</span></a>
-						<a href="">Спорт и увлечения <span>→</span></a>
-						<a href="">Одежда, обувь и украшения <span>→</span></a>
-						<a href="">Красота и здоровье <span>→</span></a>
-						<a href="">Красота и товары <span>→</span></a>
-						<a href="">Канцтовары и книги <span>→</span></a>
-						<a href="">Алкогольные напитки и продукты <span>→</span></a>
-						<a href="">Товары для бизнеса <span>→</span></a>
-						<a href="">Услуги и сервисы <span>→</span></a>
-						<a href="">Осенние скидки <span>→</span></a>
-						<a href="">Туры и отдых <span>→</span></a>
+				<div class="overlay">
+					<aside class="left-bar">
+						<div class="menu-left-bar">
+							<a href="">Ноутбуки и копьютеры <span>→</span></a>
+							<a href="">Смартфоны, ТВ и электроника <span>→</span></a>
+							<a href="">Бытовая техника <span>→</span></a>
+							<a href="">Товары для дома <span>→</span></a>
+							<a href="">Инструменты и автотовары <span>→</span></a>
+							<a href="">Сантехника и ремонт <span>→</span></a>
+							<a href="">Дача, сад и огород <span>→</span></a>
+							<a href="">Спорт и увлечения <span>→</span></a>
+							<a href="">Одежда, обувь и украшения <span>→</span></a>
+							<a href="">Красота и здоровье <span>→</span></a>
+							<a href="">Красота и товары <span>→</span></a>
+							<a href="">Канцтовары и книги <span>→</span></a>
+							<a href="">Алкогольные напитки и продукты <span>→</span></a>
+							<a href="">Товары для бизнеса <span>→</span></a>
+							<a href="">Услуги и сервисы <span>→</span></a>
+							<a href="">Осенние скидки <span>→</span></a>
+							<a href="">Туры и отдых <span>→</span></a>
+						</div>
+						<div class="main-auth">
+							<h2 class="title-auth">Добро пожаловать!</h2>
+							<p class="text-auth">Войдите, чтобы получать рекомендации, персональные бонусы и скидки.</p>
+							<button class="btn-sign-in">Войдите в личный кабинет</button>
+						</div>
+						<div class="app">
+							<h5 class="title-app">Устанавляивайте наши приложения</h5>
+							<a href=""><img src="https://xl-static.rozetka.com.ua/assets/img/design/button-google-play-ru.svg" alt=""></a>
+							<a href=""><img src="https://xl-static.rozetka.com.ua/assets/img/design/button-appstore-ru.svg" alt=""></a>
+						</div>
+						<div class="call-center">
+							<h5 class="title-call-center">График работы Call-центра</h5>
+							<a href="(097)-988-0784">(097)-988-0784</a>
+							<a href="(097)-988-0784">(097)-988-0784</a>
+							<div class="graphics">
+								<span>В будние</span>
+								<span>с 08:00 до 21:00</span>
+								<span>Суббота</span>
+								<span>с 09:00 до 20:00</span>
+								<span>Воскресенье</span>
+								<span>с 10:00 до 19:00</span>
+							</div>
+						</div>
+						<div class="address">
+							<h5 class="title-address">
+								Наши магазины в 
+								<select>
+									<option value="">Киев</option>
+									<option value="">Одесаа</option>
+									<option value="">Львов</option>
+									<option value="">Харьков</option>
+									<option value="">Херсон</option>
+								</select>
+							</h5>
+							<p class="address-text">Example</p>
+							<p class="address-text">Example</p>
+							<p class="address-text">Example</p>
+							<p class="address-text">Example</p>
+						</div>
+						<div class="social">
+							<h5 class="title-social">Мы в социальных сетях</h5>
+							<a href=""><span class="fab fa-facebook"></span></a>
+							<a href=""><span class="fab fa-twitter"></span></a>
+							<a href=""><span class="fab fa-youtube"></span></a>
+							<a href=""><span class="fab fa-instagram"></span></a>
+							<a href=""><span class="fab fa-viber"></span></a>
+						</div>
+						<div class="mini-info">
+							<h5 class="title-mini-info">Помощь</h5>
+							<a href="">Доставка и оплата</a>
+							<a href="">Кредит</a>
+							<a href="">Гарантия</a>
+							<a href="">Возврат товара</a>
+							<a href="">Сервисные центры</a>
+							<a href="">Отследить заказ</a>
+						</div>
+						<div class="mini-info">
+							<h5 class="title-mini-info">Сервисы о компании</h5>
+							<a href="">Бонусный счет</a>
+							<a href="">Rozetka Premium</a>
+							<a href="">Подарочные сертификаты</a>
+							<a href="">Перевод денег с карты на карту</a>
+							<a href="">Туры и отдых</a>
+						</div>
+						<div class="mini-info">
+							<h5 class="title-mini-info">Сервисы</h5>
+							<a href="">О нас</a>
+							<a href="">Условия использования сайта</a>
+							<a href="">Вакансии</a>
+							<a href="">Контакты</a>
+						</div>
+						<div class="mini-info">
+							<h5 class="title-mini-info">Партнерам</h5>
+							<a href="">Продавать на Розетке</a>
+							<a href="">Сотрудничество с нами</a>
+							<a href="">Логотип и стайлгайд</a>
+						</div>
+						<div class="card">
+							<img src="https://xl-static.rozetka.com.ua/assets/img/design/mastercard-logo.svg" alt="">
+							<img src="https://xl-static.rozetka.com.ua/assets/img/design/visa-logo.svg" alt="">
+							<p class="license">ТМ используется на основании лицензии правообладателя RozetkaLTD.</p>
+							<p class="description">© Интернет-магазин «Розетка™»</p>
+						</div>
+					</aside>
+					<div class="product">
+						<div class="carusel">
+							<img src="https://i1.rozetka.ua/owoxads/sliders/23/23917.jpg" alt="">
+							<img src="https://i2.rozetka.ua/owoxads/sliders/23/23989.jpg" alt="">
+							<img src="https://i2.rozetka.ua/owoxads/sliders/23/23833.jpg" alt="">
+						</div>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
+						<section class="last-view">
+							<span class="fas fa-eye"></span>
+							<h2 class="title-section">Последние просмотренные товары</h2>
+							<div class="cards">
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+								<div class="card">
+									<img src="https://i1.rozetka.ua/goods/14686191/136400312_images_14686191624.jpg" alt="">
+									<p>Адольф Гитлер Моя борьба (Mein Kampf) </p>
+									<p>320$</p>
+								</div>
+							</div>
+						</section>
 					</div>
-					<div class="main-auth">
-						<h2 class="title-auth">Добро пожаловать!</h2>
-						<p class="text-auth">Войдите, чтобы получать рекомендации, персональные бонусы и скидки.</p>
-						<button class="btn-sign-in">Войдите в личный кабинет</button>
+				</div>
+			</div>
+		</div>
+		<div class="modals-windows">
+			<div class="numbers-modal-window">
+				<h2 class="title">Контактные телефоны</h2>
+				<button class="btn-close-window"><span class="fas fa-times"></span></button>
+				<div class="infos">
+					<div class="order">
+						<p>Консультации и заказ по телефонам</p>
+						<a href="tel:+38 (044) 537-02-22">+38 (044) 503-80-80</a>
+						<a href="tel:+38 (044) 503-80-80">+38 (044) 503-80-80</a>
 					</div>
-					<div class="app">
-						<h5 class="title-app">Устанавляивайте наши приложения</h5>
-						<a href=""><img src="https://xl-static.rozetka.com.ua/assets/img/design/button-google-play-ru.svg" alt=""></a>
-						<a href=""><img src="https://xl-static.rozetka.com.ua/assets/img/design/button-appstore-ru.svg" alt=""></a>
+					<div class="other">
+						<p>Другие продавцы:</p>
+						<a href="tel:+38 (044) 537-02-22">+38 (044) 503-80-80</a>
 					</div>
 					<div class="call-center">
 						<h5 class="title-call-center">График работы Call-центра</h5>
@@ -92,70 +690,12 @@
 							<span>с 10:00 до 19:00</span>
 						</div>
 					</div>
-					<div class="address">
-						<h5 class="title-address">
-							Наши магазины в 
-							<select>
-								<option value="">Киев</option>
-								<option value="">Одесаа</option>
-								<option value="">Львов</option>
-								<option value="">Харьков</option>
-								<option value="">Херсон</option>
-							</select>
-						</h5>
-						<p class="address-text">Example</p>
-						<p class="address-text">Example</p>
-						<p class="address-text">Example</p>
-						<p class="address-text">Example</p>
-					</div>
-					<div class="social">
-						<h5 class="title-social">Мы в социальных сетях</h5>
-						<a href=""><span class="fab fa-facebook"></span></a>
-						<a href=""><span class="fab fa-twitter"></span></a>
-						<a href=""><span class="fab fa-youtube"></span></a>
-						<a href=""><span class="fab fa-instagram"></span></a>
-						<a href=""><span class="fab fa-viber"></span></a>
-					</div>
-					<div class="mini-info">
-						<h5 class="title-mini-info">Помощь</h5>
-						<a href="">Доставка и оплата</a>
-						<a href="">Кредит</a>
-						<a href="">Гарантия</a>
-						<a href="">Возврат товара</a>
-						<a href="">Сервисные центры</a>
-						<a href="">Отследить заказ</a>
-					</div>
-					<div class="mini-info">
-						<h5 class="title-mini-info">Сервисы о компании</h5>
-						<a href="">Бонусный счет</a>
-						<a href="">Rozetka Premium</a>
-						<a href="">Подарочные сертификаты</a>
-						<a href="">Перевод денег с карты на карту</a>
-						<a href="">Туры и отдых</a>
-					</div>
-					<div class="mini-info">
-						<h5 class="title-mini-info">Сервисы</h5>
-						<a href="">О нас</a>
-						<a href="">Условия использования сайта</a>
-						<a href="">Вакансии</a>
-						<a href="">Контакты</a>
-					</div>
-					<div class="mini-info">
-						<h5 class="title-mini-info">Партнерам</h5>
-						<a href="">Продавать на Розетке</a>
-						<a href="">Сотрудничество с нами</a>
-						<a href="">Логотип и стайлгайд</a>
-					</div>
-					<div class="card">
-						<img src="https://xl-static.rozetka.com.ua/assets/img/design/mastercard-logo.svg" alt="">
-						<img src="https://xl-static.rozetka.com.ua/assets/img/design/visa-logo.svg" alt="">
-						<p class="license">ТМ используется на основании лицензии правообладателя RozetkaLTD.</p>
-						<p class="description">© Интернет-магазин «Розетка™»</p>
-					</div>
-				</aside>
+				</div>
 			</div>
 		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
