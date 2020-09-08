@@ -25,7 +25,7 @@
 					<div class="rigth">
 						<span>RU | UA</span>
 						<span class="select-city">Город</span>
-						<span class="sign-in-header">Здраствуйте войдите в личный кабинет</span>
+						<span class="sign">Здраствуйте войдите в личный кабинет</span>
 					</div>
 				</div>
 				<div class="down-header">
@@ -716,19 +716,43 @@
 					</div>
 				</div>
 			</div>
-			<div class="sign-in-window">
+			<div class="sign sign-in-window">
 				<h2 class="title-window">Вход</h2>
 				<button class="btn-close-window"><span class="fas fa-times"></span></button>
 				<div class="forms">
 					<form action="post">
-						<h4 class="warning-messege"></h4>
+						<h4 class="warning-messege-sign-in"></h4>
 						<input type="email" placeholder="Эл. почта или телефон" class="field-sign-in">
 						<input type="password" placeholder="Пароль" class="field-sign-in">
-						<input type="checkbox">
+						<input type="checkbox" class="remember-checkbox">
 						<span>Запомнить меня</span>
 						<a href="">Напомнить пароль</a>
-						<input type="button" class="form-button" value="Войти">
-						<input type="button" class="form-button" value="Зарегистрироваться">
+						<input type="button" class="sign-in-button" value="Войти">
+						<input type="button" class="sign-in-button" value="Зарегистрироваться">
+					</form>
+					<div class="social-sign-in">
+						<span class="auth-modal">или</span>
+						<div class="btn-social">
+							<h4 class="title-social-sign-in">Войти как пользователь</h4>
+							<button><span class="fab fa-facebook-f"></span>Facebook</button>
+							<button><span class="fab fa-google"></span>Google</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="sign sign-up-window">
+				<h2 class="title-window">Вход</h2>
+				<button class="btn-close-window"><span class="fas fa-times"></span></button>
+				<div class="forms">
+					<form action="post">
+						<h4 class="warning-messege-sign-up"></h4>
+						<input type="text" placeholder="Фамилия" class="field-sign-up">
+						<input type="text" placeholder="Имя" class="field-sign-up">
+						<input type="email" placeholder="Эл. почта или телефон" class="field-sign-up">
+						<input type="password" placeholder="Придумайте пароль" class="field-sign-up">
+						<button class="btn-show-pass"><span class="eye fas fa-eye"></span></button>
+						<input type="button" class="sign-up-button" value="Зарегистрироваться">
+						<input type="button" class="sign-up-button" value="Войти">
 					</form>
 					<div class="social-sign-in">
 						<span class="auth-modal">или</span>

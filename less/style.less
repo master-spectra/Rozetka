@@ -547,7 +547,7 @@ p {
             }
         }
 
-        .sign-in-window {
+        .sign {
             position: absolute;
             background-color: #fff;
             border-radius: 5px;
@@ -575,7 +575,7 @@ p {
                     text-align: -webkit-center;
                     padding-right: 20px;
 
-                    .warning-messege {
+                    .warning-messege-sign-in {
                         display: none;
                         color: #e90000;
                         padding-bottom: 20px;
@@ -590,20 +590,18 @@ p {
                         border-radius: 5px;
                         border: 1px solid #e9e9e9;
 
-                        &:nth-child(4) {
-                            transform: scale(1.5);
-                            background: #00a046;
-                            margin-top: 20px;
+                        &.remember-checkbox {
                             display: inline-block;
                         }
                     }
 
-                    .form-button {
+                    .sign-in-button {
                         background: #00a046;
                         font-size: 16px;
                         text-align: center;
                         margin-top: 20px;
                         color: #fff;
+                        cursor: pointer;
                         transition: all 0.3s ease;
 
                         &:active {
@@ -675,6 +673,55 @@ p {
                                 }
                             }
                         }
+                    }
+                }
+            }
+        }
+
+        .sign-up-window {
+            .forms {
+                form {
+                    .warning-messege-sign-up {
+                        display: none;
+                        color: #e90000;
+                        padding-bottom: 20px;
+                        text-transform: uppercase;
+                    }
+
+                    input {
+                        display: block;
+
+                        &:nth-child(5) {
+                            width: 48%;
+                            display: inline-block;
+                        }
+                    }
+
+                    .sign-up-button {
+                        background: #00a046;
+                        font-size: 16px;
+                        text-align: center;
+                        margin-top: 20px;
+                        color: #fff;
+                        cursor: pointer;
+                        transition: all 0.3s ease;
+
+                        &:active {
+                            transform: scale(0.95);
+                        }
+
+                        &:last-child {
+                            color: #000;
+                            background-color: transparent;
+                        }
+                    }
+
+                    .btn-show-pass {
+                        background: transparent;
+                        cursor: pointer;
+                        border: 0;
+                        margin-left: 5px;
+                        outline: none;
                     }
                 }
             }
