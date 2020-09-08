@@ -111,10 +111,10 @@ window.addEventListener('DOMContentLoaded', function() {
 				fieldSignIn.forEach(function(elem) { // перебираем массив
 					if (elem.value.length < 7) { // если меньше 7 символов то выбьет предупреждение 
 						warningMassegeSignIn.style.display 	= "block"; // делаем видимым 
-						warningMassegeSignIn.textContent 		= 'Введите 8 или более символов'; // добавляем текст в warning
+						warningMassegeSignIn.textContent 	= 'Введите 8 или более символов'; // добавляем текст в warning
 					} else {
-						layout.style.display 					= "none"; // скрываем элемент
-						signInWindowHeader.style.opacity 		= "0"; // скрываем элемент
+						layout.style.display 				= "none"; // скрываем элемент
+						signInWindowHeader.style.opacity 	= "0"; // скрываем элемент
 
 						setTimeout(function() {
 							signInWindowHeader.style.transform 		= "translate(0, -200%)"; // выносим за экран
@@ -153,13 +153,11 @@ window.addEventListener('DOMContentLoaded', function() {
 						warningMassegeSignUp.style.display 		= "block"; // делаем видимым 
 						warningMassegeSignUp.textContent 		= 'Введите 8 или более символов'; // добавляем текст в warning
 					} else {
-						layout.style.display 						= "block"; // делаем видимым элемент
-						signUpWindow.style.transform 				= "translate(0, 0)"; // выводим на экран
-						signInWindowHeader.style.opacity 			= "0"; // выносим за экран
+						layout.style.display 						= "none"; // делаем видимым элемент
+						signUpWindow.style.opacity 					= "0"; // скрываем элемент
 
 						setTimeout(function() {
-							signUpWindow.style.opacity 					= "1"; // выносим за экран
-							signInWindowHeader.style.transform 			= "translate(0, -200%)"; // выносим за экран
+							signUpWindow.style.transform 				= "translate(0, -200%)"; // выводим на экран
 						}, 302); // задержка в 302мс
 					}
 				});
@@ -170,7 +168,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				signInWindowHeader.style.opacity 			= "1"; // делаем видимым
 
 				setTimeout(function() {
-					signInWindowHeader.style.transform 				= "translate(0, 0)"; // выводим на экран
+					signInWindowHeader.style.transform 		= "translate(0, 0)"; // выводим на экран
 					signUpWindow.style.transform 			= "translate(0, -200%)"; // выносим за экран
 				}, 302); // задержка в 302мс
 			});
