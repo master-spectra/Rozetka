@@ -1,5 +1,3 @@
-// нужно решить момент с навединием на кнопку 
-
 window.addEventListener('DOMContentLoaded', function() {
 	'use strict';
 
@@ -22,8 +20,12 @@ window.addEventListener('DOMContentLoaded', function() {
 				menu 					= document.querySelector('.menu'),
 				listsMenu 				= document.querySelectorAll('.lists'),
 				btnMenu 				= document.querySelectorAll('.btn-menu'),
+				btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
 				btnSignHeader			= document.querySelector('.sign'),
 				btnShowCatalog 			= document.querySelector('.btn-show-catalog'),
+
+				// side-bar
+				btnSingIn 				= document.querySelector('.btn-sign-in'),
 
 				// Modal-window
 				catalogMenu				= document.querySelector('.catalog-menu'),
@@ -31,13 +33,15 @@ window.addEventListener('DOMContentLoaded', function() {
 				signInWindowHeader		= document.querySelector('.sign-in-window'),
 				signUpWindow			= document.querySelector('.sign-up-window'),
 				modalCity 				= document.querySelector('.select-city-window'),
+				versusList 				= document.querySelector('.versus-list'),
 				modalNumber				= document.querySelector('.numbers-modal-window'),
 
-				// form and her elements
+				// form и её элементы
 				btnShowPass 			= document.querySelector('.btn-show-pass'),
 				spanShowPass 			= document.querySelector('.eye'),
 				btns 					= document.querySelector('.btns'),
 				btnCity 				= document.querySelectorAll('.btn-city'),
+				btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
 				fieldSignIn				= document.querySelectorAll('.field-sign-in'),
 				fieldSignUp				= document.querySelectorAll('.field-sign-up'),
 				warningMassegeSignIn	= document.querySelector('.warning-messege-sign-in'),
@@ -48,20 +52,74 @@ window.addEventListener('DOMContentLoaded', function() {
 				signUpBtn				= document.querySelectorAll('.sign-up-button'),
 				signInBtn				= document.querySelectorAll('.sign-in-button'),
 
-				// tabs
+				// табы
 				tabs 					= document.querySelector('.tabs'),
 				tab 					= document.querySelectorAll('.tab'),
 				tabConteiner 			= document.querySelectorAll('.tab-conteiner'),
 
-				// other 
+				// другое 
 				layout					= document.querySelector('.layout'), 
 				closeWindow				= document.querySelectorAll('.btn-close-window'),
 				closeAllWindow 			= document.querySelectorAll('.close-all-window'),
 				contentPage				= document.querySelector('.content-page');
 				
 			// добавляем тех.переменную
-			let t;
+			let t;	
 
+			// header 
+
+			// открываем окно с номерами телефонов
+			phone.addEventListener('click', function() {
+				layout.style.display 			= "block"; // делаем видимым
+				modalNumber.style.transform 	= "translate(-54%, 0)"; // центрируем
+
+				setTimeout(function() {
+					modalNumber.style.opacity 	= 1; // делаем видимым
+				}, 302); // делаем задержку в 302мс
+			});
+
+			// открываем окно select-city
+			spanCity.addEventListener('click', function() {
+				layout.style.display 			= "block"; // делаем видимым элемент
+				modalCity.style.transform 		= "translate(-37%, 0)"; // центрируем
+
+				setTimeout(function() {
+					modalCity.style.opacity 	= '1'; // делаем видимым элемень
+				}, 302); // задержка 302мс
+			});
+
+			// открываем окно sign-in
+			btnSignHeader.addEventListener('click', function() {
+				layout.style.display 						= "block"; // делаем видимым элемент
+				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
+				
+				setTimeout(function() {
+					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
+				}, 302);
+			});
+
+			// добавляем событие для открытие каталога
+			btnShowCatalog.addEventListener('click', function() {
+				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
+					contentPage.classList.remove('special'); // удаляем класс
+					layout.classList.remove('catalog-mode'); // удаляем класс
+					catalogMenu.style.opacity = "0"; // скрываем элемент
+					
+					setTimeout(function() {
+						catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
+					}, 510);
+				} else {
+					contentPage.classList.add('special'); // добавляем класс
+					layout.classList.add('catalog-mode'); // добавляем класс
+					catalogMenu.style.transform = "translate(0, 0%)" // выводим на экран 
+
+					setTimeout(function() {
+						catalogMenu.style.opacity = "1"; // делаем видимым 
+					}, 400);
+				};
+			});
+
+			// используем дилегирование
 			menu.addEventListener('mouseover', function(e) { // используе делигирование 
 				if (e.target && e.target.classList.contains('btn-menu')) { // проверяем что событие происходит иммено на кнопках
 					let targets = e.target; // записоваем цель в переменную
@@ -84,11 +142,33 @@ window.addEventListener('DOMContentLoaded', function() {
 							}, 500); // задержка в 500мс
 						}
 					}
-				}
+				};
+			});
+
+			// добавляем событие на  ссылку
+			btnMenuVersus.addEventListener('click', function(e) {
+				layout.style.display = "block";
+				versusList.style.transform = "translate(50%, 0)";
+
+				setTimeout(function() {
+					versusList.style.opacity = "1";
+				}, 500);
+			});
+
+			// добавляем событие на ссылку
+			btnSignRedirect.addEventListener('click', function(e) {
+				e.preventDefault();
+
+				layout.style.display 						= "block"; // делаем видимым элемент
+				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
+				
+				setTimeout(function() {
+					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
+				}, 302);
 			});
 
 			// создаем анонимную функцию
-			let hideLists = () => {
+			let hideLists = () => { 
 				listsMenu.forEach(function(elem) { // перебираем массив с выпадающими списками
 					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
 						// скрываем элемент
@@ -97,10 +177,24 @@ window.addEventListener('DOMContentLoaded', function() {
 						elem.style.transform	= "translate(0, -400%)";
 					});
 				});
+
+				document.addEventListener('click', function(e) {
+					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false && e.target.classList.contains('btn-menu') == false) { // проверяем по условию событие
+						listsMenu.forEach(function(elem) { // перебираем массив с выпадающими списками
+							// скрываем элемент
+							elem.style.opacity 		= "0";
+							elem.style.display 		= "none";
+							elem.style.transform	= "translate(0, -400%)";
+						});
+					}
+				});
 			};
 
 			hideLists(); // вызываем функцию
 
+			// content Page
+
+			// добавляем еще один способ закрыть окно 
 			closeAllWindow.forEach(function(item) { // перебираем массив 
 				item.addEventListener('click', function(e) { // каждому элементу даем событие клик
 					windows.forEach(function(elem) { // перебираем массив с модальными окнами
@@ -120,15 +214,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			});
 
-			phone.addEventListener('click', function() {
-				layout.style.display 			= "block"; // делаем видимым
-				modalNumber.style.transform 	= "translate(-54%, 0)"; // центрируем
-
-				setTimeout(function() {
-					modalNumber.style.opacity 	= 1; // делаем видимым
-				}, 302); // делаем задержку в 302мс
-			});
-
+			// настраемваем кнопку закрыть
 			closeWindow.forEach(function(elem) { // получаем каждую кнопку из массива 
 				elem.addEventListener('click', function() { // присваеваем к кнопке событие 
 					windows.forEach(function(item) { // перебираем массив с модальными окнами
@@ -143,16 +229,8 @@ window.addEventListener('DOMContentLoaded', function() {
 					});
 				});
 			});
-
-			spanCity.addEventListener('click', function() {
-				layout.style.display 			= "block"; // делаем видимым элемент
-				modalCity.style.transform 		= "translate(-37%, 0)"; // центрируем
-
-				setTimeout(function() {
-					modalCity.style.opacity 	= '1'; // делаем видимым элемень
-				}, 302); // задержка 302мс
-			});
-
+			
+			// используем дилегирование	
 			btns.addEventListener('click', function(e) {
 				t = e.target; // присваеваем t элемент на который наэали
 
@@ -167,6 +245,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				}
 			});
 
+			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
 				spanCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки 0
 				layout.style.display 				= "none"; // скраваем элемент
@@ -177,15 +256,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				}, 302); // задежка в 302мс
 			});
 
-			btnSignHeader.addEventListener('click', function() {
-				layout.style.display 						= "block"; // делаем видимым элемент
-				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
-				
-				setTimeout(function() {
-					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302);
-			});
-
+			// входим в систему
 			signInBtn[0].addEventListener('click', function() {
 				fieldSignIn.forEach(function(elem) { // перебираем массив
 					if (elem.value.length < 7) { // если меньше 7 символов то выбьет предупреждение 
@@ -207,6 +278,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			});
 
+			// показываем окно регистрации 
 			signInBtn[1].addEventListener('click', function() {
 				signInWindowHeader.style.opacity 		= "0"; // скрываем элемент
 				signUpWindow.style.transform 			= "translate(-52%, 0)"; // скрываем элемент
@@ -217,6 +289,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				}, 302);
 			});
 
+			// показываем value input
 			btnShowPass.addEventListener('click', function(e) {
 				e.preventDefault(); // отключаем стандартное повидения браузеа при нажатии на кнопку 
 				
@@ -231,6 +304,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				}
 			});
 
+			// регистрируемся
 			signUpBtn[0].addEventListener('click', function() {
 				fieldSignUp.forEach(function(elem) { // перебираем массив
 					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 9) { // проверяме по условию input
@@ -252,6 +326,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			});
 
+			// показываем окно входа
 			signUpBtn[1].addEventListener('click', function() {
 				signUpWindow.style.opacity 					= "0"; // скрываем элемент
 				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
@@ -262,27 +337,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				}, 302); // задержка в 302мс
 			});
 
-			btnShowCatalog.addEventListener('click', function() {
-				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
-					contentPage.classList.remove('special'); // удаляем класс
-					layout.classList.remove('catalog-mode'); // удаляем класс
-					catalogMenu.style.opacity = "0"; // скрываем элемент
-					
-					setTimeout(function() {
-						catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
-					}, 510);
-				} else {
-					contentPage.classList.add('special'); // добавляем класс
-					layout.classList.add('catalog-mode'); // добавляем класс
-					catalogMenu.style.transform = "translate(0, 0%)" // выводим на экран 
-
-					setTimeout(function() {
-						catalogMenu.style.opacity = "1"; // делаем видимым 
-					}, 400);
-				};
-			});
-
-
+			// табы 
 			tabs.addEventListener('mouseover', function(e) {
 				if (e.target && e.target.classList.contains('tab')) {
 					let target = e.target; // получаем элемент на который нажали
@@ -297,6 +352,15 @@ window.addEventListener('DOMContentLoaded', function() {
 						}
 					}
 				}
+			});
+
+			btnSingIn.addEventListener('click', function() {
+				layout.style.display 						= "block"; // делаем видимым элемент
+				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
+				
+				setTimeout(function() {
+					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
+				}, 302);
 			});
 		},
 	};
