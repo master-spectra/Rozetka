@@ -184,7 +184,7 @@ p {
             }
 
             .menu {
-                button {
+                a {
                     background-color: transparent;
                     color: #fff;
                     margin: 0 5px;
@@ -796,6 +796,62 @@ p {
                         border: 0;
                         margin-left: 5px;
                         outline: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .down-list {
+        .premium-list {
+            position: absolute;
+            top: 26%;
+            background: #fff;
+            opacity: 0;
+            transform: translate(0, -400%);
+            right: 11%;
+            padding: 20px;
+            border-radius: 5px;
+            z-index: 500;
+            transition: all 0.5s ease;
+            border: 1px solid #eeeeee;  
+
+            .truck-icon {
+                font-size: 30px;
+                color: #b4906f;
+                padding-right: 20px;
+            }
+
+            .description {
+                .title-description {
+                    span {
+                        &:first-child {
+                            font-weight: bold;
+                            padding-right: 10px;
+                            font-size: 18px;
+                        }
+                    }
+                }
+
+                .text-description {
+                    padding: 10px 0;
+                    font-weight: bold;
+                    font-size: 16px;
+                }
+
+                .btn-more {
+                    background: #00a046;
+                    border: 0;
+                    outline: none;
+                    cursor: pointer;
+                    padding: 10px;
+                    border-radius: 5px;
+                    transition: all 0.3s ease;
+                    font-size: 16px;
+                    color: #fff;
+
+                    &:active {
+                        transform: scale(0.95);
                     }
                 }
             }

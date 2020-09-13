@@ -1,5 +1,8 @@
+// нужно решить момент с навединием на кнопку 
+
 window.addEventListener('DOMContentLoaded', function() {
 	'use strict';
+
 	// jquery 
 	$('.carusel').slick({
 		slidesToShow: 1,
@@ -12,39 +15,91 @@ window.addEventListener('DOMContentLoaded', function() {
 	let Data = { // используем инкапсуляцию 
 		generalFuntion() {
 			// Добавляем переменные
-			let phone 					= document.querySelector('span'),
+			let 
+				// Header
+				phone 					= document.querySelector('span'),
 				spanCity 				= document.querySelector('.select-city'),
+				menu 					= document.querySelector('.menu'),
+				listsMenu 				= document.querySelectorAll('.lists'),
+				btnMenu 				= document.querySelectorAll('.btn-menu'),
+				btnSignHeader			= document.querySelector('.sign'),
+				btnShowCatalog 			= document.querySelector('.btn-show-catalog'),
+
+				// Modal-window
+				catalogMenu				= document.querySelector('.catalog-menu'),
+				windows 				= document.querySelectorAll('.window'),
+				signInWindowHeader		= document.querySelector('.sign-in-window'),
+				signUpWindow			= document.querySelector('.sign-up-window'),
+				modalCity 				= document.querySelector('.select-city-window'),
+				modalNumber				= document.querySelector('.numbers-modal-window'),
+
+				// form and her elements
 				btnShowPass 			= document.querySelector('.btn-show-pass'),
 				spanShowPass 			= document.querySelector('.eye'),
-				layout					= document.querySelector('.layout'), 
 				btns 					= document.querySelector('.btns'),
 				btnCity 				= document.querySelectorAll('.btn-city'),
 				fieldSignIn				= document.querySelectorAll('.field-sign-in'),
 				fieldSignUp				= document.querySelectorAll('.field-sign-up'),
 				warningMassegeSignIn	= document.querySelector('.warning-messege-sign-in'),
+				formSign 				= document.querySelectorAll('.form-sign'),
+				applySetting			= document.querySelector('.ready'),
+				inputCity 				= document.querySelector('.city-input'),
+				warningMassegeSignUp	= document.querySelector('.warning-messege-sign-up'),
+				signUpBtn				= document.querySelectorAll('.sign-up-button'),
+				signInBtn				= document.querySelectorAll('.sign-in-button'),
+
+				// tabs
 				tabs 					= document.querySelector('.tabs'),
 				tab 					= document.querySelectorAll('.tab'),
 				tabConteiner 			= document.querySelectorAll('.tab-conteiner'),
-				formSign 				= document.querySelectorAll('.form-sign'),
-				warningMassegeSignUp	= document.querySelector('.warning-messege-sign-up'),
-				inputCity 				= document.querySelector('.city-input'),
-				btnSignHeader			= document.querySelector('.sign'),
-				applySetting			= document.querySelector('.ready'),
-				closeWindow				= document.querySelectorAll('.btn-close-window'),
-				btnShowCatalog 			= document.querySelector('.btn-show-catalog'),
-				signInBtn				= document.querySelectorAll('.sign-in-button'),
-				catalogMenu				= document.querySelector('.catalog-menu'),
-				windows 				= document.querySelectorAll('.window'),
-				closeAllWindow 			= document.querySelectorAll('.close-all-window'),
-				signUpBtn				= document.querySelectorAll('.sign-up-button'),
-				signInWindowHeader		= document.querySelector('.sign-in-window'),
-				signUpWindow			= document.querySelector('.sign-up-window'),
-				contentPage				= document.querySelector('.content-page'),
-				modalCity 				= document.querySelector('.select-city-window'),
-				modalNumber				= document.querySelector('.numbers-modal-window');
 
+				// other 
+				layout					= document.querySelector('.layout'), 
+				closeWindow				= document.querySelectorAll('.btn-close-window'),
+				closeAllWindow 			= document.querySelectorAll('.close-all-window'),
+				contentPage				= document.querySelector('.content-page');
+				
 			// добавляем тех.переменную
 			let t;
+
+			menu.addEventListener('mouseover', function(e) { // используе делигирование 
+				if (e.target && e.target.classList.contains('btn-menu')) { // проверяем что событие происходит иммено на кнопках
+					let targets = e.target; // записоваем цель в переменную
+					
+					for (let i = 0; i < btnMenu.length; i++) { // перебираем массив с кнопками 
+						if (targets == btnMenu[i]) { // проверяем цель с кнопкой
+							listsMenu.forEach(function(elem) { // перебираем массив  с выподающими списками
+								// скрываем элемент
+								elem.style.opacity 		= "0";
+								elem.style.display 		= "none";
+								elem.style.transform	= "translate(0, -400%)";
+							});
+
+							// выводим элемент
+							listsMenu[i].style.display 		= "flex";
+							listsMenu[i].style.transform 	= "translate(0, 0)";
+
+							setTimeout(function() {
+								listsMenu[i].style.opacity = "1";								
+							}, 500); // задержка в 500мс
+						}
+					}
+				}
+			});
+
+			// создаем анонимную функцию
+			let hideLists = () => {
+				listsMenu.forEach(function(elem) { // перебираем массив с выпадающими списками
+					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
+						// скрываем элемент
+						elem.style.opacity 		= "0";
+						elem.style.display 		= "none";
+						elem.style.transform	= "translate(0, -400%)";
+					});
+				});
+			};
+
+			hideLists(); // вызываем функцию
 
 			closeAllWindow.forEach(function(item) { // перебираем массив 
 				item.addEventListener('click', function(e) { // каждому элементу даем событие клик
