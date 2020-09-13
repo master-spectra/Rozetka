@@ -35,6 +35,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				modalCity 				= document.querySelector('.select-city-window'),
 				versusList 				= document.querySelector('.versus-list'),
 				modalNumber				= document.querySelector('.numbers-modal-window'),
+				basketWindow 			= document.querySelector('.basket-window'),
 
 				// form и её элементы
 				btnShowPass 			= document.querySelector('.btn-show-pass'),
@@ -139,7 +140,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 							setTimeout(function() {
 								listsMenu[i].style.opacity = "1";								
-							}, 500); // задержка в 500мс
+							}, 302); // задержка в 302мс
 						}
 					}
 				};
@@ -147,24 +148,35 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// добавляем событие на  ссылку
 			btnMenuVersus.addEventListener('click', function(e) {
+				// делаем видимыми элементы
 				layout.style.display = "block";
 				versusList.style.transform = "translate(50%, 0)";
 
 				setTimeout(function() {
 					versusList.style.opacity = "1";
-				}, 500);
+				}, 302); // задежка в 302мс
 			});
 
 			// добавляем событие на ссылку
 			btnSignRedirect.addEventListener('click', function(e) {
-				e.preventDefault();
+				e.preventDefault(); // отключаем стандартное повидение браузера
 
 				layout.style.display 						= "block"; // делаем видимым элемент
 				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
 				
 				setTimeout(function() {
 					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302);
+				}, 302); // задужка в 302мс
+			});
+
+			btnMenu[2].addEventListener('click', function(e) {
+				// делаем видимыми элементы
+				layout.style.display 			= "block";
+				basketWindow.style.transform 	= "translate(50%, 0)";
+
+				setTimeout(function() {
+					basketWindow.style.opacity = "1";
+				}, 302); // задежка в 302мс
 			});
 
 			// создаем анонимную функцию
@@ -179,7 +191,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 
 				document.addEventListener('click', function(e) {
-					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false && e.target.classList.contains('btn-menu') == false) { // проверяем по условию событие
+					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false) { // проверяем по условию событие
 						listsMenu.forEach(function(elem) { // перебираем массив с выпадающими списками
 							// скрываем элемент
 							elem.style.opacity 		= "0";
@@ -273,7 +285,7 @@ window.addEventListener('DOMContentLoaded', function() {
 						
 						setTimeout(function() {
 							formSign[0].reset(); // очищаем форму
-						}, 500); // задержку в 500мс
+						}, 302); // задержку в 302мс
 					};
 				});
 			});
@@ -286,7 +298,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				setTimeout(function() {
 					signInWindowHeader.style.transform 		= "translate(0, 0)"; // скрываем элемент
 					signUpWindow.style.opacity 				= "1"; // делаем видимым элемент
-				}, 302);
+				}, 302); // задержку в 302мс
 			});
 
 			// показываем value input
@@ -321,7 +333,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 						setTimeout(function() {
 							formSign[0].reset(); // очищаем форму
-						}, 500); // задержку в 500мс
+						}, 302); // задержку в 302мс
 					}
 				});
 			});
@@ -360,7 +372,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				
 				setTimeout(function() {
 					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302);
+				}, 302);  // задержку в 302мс
 			});
 		},
 	};
