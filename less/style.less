@@ -93,12 +93,6 @@ p {
     }
 }
 
-.image {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;    
-}
-
 .title { 
     font-size: 30px;
     padding: 20px 0;
@@ -297,25 +291,23 @@ p {
  
                 .address {
                     padding: 20px 0;
-                    text-align: center;
+                    text-align: start;
                     border-bottom: 1px solid #e9e9e9;
                 
                     .title-address {
                         font-size: 15px;
                         padding-bottom: 20px;
+                        display: inline-block;
+                    }
 
-                        select {
-                            background-color: transparent;
-                            border: 0;
-                            outline: none;
-
-                            option {
-                                font-size: 15px;
-                            }
-                        }
+                    span {
+                        font-weight: bold;
+                        font-size: 15px;
+                        cursor: pointer;
                     }
 
                     .address-text {
+                        display: none;
                         padding-bottom: 20px;
                     }
                 }
@@ -990,6 +982,25 @@ p {
                     padding: 10px 0;
                     line-height: 170%;
                 }
+            }
+        }
+
+        .select-city-list {
+            position: absolute;
+            top: 214%;
+            left: 15%;
+            opacity: 0;
+            display: none;
+            transition: all 0.3s ease;
+            background: #fff;
+            border: 1px solid #eeeeee;
+            padding: 10px 50px;
+            border-radius: 5px;
+
+            p {
+                font-size: 16px;
+                padding-bottom: 10px;
+                cursor: pointer;
             }
         }
     }

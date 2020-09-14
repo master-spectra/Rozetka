@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	// JS
 	let Data = { // используем инкапсуляцию 
-		generalFuntion() {
+		generalFuntion() {			
 			// Добавляем переменные
 			let 
 				// Header
@@ -26,6 +26,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 				// side-bar
 				btnSingIn 				= document.querySelector('.btn-sign-in'),
+				spanSelectCity			= document.querySelector('.span-select-city'),
+				selectCityList 			= document.querySelector('.select-city-list'),
+				addressText 			= document.querySelectorAll('.address-text'),
+				city 					= document.querySelectorAll('.city'),
 
 				// Modal-window
 				catalogMenu				= document.querySelector('.catalog-menu'),
@@ -62,13 +66,12 @@ window.addEventListener('DOMContentLoaded', function() {
 				layout					= document.querySelector('.layout'), 
 				closeWindow				= document.querySelectorAll('.btn-close-window'),
 				closeAllWindow 			= document.querySelectorAll('.close-all-window'),
-				contentPage				= document.querySelector('.content-page');
+				contentPage				= document.querySelector('.content-page'),
 				
-			// добавляем тех.переменную
-			let t;	
+				// добавляем тех.переменную
+				t;
 
 			// header 
-
 			// открываем окно с номерами телефонов
 			phone.addEventListener('click', function() {
 				layout.style.display 			= "block"; // делаем видимым
@@ -147,7 +150,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			});
 
 			// добавляем событие на  ссылку
-			btnMenuVersus.addEventListener('click', function(e) {
+			btnMenuVersus.addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.style.display = "block";
 				versusList.style.transform = "translate(50%, 0)";
@@ -169,7 +172,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				}, 302); // задужка в 302мс
 			});
 
-			btnMenu[2].addEventListener('click', function(e) {
+			btnMenu[2].addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.style.display 			= "block";
 				basketWindow.style.transform 	= "translate(50%, 0)";
@@ -204,11 +207,90 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			hideLists(); // вызываем функцию
 
+			// side-bar 
+			spanSelectCity.addEventListener('click', function() {
+				selectCityList.style.display = "block"; // делаем видимым элемент
+
+				setTimeout(function() {
+					selectCityList.style.opacity = "1"; // делаем видимым элемент
+				}, 302); // задержка в 302мс
+			});
+
+			city.forEach(function(elem) { // перебраем массив 
+				elem.addEventListener('click', function(e) { // каждому элементу добавляем событие
+					if (e.target.textContent == "Киев") { // проверяем по условию 
+						// выводим соответсвущии значения
+						addressText[0].textContent = "пр-т. С. Бандеры, 6"; 
+						addressText[1].textContent = "ул. Крещатик, 20-22";
+						addressText[2].textContent = "ул. Киото, 25";
+						addressText[3].textContent = "пр-т. Победы, 24";
+							
+						// делаем видимыми элементы
+						addressText[0].style.display = "block";
+						addressText[1].style.display = "block";
+						addressText[2].style.display = "block"
+						addressText[3].style.display = "block";
+					} else if (e.target.textContent == "Одесса") {  // проверяем по условию 
+						// выводим соответсвущии значения
+						addressText[0].textContent = "пер. Семафорный, 4Т";
+						addressText[1].textContent = "ул. Ивана и Юрия Лип, 13А";
+						addressText[2].textContent = "ул. Академика Сахарова, 1Б";
+						addressText[3].textContent = "пр-т. Академика Глушко, 17";
+						
+						// делаем видимыми элементы
+						addressText[0].style.display = "block";
+						addressText[1].style.display = "block";
+						addressText[2].style.display = "block"
+						addressText[3].style.display = "block";
+					} else if (e.target.textContent == "Харьков") { // проверяем по условию 
+						// выводим соответсвущии значения
+						addressText[0].textContent = "ул. Героев Труда, 29Г";
+						addressText[1].textContent = "ул. Полтавский Шлях, 140А";
+						addressText[2].textContent = "ул. Нетеченская, 25";
+
+						// делаем видимыми элементы
+						addressText[0].style.display = "block";
+						addressText[1].style.display = "block";
+						addressText[2].style.display = "block"
+
+						addressText[3].style.display = "none"; // скрываем элемент
+					} else if (e.target.textContent == "Львов") {  // проверяем по условию 
+						// выводим соответсвущии значения
+						addressText[0].textContent = "ул. Кульпарковская, 226А";
+						addressText[1].textContent = "ул. Гетьмана Мазепы, 1Б";
+						addressText[2].textContent = "пр-т. Красной Калины, 36";
+						
+						// делаем видимыми элементы
+						addressText[0].style.display = "block";
+						addressText[1].style.display = "block";
+						addressText[2].style.display = "block"
+				
+						addressText[3].style.display = "none"; // скрываем элемент
+ 					} else if (e.target.textContent == "Херсон") { // проверяем по условию 
+						addressText[0].textContent = "Запорожское шоссе, 2"; // выводим соответсвущии значения 
+						addressText[0].style.display = "block"; // делаем видимыми элементы
+
+						// скрываем элемент
+						addressText[1].style.display = "none";
+						addressText[2].style.display = "none"
+						addressText[3].style.display = "none";
+					};
+
+					spanSelectCity.textContent 		= elem.textContent; // добавялем значение того элемента на который нажали
+					selectCityList.style.opacity 	= "0"; // скрываем список
+ 
+					setTimeout(function() {
+					 	selectCityList.style.display = "none"  // скрываем список
+					}, 302); // задежка в 302мс 
+				});
+			});
+
+
 			// content Page
 
 			// добавляем еще один способ закрыть окно 
 			closeAllWindow.forEach(function(item) { // перебираем массив 
-				item.addEventListener('click', function(e) { // каждому элементу даем событие клик
+				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					windows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
 							layout.style.display = "none"; // скрываем layout
@@ -259,7 +341,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
-				spanCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки 0
+				spanCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
 				layout.style.display 				= "none"; // скраваем элемент
 				modalCity.style.opacity 			= '0'; // скраваем элемент
 
