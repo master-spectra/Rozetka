@@ -72,8 +72,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				t;
 
 			// header 
-			// открываем окно с номерами телефонов
-			phone.addEventListener('click', function() {
+			phone.addEventListener('click', function() { // открываем окно с номерами телефонов
 				layout.style.display 			= "block"; // делаем видимым
 				modalNumber.style.transform 	= "translate(-54%, 0)"; // центрируем
 
