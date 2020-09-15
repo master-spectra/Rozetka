@@ -54,6 +54,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				// добавляем тех.переменную
 				t;
 
+			// меню помощи
 			// задаем таймер обратного отсчёта
 			setTimeout(function() {
 				fixedBtn.style.transform = "translateY(0)"; // выводим кнопку
