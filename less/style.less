@@ -191,6 +191,42 @@ p {
 }  
 
 .modals-windows {
+    .help-window {
+        border-radius: 5px;
+        font-size: 16px;
+        position: fixed;
+        background: #fff; 
+        z-index: 3;
+        bottom: 14px;
+        transition: all 0.3s ease;
+        left: 40px;
+        transform: translateY(200%);
+    
+        .header-help-window {
+            background: #00a046;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px;
+
+            span {
+                float: right;
+                color: #fff;
+                cursor: pointer;
+                font-size: 16px;
+            }
+        }
+
+        form {
+            padding: 20px;
+
+            input {
+                border: 1px solid grey;
+                outline: none;
+                padding: 10px 75px 10px 5px;
+            }
+        }
+    }
+
     .catalog-menu {
         width: 87%;
         position: absolute;
@@ -1218,6 +1254,27 @@ p {
             .license {
                 padding-top: 50px;
                 text-align: center;              
+            }
+        }
+    }
+
+    .fixed-button {
+        .btn-fixed {
+            .btn;
+            background: #00a046;
+            padding: 15px 30px;
+            border-radius: 25px;
+            position: fixed;
+            z-index: 3;
+            bottom: 40px;
+            transform: translateY(200%);
+            border: 0;
+            left: 40px;
+
+            span {
+                color: #fff;
+                font-size: 25px;
+                padding-right: 10px;
             }
         }
     }

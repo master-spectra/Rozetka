@@ -14,16 +14,19 @@ window.addEventListener('DOMContentLoaded', function() {
 				btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
 				btnSignInHeader			= document.querySelector('.sign-in'),
 
-				// Modal-window
+				// Modal-window and down-list, and fixed-button
 				modalWindows 			= document.querySelectorAll('.window'),
 				signInWindowHeader		= document.querySelector('.sign-in-window'),
 				signUpWindow			= document.querySelector('.sign-up-window'),
 				modalWindowCity 		= document.querySelector('.select-city-window'),
+				helpWindow 				= document.querySelector('.help-window'),
 				versusList 				= document.querySelector('.versus-list'),
 				modalNumber				= document.querySelector('.numbers-modal-window'),
+				fixedBtn 				= document.querySelector('.btn-fixed'),
 				basketWindow 			= document.querySelector('.basket-window'),
 
 				// form и её элементы
+				btnHideHelpWindow 		= document.querySelector('.hide-help-window'),
 				btnShowPass 			= document.querySelector('.btn-show-pass'),
 				formSubscribeFooter 	= document.querySelector('.form-subscribe-footer'),
 				fieldSubscribeFooter 	= document.querySelector('.field-form-subscribe-footer'),
@@ -50,6 +53,21 @@ window.addEventListener('DOMContentLoaded', function() {
 				
 				// добавляем тех.переменную
 				t;
+
+			// задаем таймер обратного отсчёта
+			setTimeout(function() {
+				fixedBtn.style.transform = "translateY(0)"; // выводим кнопку
+			}, 3000); // задержка в 3с
+
+			fixedBtn.addEventListener('click', function() {
+				fixedBtn.style.transform = "translateY(200%)"; // скрываем кнопку
+				helpWindow.style.transform = "translateY(0)"; // выводим help-window
+			});
+
+			btnHideHelpWindow.addEventListener('click', function() {
+				helpWindow.style.transform = "translateY(200%)"; // скрываем help-window
+				fixedBtn.style.transform = "translateY(0%)"; // выводим кнопку
+			});
 
 			// header 
 			selectorPhone.addEventListener('click', function() { // открываем окно с номерами телефонов
