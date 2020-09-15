@@ -15,28 +15,28 @@ window.addEventListener('DOMContentLoaded', function() {
 			// Добавляем переменные
 			let 
 				// Header
-				phone 					= document.querySelector('span'),
-				spanCity 				= document.querySelector('.select-city'),
-				menu 					= document.querySelector('.menu'),
-				listsMenu 				= document.querySelectorAll('.lists'),
-				btnMenu 				= document.querySelectorAll('.btn-menu'),
+				selectorPhone 			= document.querySelector('span'),
+				selectorCity 			= document.querySelector('.select-city'),
+				headerMenu 				= document.querySelector('.menu'),
+				downList 				= document.querySelectorAll('.lists'),
+				btnHeaderMenu 			= document.querySelectorAll('.btn-menu'),
 				btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
-				btnSignHeader			= document.querySelector('.sign'),
+				btnSignInHeader			= document.querySelector('.sign-in'),
 				btnShowCatalog 			= document.querySelector('.btn-show-catalog'),
 
 				// side-bar
-				btnSingIn 				= document.querySelector('.btn-sign-in'),
-				spanSelectCity			= document.querySelector('.span-select-city'),
+				btnSignInSideBar 		= document.querySelector('.btn-sign-in'),
+				sideBarSelectorCity		= document.querySelector('.side-bar-select-city'),
 				selectCityList 			= document.querySelector('.select-city-list'),
-				addressText 			= document.querySelectorAll('.address-text'),
+				address 				= document.querySelectorAll('.address-text'),
 				city 					= document.querySelectorAll('.city'),
 
 				// Modal-window
 				catalogMenu				= document.querySelector('.catalog-menu'),
-				windows 				= document.querySelectorAll('.window'),
+				modalWindows 			= document.querySelectorAll('.window'),
 				signInWindowHeader		= document.querySelector('.sign-in-window'),
 				signUpWindow			= document.querySelector('.sign-up-window'),
-				modalCity 				= document.querySelector('.select-city-window'),
+				modalWindowCity 		= document.querySelector('.select-city-window'),
 				versusList 				= document.querySelector('.versus-list'),
 				modalNumber				= document.querySelector('.numbers-modal-window'),
 				basketWindow 			= document.querySelector('.basket-window'),
@@ -72,7 +72,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				t;
 
 			// header 
-			phone.addEventListener('click', function() { // открываем окно с номерами телефонов
+			selectorPhone.addEventListener('click', function() { // открываем окно с номерами телефонов
 				layout.style.display 			= "block"; // делаем видимым
 				modalNumber.style.transform 	= "translate(-54%, 0)"; // центрируем
 
@@ -82,17 +82,17 @@ window.addEventListener('DOMContentLoaded', function() {
 			});
 
 			// открываем окно select-city
-			spanCity.addEventListener('click', function() {
+			selectorCity.addEventListener('click', function() {
 				layout.style.display 			= "block"; // делаем видимым элемент
-				modalCity.style.transform 		= "translate(-37%, 0)"; // центрируем
+				modalWindowCity.style.transform 		= "translate(-37%, 0)"; // центрируем
 
 				setTimeout(function() {
-					modalCity.style.opacity 	= '1'; // делаем видимым элемень
+					modalWindowCity.style.opacity 	= '1'; // делаем видимым элемень
 				}, 302); // задержка 302мс
 			});
 
 			// открываем окно sign-in
-			btnSignHeader.addEventListener('click', function() {
+			btnSignInHeader.addEventListener('click', function() {
 				layout.style.display 						= "block"; // делаем видимым элемент
 				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
 				
@@ -123,13 +123,13 @@ window.addEventListener('DOMContentLoaded', function() {
 			});
 
 			// используем дилегирование
-			menu.addEventListener('mouseover', function(e) { // используе делигирование 
+			headerMenu.addEventListener('mouseover', function(e) { // используе делигирование 
 				if (e.target && e.target.classList.contains('btn-menu')) { // проверяем что событие происходит иммено на кнопках
 					let targets = e.target; // записоваем цель в переменную
 					
-					for (let i = 0; i < btnMenu.length; i++) { // перебираем массив с кнопками 
-						if (targets == btnMenu[i]) { // проверяем цель с кнопкой
-							listsMenu.forEach(function(elem) { // перебираем массив  с выподающими списками
+					for (let i = 0; i < btnHeaderMenu.length; i++) { // перебираем массив с кнопками 
+						if (targets == btnHeaderMenu[i]) { // проверяем цель с кнопкой
+							downList.forEach(function(elem) { // перебираем массив  с выподающими списками
 								// скрываем элемент
 								elem.style.opacity 		= "0";
 								elem.style.display 		= "none";
@@ -137,11 +137,11 @@ window.addEventListener('DOMContentLoaded', function() {
 							});
 
 							// выводим элемент
-							listsMenu[i].style.display 		= "flex";
-							listsMenu[i].style.transform 	= "translate(0, 0)";
+							downList[i].style.display 		= "flex";
+							downList[i].style.transform 	= "translate(0, 0)";
 
 							setTimeout(function() {
-								listsMenu[i].style.opacity = "1";								
+								downList[i].style.opacity = "1";								
 							}, 302); // задержка в 302мс
 						}
 					}
@@ -171,7 +171,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				}, 302); // задужка в 302мс
 			});
 
-			btnMenu[2].addEventListener('click', function() {
+			btnHeaderMenu[2].addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.style.display 			= "block";
 				basketWindow.style.transform 	= "translate(50%, 0)";
@@ -183,7 +183,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// создаем анонимную функцию
 			let hideLists = () => { 
-				listsMenu.forEach(function(elem) { // перебираем массив с выпадающими списками
+				downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
 						// скрываем элемент
 						elem.style.opacity 		= "0";
@@ -194,7 +194,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 				document.addEventListener('click', function(e) {
 					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false) { // проверяем по условию событие
-						listsMenu.forEach(function(elem) { // перебираем массив с выпадающими списками
+						downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 							// скрываем элемент
 							elem.style.opacity 		= "0";
 							elem.style.display 		= "none";
@@ -207,7 +207,16 @@ window.addEventListener('DOMContentLoaded', function() {
 			hideLists(); // вызываем функцию
 
 			// side-bar 
-			spanSelectCity.addEventListener('click', function() {
+			btnSignInSideBar.addEventListener('click', function() {
+				layout.style.display 						= "block"; // делаем видимым элемент
+				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
+				
+				setTimeout(function() {
+					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
+				}, 302);  // задержку в 302мс
+			});
+
+			sideBarSelectorCity.addEventListener('click', function() {
 				selectCityList.style.display = "block"; // делаем видимым элемент
 
 				setTimeout(function() {
@@ -219,63 +228,63 @@ window.addEventListener('DOMContentLoaded', function() {
 				elem.addEventListener('click', function(e) { // каждому элементу добавляем событие
 					if (e.target.textContent == "Киев") { // проверяем по условию 
 						// выводим соответсвущии значения
-						addressText[0].textContent = "пр-т. С. Бандеры, 6"; 
-						addressText[1].textContent = "ул. Крещатик, 20-22";
-						addressText[2].textContent = "ул. Киото, 25";
-						addressText[3].textContent = "пр-т. Победы, 24";
+						address[0].textContent = "пр-т. С. Бандеры, 6"; 
+						address[1].textContent = "ул. Крещатик, 20-22";
+						address[2].textContent = "ул. Киото, 25";
+						address[3].textContent = "пр-т. Победы, 24";
 							
 						// делаем видимыми элементы
-						addressText[0].style.display = "block";
-						addressText[1].style.display = "block";
-						addressText[2].style.display = "block"
-						addressText[3].style.display = "block";
+						address[0].style.display = "block";
+						address[1].style.display = "block";
+						address[2].style.display = "block"
+						address[3].style.display = "block";
 					} else if (e.target.textContent == "Одесса") {  // проверяем по условию 
 						// выводим соответсвущии значения
-						addressText[0].textContent = "пер. Семафорный, 4Т";
-						addressText[1].textContent = "ул. Ивана и Юрия Лип, 13А";
-						addressText[2].textContent = "ул. Академика Сахарова, 1Б";
-						addressText[3].textContent = "пр-т. Академика Глушко, 17";
+						address[0].textContent = "пер. Семафорный, 4Т";
+						address[1].textContent = "ул. Ивана и Юрия Лип, 13А";
+						address[2].textContent = "ул. Академика Сахарова, 1Б";
+						address[3].textContent = "пр-т. Академика Глушко, 17";
 						
 						// делаем видимыми элементы
-						addressText[0].style.display = "block";
-						addressText[1].style.display = "block";
-						addressText[2].style.display = "block"
-						addressText[3].style.display = "block";
+						address[0].style.display = "block";
+						address[1].style.display = "block";
+						address[2].style.display = "block"
+						address[3].style.display = "block";
 					} else if (e.target.textContent == "Харьков") { // проверяем по условию 
 						// выводим соответсвущии значения
-						addressText[0].textContent = "ул. Героев Труда, 29Г";
-						addressText[1].textContent = "ул. Полтавский Шлях, 140А";
-						addressText[2].textContent = "ул. Нетеченская, 25";
+						address[0].textContent = "ул. Героев Труда, 29Г";
+						address[1].textContent = "ул. Полтавский Шлях, 140А";
+						address[2].textContent = "ул. Нетеченская, 25";
 
 						// делаем видимыми элементы
-						addressText[0].style.display = "block";
-						addressText[1].style.display = "block";
-						addressText[2].style.display = "block"
+						address[0].style.display = "block";
+						address[1].style.display = "block";
+						address[2].style.display = "block"
 
-						addressText[3].style.display = "none"; // скрываем элемент
+						address[3].style.display = "none"; // скрываем элемент
 					} else if (e.target.textContent == "Львов") {  // проверяем по условию 
 						// выводим соответсвущии значения
-						addressText[0].textContent = "ул. Кульпарковская, 226А";
-						addressText[1].textContent = "ул. Гетьмана Мазепы, 1Б";
-						addressText[2].textContent = "пр-т. Красной Калины, 36";
+						address[0].textContent = "ул. Кульпарковская, 226А";
+						address[1].textContent = "ул. Гетьмана Мазепы, 1Б";
+						address[2].textContent = "пр-т. Красной Калины, 36";
 						
 						// делаем видимыми элементы
-						addressText[0].style.display = "block";
-						addressText[1].style.display = "block";
-						addressText[2].style.display = "block"
+						address[0].style.display = "block";
+						address[1].style.display = "block";
+						address[2].style.display = "block"
 				
-						addressText[3].style.display = "none"; // скрываем элемент
+						address[3].style.display = "none"; // скрываем элемент
  					} else if (e.target.textContent == "Херсон") { // проверяем по условию 
-						addressText[0].textContent = "Запорожское шоссе, 2"; // выводим соответсвущии значения 
-						addressText[0].style.display = "block"; // делаем видимыми элементы
+						address[0].textContent = "Запорожское шоссе, 2"; // выводим соответсвущии значения 
+						address[0].style.display = "block"; // делаем видимыми элементы
 
 						// скрываем элемент
-						addressText[1].style.display = "none";
-						addressText[2].style.display = "none"
-						addressText[3].style.display = "none";
+						address[1].style.display = "none";
+						address[2].style.display = "none"
+						address[3].style.display = "none";
 					};
 
-					spanSelectCity.textContent 		= elem.textContent; // добавялем значение того элемента на который нажали
+					sideBarSelectorCity.textContent = elem.textContent; // добавялем значение того элемента на который нажали
 					selectCityList.style.opacity 	= "0"; // скрываем список
  
 					setTimeout(function() {
@@ -286,11 +295,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 
 			// content Page
-
 			// добавляем еще один способ закрыть окно 
 			closeAllWindow.forEach(function(item) { // перебираем массив 
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
-					windows.forEach(function(elem) { // перебираем массив с модальными окнами
+					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
 							layout.style.display = "none"; // скрываем layout
 							elem.style.opacity = "0"; // скрываем каждое окно
@@ -310,7 +318,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// настраемваем кнопку закрыть
 			closeWindow.forEach(function(elem) { // получаем каждую кнопку из массива 
 				elem.addEventListener('click', function() { // присваеваем к кнопке событие 
-					windows.forEach(function(item) { // перебираем массив с модальными окнами
+					modalWindows.forEach(function(item) { // перебираем массив с модальными окнами
 						layout.style.display = "none"; // скрываем layout
 						layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
 						contentPage.classList.remove('special'); // удаляем класс special
@@ -340,12 +348,12 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
-				spanCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
+				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
 				layout.style.display 				= "none"; // скраваем элемент
-				modalCity.style.opacity 			= '0'; // скраваем элемент
+				modalWindowCity.style.opacity 			= '0'; // скраваем элемент
 
 				setTimeout(function() {
-					modalCity.style.transform 		= "translate(0, -200%)"; // выносим ха экран элемент 
+					modalWindowCity.style.transform 		= "translate(0, -200%)"; // выносим ха экран элемент 
 				}, 302); // задежка в 302мс
 			});
 
@@ -445,15 +453,6 @@ window.addEventListener('DOMContentLoaded', function() {
 						}
 					}
 				}
-			});
-
-			btnSingIn.addEventListener('click', function() {
-				layout.style.display 						= "block"; // делаем видимым элемент
-				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
-				
-				setTimeout(function() {
-					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302);  // задержку в 302мс
 			});
 		},
 	};

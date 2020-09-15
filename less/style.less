@@ -93,6 +93,12 @@ p {
     }
 }
 
+.image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 .title { 
     font-size: 30px;
     padding: 20px 0;
@@ -104,97 +110,69 @@ p {
     font-size: 15px;
 }
 
-.page {
-   .header {
-        padding: 20px 0;
-        background-color: #122538;
+.header {
+    padding: 20px 0;
+    background-color: #122538;
 
-        .top-header {
-            display: flex;
-            justify-content: space-between;
-        
-            span {
+    .top-header {
+        display: flex;
+        justify-content: space-between;
+    
+        span {
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0 10px;
+        }
+    }
+
+    .down-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 50px;
+
+        .catalog {
+            .btn-show-catalog {
+                background: transparent;
+                border: 1px solid white;
+                padding: 10px 20px;
+                border-radius: 5px;
                 color: #fff;
                 font-size: 16px;
+                outline: none;
                 cursor: pointer;
-                padding: 0 10px;
+                transition: all 0.3s ease;
+
+                &:active {
+                    transform: scale(0.95);
+                }
+            
+                .icon {
+                    font-size: 20px;
+                    padding-right: 10px;
+                    color: #fff;
+                }
             }
         }
 
-        .down-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-top: 50px;
+        form {
+            input {
+                background-color: #fff;
+                outline: none;
+                padding: 10px 50px;
+                border: 0;
+                border-radius: 5px;
+                font-size: 16px;
+                margin: 0;
 
-            .catalog {
-                .btn-show-catalog {
-                    background: transparent;
-                    border: 1px solid white;
-                    padding: 10px 20px;
-                    border-radius: 5px;
+                &:last-child {
                     color: #fff;
-                    font-size: 16px;
-                    outline: none;
+                    background-color: #00a046;
+                    padding: 10px 15px;
+                    margin: -10px;
                     cursor: pointer;
-                    transition: all 0.3s ease;
-
-                    &:active {
-                        transform: scale(0.95);
-                    }
-                
-                    .icon {
-                        font-size: 20px;
-                        padding-right: 10px;
-                        color: #fff;
-                    }
-                }
-            }
-
-            form {
-                input {
-                    background-color: #fff;
-                    outline: none;
-                    padding: 10px 50px;
-                    border: 0;
-                    border-radius: 5px;
-                    font-size: 16px;
-                    margin: 0;
-
-                    &:last-child {
-                        color: #fff;
-                        background-color: #00a046;
-                        padding: 10px 15px;
-                        margin: -10px;
-                        cursor: pointer;
-                        border-radius: 0px 5px 5px 0;
-                        transition: all 0.3s ease;
-
-                        &:active {
-                            transform: scale(0.95);
-                        }
-                    }
-                }
-                
-                input[type="search"] {
-                    &-ms-clear {
-                        color: red;
-                    }
-                }
-            }
-
-            .menu {
-                a {
-                    background-color: transparent;
-                    color: #fff;
-                    margin: 0 5px;
-                    outline: none;
-                    cursor: pointer;
-                    padding: 10px;
-                    border: 1px solid white;
-                    border-radius: 5px;
-                    font-size: 16px;
-
+                    border-radius: 0px 5px 5px 0;
                     transition: all 0.3s ease;
 
                     &:active {
@@ -202,9 +180,37 @@ p {
                     }
                 }
             }
+            
+            input[type="search"] {
+                &-ms-clear {
+                    color: red;
+                }
+            }
         }
-    }  
 
+        .menu {
+            a {
+                background-color: transparent;
+                color: #fff;
+                margin: 0 5px;
+                outline: none;
+                cursor: pointer;
+                padding: 10px;
+                border: 1px solid white;
+                border-radius: 5px;
+                font-size: 16px;
+
+                transition: all 0.3s ease;
+
+                &:active {
+                    transform: scale(0.95);
+                }
+            }
+        }
+    }
+}  
+
+.main-page {
     .content-page {
         padding-top: 20px;
         
@@ -1032,6 +1038,56 @@ p {
                 &:hover {
                     background: #1986ff;
                     color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.premium-page {
+    .about {
+        .image;
+        text-align: center;
+        padding-top: 100px;
+        background: #560085 url(https://i.rozetka.ua/design/premium/prem_background.svg);
+        
+        .description-about {
+            display: flex;
+            justify-content: center;
+            padding: 50px 0;
+            align-items: center;
+
+            .image-about {
+                background: #560085;
+                border-radius: 50%;
+                width: 150px;
+                padding: 20px 0;
+                box-shadow: 0 0 2px 2px rgba(50,0,78,.75);
+                
+            
+                p {
+                    color: #fff;
+                    font-size: 16px;
+                    font-weight: bold;
+                    padding-top: 20px;
+                }
+            }
+
+            .text-info-description-about {
+                padding-left: 50px;
+                
+                .title-description-about {
+                    font-size: 25px;
+                    color: #fff;
+                    line-height: 170%;
+                    text-align: start;
+                }
+
+                .text-description-about {
+                    color: #fff;
+                    font-size: 15px;
+                    line-height: 170%;
+                    text-align: start;
                 }
             }
         }
