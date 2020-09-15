@@ -829,11 +829,17 @@ ul {
     transition: all 0.3s ease;
     background: #fff;
     border: 1px solid #eee;
-    padding: 10px 50px;
     border-radius: 5px;
+    padding: 10px 50px 0 0;
 }
 .page .down-list .select-city-list p {
     font-size: 16px;
-    padding-bottom: 10px;
+    width: 156%;
+    padding: 5px;
     cursor: pointer;
+    text-align: start;
+}
+.page .down-list .select-city-list p:hover {
+    background: #1986ff;
+    color: #fff;
 }
