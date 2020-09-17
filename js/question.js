@@ -46,8 +46,10 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		// другое 
 		layout					= document.querySelector('.layout'), 
+		contentPage 			= document.querySelector('.content-page'),
 		closeWindow				= document.querySelectorAll('.btn-close-window'),
 		closeAllWindow 			= document.querySelectorAll('.close-all-window'),		
+		
 		// добавляем тех.переменную
 		t;
 
@@ -85,7 +87,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
 			contentPage.classList.remove('special'); // удаляем класс
 			layout.classList.remove('catalog-mode'); // удаляем класс
-			catalogMenu.style.opacity = "0"; // скрываем элемент
+			
+			catalogMenu.style.top 		= "23%";
+			catalogMenu.style.opacity 	= "0"; // скрываем элемент
 			
 			setTimeout(function() {
 				catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
@@ -93,7 +97,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		} else {
 			contentPage.classList.add('special'); // добавляем класс
 			layout.classList.add('catalog-mode'); // добавляем класс
-			catalogMenu.style.transform = "translate(0, 0%)" // выводим на экран 
+			
+			catalogMenu.style.top 		= "0";
+			catalogMenu.style.transform = "translate(0, 0%)"; // выводим на экран 
 
 			setTimeout(function() {
 				catalogMenu.style.opacity = "1"; // делаем видимым 
