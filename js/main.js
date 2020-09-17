@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// Добавляем переменные
 			let 
 				// Header
-				selectorPhone 			= document.querySelector('span'),
+				selectorPhone 			= document.querySelector('a'),
 				selectorCity 			= document.querySelector('.select-city'),
 				headerMenu 				= document.querySelector('.menu'),
 				downList 				= document.querySelectorAll('.lists'),
