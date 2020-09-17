@@ -83,7 +83,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// открываем окно select-city
 			selectorCity.addEventListener('click', function() {
 				layout.style.display 			= "block"; // делаем видимым элемент
-				modalWindowCity.style.transform 		= "translate(-37%, 0)"; // центрируем
+				modalWindowCity.style.transform 		= "translate(-47%, 0)"; // центрируем
 
 				setTimeout(function() {
 					modalWindowCity.style.opacity 	= '1'; // делаем видимым элемень
@@ -93,7 +93,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// открываем окно sign-in
 			btnSignInHeader.addEventListener('click', function() {
 				layout.style.display 						= "block"; // делаем видимым элемент
-				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
+				signInWindowHeader.style.transform 			= "translate(-54%, 0)"; // выводим на экран
 				
 				setTimeout(function() {
 					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
@@ -130,7 +130,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			btnMenuVersus.addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.style.display = "block";
-				versusList.style.transform = "translate(50%, 0)";
+				versusList.style.transform = "translate(44%, 0)";
 
 				setTimeout(function() {
 					versusList.style.opacity = "1";
