@@ -88,6 +88,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			contentPage.classList.remove('special'); // удаляем класс
 			layout.classList.remove('catalog-mode'); // удаляем класс
 			
+			// настраеваем каталог 
 			catalogMenu.style.top 		= "23%";
 			catalogMenu.style.opacity 	= "0"; // скрываем элемент
 			
@@ -98,6 +99,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			contentPage.classList.add('special'); // добавляем класс
 			layout.classList.add('catalog-mode'); // добавляем класс
 			
+			// настраеваем каталог 
 			catalogMenu.style.top 		= "0";
 			catalogMenu.style.transform = "translate(0, 0%)"; // выводим на экран 
 
@@ -206,11 +208,11 @@ window.addEventListener('DOMContentLoaded', function() {
 				}
 			}
 
-			tab.forEach(function(elem) {
-				elem.classList.remove('active');
-			});
+			tab.forEach(function(elem) { // перебираем массив с кнопками 
+				elem.classList.remove('active'); // удаляем класс active
+			}); 
 
-			target.classList.add('active');
+			target.classList.add('active'); // элементу на который мы нажали добавляем класс active 
 		}
 	});
 
@@ -219,16 +221,14 @@ window.addEventListener('DOMContentLoaded', function() {
 		item.addEventListener('click', function() { // каждому элементу даем событие клик
 			modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 				if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-					layout.style.display = "none"; // скрываем layout
 					elem.style.opacity = "0"; // скрываем каждое окно
-					
 					layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
 
 					setTimeout(function() {
+						contentPage.classList.remove('special'); 
 						elem.style.transform = "translate(0, -200%)"; // выносим за экран	
 					}, 400); // задержка в 400мс
 				}
-				
 			});
 		});
 	});
