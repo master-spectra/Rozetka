@@ -1419,6 +1419,8 @@ p {
                     &.active {
                         border: 2px solid #00a046;
                         border-radius: 20px;
+                        opacity: 0.7;
+                        color: #000;
                     }
                 }
             }
@@ -1450,6 +1452,110 @@ p {
                         display: block;
                         padding-bottom: 10px;
                         font-size: 16px;
+                    }
+
+                    .call-back-question {
+                        padding-top: 50px; 
+
+                        .title-call-back-quetion {
+                            font-size: 25px;
+                            padding-bottom: 10px;
+                        }
+
+                        .sub-title-call-back-quetion {
+                            opacity: .7;
+                            padding-bottom: 20px;
+                        }
+                    
+                        form {
+                            .store {
+                                .select-store {
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    span {
+                                        font-size: 16px;
+                                    }
+
+                                    .fields {
+                                        .field {
+                                            padding-bottom: 20px;
+
+                                            input {
+                                                transform: scale(1.5);
+                                            }
+
+                                            span {
+                                                font-size: 16px;
+                                                padding-left: 10px;
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .cause-call-back {
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    span {
+                                        font-size: 16px;
+                                    }
+
+                                    select {
+                                        background: transparent;
+                                        border: 1px solid #eeeeee;
+                                        outline: none;
+                                        font-size: 16px;
+                                        padding: 5px 73px 5px 5px;
+                                        border-radius: 5px;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+
+                            .messege {
+                                p {
+                                    font-size: 16px;
+                                    padding: 20px 0;
+                                }
+
+                                .messege-area {
+                                    border: 1px solid #eee;
+                                    width: 95%;
+                                    outline: none;
+                                    padding: 20px;
+                                }
+                            }
+
+
+                            .user-info {
+                                .field-info {
+                                    padding: 10px 0;
+
+                                    span {
+                                        font-size: 16px;
+                                    }
+
+                                    input {
+                                        border: 1px solid #eeeeee;
+                                        float: right;
+                                        outline: none;
+                                        padding: 5px;
+                                        border-radius: 5px;
+                                    }
+                                }
+
+                                .btn-form {
+                                    .btn;
+                                    border: none;
+                                    outline: none;
+                                    padding: 10px 20px;
+                                    background: #3e77aa;
+                                    border-radius: 5px;
+                                    margin-top: 20px;
+                                }
+                            }
+                        }
                     }
                 }
             }
