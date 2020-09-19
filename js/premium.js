@@ -1,61 +1,58 @@
 window.addEventListener('DOMContentLoaded', function() {
 	'use strict';
 	// JS
-	let Data = { // используем инкапсуляцию 
-		generalFuntion() {			
-			// Добавляем переменные
-			let 
-				// Header
-				selectorPhone 			= document.querySelector('span'),
-				selectorCity 			= document.querySelector('.select-city'),
-				headerMenu 				= document.querySelector('.menu'),
-				downList 				= document.querySelectorAll('.lists'),
-				btnHeaderMenu 			= document.querySelectorAll('.btn-menu'),
-				btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
-				btnSignInHeader			= document.querySelector('.sign-in'),
+	// Добавляем переменные
+let 
+	// Header
+	selectorPhone 			= document.querySelector('a'),
+	selectorCity 			= document.querySelector('.select-city'),
+	headerMenu 				= document.querySelector('.menu'),
+	downList 				= document.querySelectorAll('.lists'),
+	btnHeaderMenu 			= document.querySelectorAll('.btn-menu'),
+	btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
+	btnSignInHeader			= document.querySelector('.sign-in'),
 
-				// Modal-window and down-list, and fixed-button
-				modalWindows 			= document.querySelectorAll('.window'),
-				signInWindowHeader		= document.querySelector('.sign-in-window'),
-				signUpWindow			= document.querySelector('.sign-up-window'),
-				modalWindowCity 		= document.querySelector('.select-city-window'),
-				helpWindow 				= document.querySelector('.help-window'),
-				versusList 				= document.querySelector('.versus-list'),
-				modalNumber				= document.querySelector('.numbers-modal-window'),
-				fixedBtn 				= document.querySelector('.btn-fixed'),
-				basketWindow 			= document.querySelector('.basket-window'),
+	// Modal-window and down-list, and fixed-button
+	modalWindows 			= document.querySelectorAll('.window'),
+	signInWindowHeader		= document.querySelector('.sign-in-window'),
+	signUpWindow			= document.querySelector('.sign-up-window'),
+	modalWindowCity 		= document.querySelector('.select-city-window'),
+	helpWindow 				= document.querySelector('.help-window'),
+	versusList 				= document.querySelector('.versus-list'),
+	modalNumber				= document.querySelector('.numbers-modal-window'),
+	fixedBtn 				= document.querySelector('.btn-fixed'),
+	basketWindow 			= document.querySelector('.basket-window'),
 
-				// form и её элементы
-				btnHideHelpWindow 		= document.querySelector('.hide-help-window'),
-				btnShowPass 			= document.querySelector('.btn-show-pass'),
-				formSubscribeFooter 	= document.querySelector('.form-subscribe-footer'),
-				fieldSubscribeFooter 	= document.querySelector('.field-form-subscribe-footer'),
-				btnFormFooter 			= document.querySelector('.btn-form-subscribe-footer'),
-				spanShowPass 			= document.querySelector('.eye'),
-				btns 					= document.querySelector('.btns'),
-				btnCity 				= document.querySelectorAll('.btn-city'),
-				warningMessegeSubscribe = document.querySelector('.warning-messege-footer-subscribe'), 	
-				btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
-				fieldSignIn				= document.querySelectorAll('.field-sign-in'),
-				fieldSignUp				= document.querySelectorAll('.field-sign-up'),
-				warningMassegeSignIn	= document.querySelector('.warning-messege-sign-in'),
-				formSign 				= document.querySelectorAll('.form-sign'),
-				applySetting			= document.querySelector('.ready'),
-				inputCity 				= document.querySelector('.city-input'),
-				warningMassegeSignUp	= document.querySelector('.warning-messege-sign-up'),
-				signUpBtn				= document.querySelectorAll('.sign-up-button'),
-				signInBtn				= document.querySelectorAll('.sign-in-button'),
+	// form и её элементы
+	btnHideHelpWindow 		= document.querySelector('.hide-help-window'),
+	btnShowPass 			= document.querySelector('.btn-show-pass'),
+	formSubscribeFooter 	= document.querySelector('.form-subscribe-footer'),
+	fieldSubscribeFooter 	= document.querySelector('.field-form-subscribe-footer'),
+	btnFormFooter 			= document.querySelector('.btn-form-subscribe-footer'),
+	spanShowPass 			= document.querySelector('.eye'),
+	btns 					= document.querySelector('.btns'),
+	btnCity 				= document.querySelectorAll('.btn-city'),
+	warningMessegeSubscribe = document.querySelector('.warning-messege-footer-subscribe'), 	
+	btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
+	fieldSignIn				= document.querySelectorAll('.field-sign-in'),
+	fieldSignUp				= document.querySelectorAll('.field-sign-up'),
+	warningMassegeSignIn	= document.querySelector('.warning-messege-sign-in'),
+	formSign 				= document.querySelectorAll('.form-sign'),
+	applySetting			= document.querySelector('.ready'),
+	inputCity 				= document.querySelector('.city-input'),
+	warningMassegeSignUp	= document.querySelector('.warning-messege-sign-up'),
+	signUpBtn				= document.querySelectorAll('.sign-up-button'),
+	signInBtn				= document.querySelectorAll('.sign-in-button'),
 
-				// другое 
-				layout					= document.querySelector('.layout'), 
-				closeWindow				= document.querySelectorAll('.btn-close-window'),
-				closeAllWindow 			= document.querySelectorAll('.close-all-window'),
-				
-				// добавляем тех.переменную
-				t;
+	// другое 
+	layout					= document.querySelector('.layout'), 
+	closeWindow				= document.querySelectorAll('.btn-close-window'),
+	closeAllWindow 			= document.querySelectorAll('.close-all-window'),
+	t;
 
-			// меню помощи
-			// задаем таймер обратного отсчёта
+
+	let page = { // используем инкапсуляцию 
+		header: () => {
 			setTimeout(function() {
 				fixedBtn.style.transform = "translateY(0)"; // выводим кнопку
 			}, 3000); // задержка в 3с
@@ -73,7 +70,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// header 
 			selectorPhone.addEventListener('click', function() { // открываем окно с номерами телефонов
 				layout.style.display 			= "block"; // делаем видимым
-				modalNumber.style.transform 	= "translate(-54%, 0)"; // центрируем
+				modalNumber.style.transform 	= "translate(-50%, 0)"; // центрируем
 
 				setTimeout(function() {
 					modalNumber.style.opacity 	= 1; // делаем видимым
@@ -83,7 +80,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// открываем окно select-city
 			selectorCity.addEventListener('click', function() {
 				layout.style.display 			= "block"; // делаем видимым элемент
-				modalWindowCity.style.transform 		= "translate(-47%, 0)"; // центрируем
+				modalWindowCity.style.transform 		= "translate(-37%, 0)"; // центрируем
 
 				setTimeout(function() {
 					modalWindowCity.style.opacity 	= '1'; // делаем видимым элемень
@@ -130,7 +127,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			btnMenuVersus.addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.style.display = "block";
-				versusList.style.transform = "translate(44%, 0)";
+				versusList.style.transform = "translate(50%, 0)";
 
 				setTimeout(function() {
 					versusList.style.opacity = "1";
@@ -183,8 +180,9 @@ window.addEventListener('DOMContentLoaded', function() {
 			};
 
 			hideLists(); // вызываем функцию
+		},
 
-			// content Page
+		contentPremiumPage: () => {
 			// добавляем еще один способ закрыть окно 
 			closeAllWindow.forEach(function(item) { // перебираем массив 
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
@@ -325,8 +323,9 @@ window.addEventListener('DOMContentLoaded', function() {
 					signInWindowHeader.style.opacity 			= "1"; // делаем видимым
 				}, 302); // задержка в 302мс
 			});
+		},
 
-			//footer 
+		footer: () => {
 			btnFormFooter.addEventListener('click', function() {
 				if (fieldSubscribeFooter.value.length < 9) { // проверяем по условию инпут
 					// делаем видимым элемент и добавляем текст
@@ -340,8 +339,10 @@ window.addEventListener('DOMContentLoaded', function() {
 					formSubscribeFooter.reset();
 				}
 			});
-		},
+		}
 	};
 
-	Data.generalFuntion(); // Вызываем функцию в объекте 
+	page.header();
+	page.contentPremiumPage();
+	page.footer();
 });
