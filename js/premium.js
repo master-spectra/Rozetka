@@ -4,13 +4,12 @@ window.addEventListener('DOMContentLoaded', function() {
 	// Добавляем переменные
 let 
 	// Header
-	selectorPhone 			= document.querySelector('a'),
-	selectorCity 			= document.querySelector('.select-city'),
+	btnOpenWindows 			= document.querySelectorAll('.btn-open-window'),
+	windowSpecial 			= document.querySelectorAll('.window-special'),
 	headerMenu 				= document.querySelector('.menu'),
 	downList 				= document.querySelectorAll('.lists'),
 	btnHeaderMenu 			= document.querySelectorAll('.btn-menu'),
 	btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
-	btnSignInHeader			= document.querySelector('.sign-in'),
 
 	// Modal-window and down-list, and fixed-button
 	modalWindows 			= document.querySelectorAll('.window'),
@@ -68,33 +67,26 @@ let
 			});
 
 			// header 
-			selectorPhone.addEventListener('click', function() { // открываем окно с номерами телефонов
-				layout.style.display 			= "block"; // делаем видимым
-				modalNumber.style.transform 	= "translate(-50%, 0)"; // центрируем
+			btnOpenWindows.forEach(function(elem) {
+				elem.addEventListener('click', function(e) {
+					let target = e.target;
 
-				setTimeout(function() {
-					modalNumber.style.opacity 	= 1; // делаем видимым
-				}, 302); // делаем задержку в 302мс
-			});
+					for (let i = 0; i < btnOpenWindows.length; i++) {
+						if (target == btnOpenWindows[i]) {
+							windowSpecial.forEach(function(elem) {
+								elem.style.transform 	= "translate(0, -200%)";
+								elem.style.opacity 		= "0";
+							});
 
-			// открываем окно select-city
-			selectorCity.addEventListener('click', function() {
-				layout.style.display 			= "block"; // делаем видимым элемент
-				modalWindowCity.style.transform 		= "translate(-37%, 0)"; // центрируем
-
-				setTimeout(function() {
-					modalWindowCity.style.opacity 	= '1'; // делаем видимым элемень
-				}, 302); // задержка 302мс
-			});
-
-			// открываем окно sign-in
-			btnSignInHeader.addEventListener('click', function() {
-				layout.style.display 						= "block"; // делаем видимым элемент
-				signInWindowHeader.style.transform 			= "translate(-54%, 0)"; // выводим на экран
-				
-				setTimeout(function() {
-					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302);
+							layout.classList.add('active-layout');
+							windowSpecial[i].style.transform 	= "translate(-49%, 0%)";
+							
+							setTimeout(function() {
+								windowSpecial[i].style.opacity 		= "1";
+							}, 302);
+						}
+					}
+				});
 			});
 
 			// используем дилегирование
@@ -126,7 +118,7 @@ let
 			// добавляем событие на  ссылку
 			btnMenuVersus.addEventListener('click', function() {
 				// делаем видимыми элементы
-				layout.style.display = "block";
+				layout.classList.add('active-layout');
 				versusList.style.transform = "translate(50%, 0)";
 
 				setTimeout(function() {
@@ -137,8 +129,8 @@ let
 			// добавляем событие на ссылку
 			btnSignRedirect.addEventListener('click', function(e) {
 				e.preventDefault(); // отключаем стандартное повидение браузера
+				layout.classList.add('active-layout'); // делаем видимым элемент
 
-				layout.style.display 						= "block"; // делаем видимым элемент
 				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
 				
 				setTimeout(function() {
@@ -148,7 +140,7 @@ let
 
 			btnHeaderMenu[1].addEventListener('click', function() {
 				// делаем видимыми элементы
-				layout.style.display 			= "block";
+				layout.classList.add('active-layout');
 				basketWindow.style.transform 	= "translate(50%, 0)";
 
 				setTimeout(function() {
@@ -187,17 +179,17 @@ let
 			closeAllWindow.forEach(function(item) { // перебираем массив 
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
-						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-							layout.style.display = "none"; // скрываем layout
-							elem.style.opacity = "0"; // скрываем каждое окно
+						if (getComputedStyle(elem).opacity 	== "1") { // получаем стиль из модального окна 
+							elem.style.opacity 				= "0"; // скрываем каждое окно
 							
+							layout.classList.remove('active-layout'); // скрываем layout
 							layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
+							contentPage.classList.remove('special'); // удаляем класс special
 
 							setTimeout(function() {
 								elem.style.transform = "translate(0, -200%)"; // выносим за экран	
-							}, 400); // задержка в 400мс
-						}
-						
+							}, 500); // задержка в 400мс
+						};
 					});
 				});
 			});
@@ -206,9 +198,11 @@ let
 			closeWindow.forEach(function(elem) { // получаем каждую кнопку из массива 
 				elem.addEventListener('click', function() { // присваеваем к кнопке событие 
 					modalWindows.forEach(function(item) { // перебираем массив с модальными окнами
-						layout.style.display = "none"; // скрываем layout
 						layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
-						item.style.opacity = "0"; // скрываем каждое окно
+						contentPage.classList.remove('special'); // удаляем класс special
+						layout.classList.remove('active-layout'); // скрываем layout
+						
+						item.style.opacity 		= "0"; // скрываем каждое окно
 
 						setTimeout(function() {
 							item.style.transform = "translate(0, -200%)"; // выносим за экран	
@@ -235,7 +229,7 @@ let
 			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
 				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
-				layout.style.display 				= "none"; // скраваем элемент
+				layout.classList.remove('active-layout'); // скраваем элемент
 				modalWindowCity.style.opacity 			= '0'; // скраваем элемент
 
 				setTimeout(function() {
@@ -251,7 +245,7 @@ let
 						warningMassegeSignIn.textContent 	= 'Введите 8 или более символов'; // добавляем текст в warning
 					} else if (elem.value.length > 7){
 						warningMassegeSignIn.textContent 	= null; // убираем текст в warning
-						layout.style.display 				= "none"; // скрываем элемент
+						layout.classList.remove('active-layout'); // скрываем элемент
 						signInWindowHeader.style.opacity 	= "0"; // скрываем элемент
 
 						setTimeout(function() {
@@ -299,7 +293,7 @@ let
 						warningMassegeSignUp.textContent 		= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
 					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 9) { // проверяем по условию Input
 						warningMassegeSignUp.textContent = null;
-						layout.style.display 						= "none"; // делаем видимым элемент
+						layout.classList.remove('active-layout'); // делаем видимым элемент
 						signUpWindow.style.opacity 					= "0"; // скрываем элемент
 
 						setTimeout(function() {

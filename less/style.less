@@ -40,6 +40,10 @@ p {
         display: block;
         position: absolute;
     }
+
+    &.active-layout {
+        display: block;
+    }
 }
 
 .btn-close-window {
@@ -432,7 +436,7 @@ p {
         padding: 20px;
         top: 19%;
         transition: all .3s ease;
-        left: 42%;
+        left: 50%;
         transform: translate(0, -200%);
         
         .infos {
@@ -1459,6 +1463,7 @@ p {
                     .accordion-item {
                         display: none;
                         opacity: 0;
+                        transition: all 0.3s ease;
 
                         p {
                             line-height: 170%;
