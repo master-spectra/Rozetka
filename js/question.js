@@ -39,10 +39,13 @@ window.addEventListener('DOMContentLoaded', function() {
 		signUpBtn				= document.querySelectorAll('.sign-up-button'),
 		signInBtn				= document.querySelectorAll('.sign-in-button'),
 
-		// side-bar 
+		// таб элементы
 		tabs 					= document.querySelector('.tabs'),
 		tab 					= document.querySelectorAll('.tab'),
 		tabContent 				= document.querySelectorAll('.tab-content'),				
+
+		// аккордион 
+		accordionItem 			= document.querySelectorAll('.accordion-item'),
 
 		// другое 
 		layout					= document.querySelector('.layout'), 
@@ -87,7 +90,8 @@ window.addEventListener('DOMContentLoaded', function() {
 		if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
 			contentPage.classList.remove('special'); // удаляем класс
 			layout.classList.remove('catalog-mode'); // удаляем класс
-			
+			layout.style.display = "none"; // скрываем layout
+ 			
 			// настраеваем каталог 
 			catalogMenu.style.top 		= "23%";
 			catalogMenu.style.opacity 	= "0"; // скрываем элемент
@@ -96,6 +100,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
 			}, 510);
 		} else {
+			layout.style.display = "block"; // отображаем layout
 			contentPage.classList.add('special'); // добавляем класс
 			layout.classList.add('catalog-mode'); // добавляем класс
 			
@@ -221,9 +226,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		item.addEventListener('click', function() { // каждому элементу даем событие клик
 			modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 				if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-					elem.style.opacity = "0"; // скрываем каждое окно
+					elem.style.opacity 		= "0"; // скрываем каждое окно
+					layout.style.display 	= "none"; // cкрываем layout
 					layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
-
+					
 					setTimeout(function() {
 						contentPage.classList.remove('special'); 
 						elem.style.transform = "translate(0, -200%)"; // выносим за экран	

@@ -1,77 +1,75 @@
 window.addEventListener('DOMContentLoaded', function() {
 	'use strict';
-
-	// jquery 
-	$('.carusel').slick({
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		autoplaySpeed: 5000,
-	});
+	// jQuery
+	let slider = () => {
+		$('.carusel').slick({
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 5000,
+		});
+	};
 
 	// JS
-	let Data = { // используем инкапсуляцию 
-		generalFuntion() {			
-			// Добавляем переменные
-			let 
-				// Header
-				selectorPhone 			= document.querySelector('a'),
-				selectorCity 			= document.querySelector('.select-city'),
-				headerMenu 				= document.querySelector('.menu'),
-				downList 				= document.querySelectorAll('.lists'),
-				btnHeaderMenu 			= document.querySelectorAll('.btn-menu'),
-				btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
-				btnSignInHeader			= document.querySelector('.sign-in'),
-				btnShowCatalog 			= document.querySelector('.btn-show-catalog'),
+	let // Добавляем переменные
+ 
+		// Header
+		selectorPhone 			= document.querySelector('a'),
+		selectorCity 			= document.querySelector('.select-city'),
+		headerMenu 				= document.querySelector('.menu'),
+		downList 				= document.querySelectorAll('.lists'),
+		btnHeaderMenu 			= document.querySelectorAll('.btn-menu'),
+		btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
+		btnSignInHeader			= document.querySelector('.sign-in'),
+		btnShowCatalog 			= document.querySelector('.btn-show-catalog'),
 
-				// side-bar
-				btnSignInSideBar 		= document.querySelector('.btn-sign-in'),
-				sideBarSelectorCity		= document.querySelector('.side-bar-select-city'),
-				selectCityList 			= document.querySelector('.select-city-list'),
-				address 				= document.querySelectorAll('.address-text'),
-				city 					= document.querySelectorAll('.city'),
+		// side-bar
+		btnSignInSideBar 		= document.querySelector('.btn-sign-in'),
+		sideBarSelectorCity		= document.querySelector('.side-bar-select-city'),
+		selectCityList 			= document.querySelector('.select-city-list'),
+		address 				= document.querySelectorAll('.address-text'),
+		city 					= document.querySelectorAll('.city'),
 
-				// Modal-window
-				catalogMenu				= document.querySelector('.catalog-menu'),
-				modalWindows 			= document.querySelectorAll('.window'),
-				signInWindowHeader		= document.querySelector('.sign-in-window'),
-				signUpWindow			= document.querySelector('.sign-up-window'),
-				modalWindowCity 		= document.querySelector('.select-city-window'),
-				versusList 				= document.querySelector('.versus-list'),
-				modalNumber				= document.querySelector('.numbers-modal-window'),
-				basketWindow 			= document.querySelector('.basket-window'),
+		// Modal-window
+		catalogMenu				= document.querySelector('.catalog-menu'),
+		modalWindows 			= document.querySelectorAll('.window'),
+		signInWindowHeader		= document.querySelector('.sign-in-window'),
+		signUpWindow			= document.querySelector('.sign-up-window'),
+		modalWindowCity 		= document.querySelector('.select-city-window'),
+		versusList 				= document.querySelector('.versus-list'),
+		modalNumber				= document.querySelector('.numbers-modal-window'),
+		basketWindow 			= document.querySelector('.basket-window'),
 
-				// form и её элементы
-				btnShowPass 			= document.querySelector('.btn-show-pass'),
-				spanShowPass 			= document.querySelector('.eye'),
-				btns 					= document.querySelector('.btns'),
-				btnCity 				= document.querySelectorAll('.btn-city'),
-				btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
-				fieldSignIn				= document.querySelectorAll('.field-sign-in'),
-				fieldSignUp				= document.querySelectorAll('.field-sign-up'),
-				warningMassegeSignIn	= document.querySelector('.warning-messege-sign-in'),
-				formSign 				= document.querySelectorAll('.form-sign'),
-				applySetting			= document.querySelector('.ready'),
-				inputCity 				= document.querySelector('.city-input'),
-				warningMassegeSignUp	= document.querySelector('.warning-messege-sign-up'),
-				signUpBtn				= document.querySelectorAll('.sign-up-button'),
-				signInBtn				= document.querySelectorAll('.sign-in-button'),
+		// form и её элементы
+		btnShowPass 			= document.querySelector('.btn-show-pass'),
+		spanShowPass 			= document.querySelector('.eye'),
+		btns 					= document.querySelector('.btns'),
+		btnCity 				= document.querySelectorAll('.btn-city'),
+		btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
+		fieldSignIn				= document.querySelectorAll('.field-sign-in'),
+		fieldSignUp				= document.querySelectorAll('.field-sign-up'),
+		warningMassegeSignIn	= document.querySelector('.warning-messege-sign-in'),
+		formSign 				= document.querySelectorAll('.form-sign'),
+		applySetting			= document.querySelector('.ready'),
+		inputCity 				= document.querySelector('.city-input'),
+		warningMassegeSignUp	= document.querySelector('.warning-messege-sign-up'),
+		signUpBtn				= document.querySelectorAll('.sign-up-button'),
+		signInBtn				= document.querySelectorAll('.sign-in-button'),
 
-				// табы
-				tabs 					= document.querySelector('.tabs'),
-				tab 					= document.querySelectorAll('.tab'),
-				tabConteiner 			= document.querySelectorAll('.tab-conteiner'),
+		// табы
+		tabs 					= document.querySelector('.tabs'),
+		tab 					= document.querySelectorAll('.tab'),
+		tabConteiner 			= document.querySelectorAll('.tab-conteiner'),
 
-				// другое 
-				layout					= document.querySelector('.layout'), 
-				closeWindow				= document.querySelectorAll('.btn-close-window'),
-				closeAllWindow 			= document.querySelectorAll('.close-all-window'),
-				contentPage				= document.querySelector('.content-page'),
-				
-				// добавляем тех.переменную
-				t;
+		// другое 
+		layout					= document.querySelector('.layout'), 
+		closeWindow				= document.querySelectorAll('.btn-close-window'),
+		closeAllWindow 			= document.querySelectorAll('.close-all-window'),
+		contentPage				= document.querySelector('.content-page'),
+		t;
 
-			// header 
+	let page = { // используем инкапсуляцию 
+		header: () => {
 			selectorPhone.addEventListener('click', function() { // открываем окно с номерами телефонов
 				layout.style.display 			= "block"; // делаем видимым
 				modalNumber.style.transform 	= "translate(-54%, 0)"; // центрируем
@@ -83,7 +81,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// открываем окно select-city
 			selectorCity.addEventListener('click', function() {
-				layout.style.display 			= "block"; // делаем видимым элемент
+				layout.style.display 					= "block"; // делаем видимым элемент
 				modalWindowCity.style.transform 		= "translate(-37%, 0)"; // центрируем
 
 				setTimeout(function() {
@@ -106,7 +104,9 @@ window.addEventListener('DOMContentLoaded', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
 					contentPage.classList.remove('special'); // удаляем класс
 					layout.classList.remove('catalog-mode'); // удаляем класс
-					catalogMenu.style.opacity = "0"; // скрываем элемент
+					
+					catalogMenu.style.opacity 	= "0"; // скрываем элемент
+					layout.style.display 		= 'block'; // скрываем layout
 					
 					setTimeout(function() {
 						catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
@@ -114,7 +114,9 @@ window.addEventListener('DOMContentLoaded', function() {
 				} else {
 					contentPage.classList.add('special'); // добавляем класс
 					layout.classList.add('catalog-mode'); // добавляем класс
+
 					catalogMenu.style.transform = "translate(0, 0%)" // выводим на экран 
+					layout.style.display 		= 'block'; // скрываем layout
 
 					setTimeout(function() {
 						catalogMenu.style.opacity = "1"; // делаем видимым 
@@ -205,8 +207,9 @@ window.addEventListener('DOMContentLoaded', function() {
 			};
 
 			hideLists(); // вызываем функцию
+		},
 
-			// side-bar 
+		sideBar: () => {
 			btnSignInSideBar.addEventListener('click', function() {
 				layout.style.display 						= "block"; // делаем видимым элемент
 				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
@@ -292,17 +295,16 @@ window.addEventListener('DOMContentLoaded', function() {
 					}, 302); // задежка в 302мс 
 				});
 			});
+		},
 
-
-			// content Page
-			// добавляем еще один способ закрыть окно 
+		contentMainPage: () => {
 			closeAllWindow.forEach(function(item) { // перебираем массив 
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-							layout.style.display = "none"; // скрываем layout
-							elem.style.opacity = "0"; // скрываем каждое окно
-							
+							elem.style.opacity 		= "0"; // скрываем каждое окно
+							layout.style.display 	= 'none'; // скрываем layout
+
 							layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
 							contentPage.classList.remove('special'); // удаляем класс special
 
@@ -319,10 +321,11 @@ window.addEventListener('DOMContentLoaded', function() {
 			closeWindow.forEach(function(elem) { // получаем каждую кнопку из массива 
 				elem.addEventListener('click', function() { // присваеваем к кнопке событие 
 					modalWindows.forEach(function(item) { // перебираем массив с модальными окнами
-						layout.style.display = "none"; // скрываем layout
 						layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
 						contentPage.classList.remove('special'); // удаляем класс special
-						item.style.opacity = "0"; // скрываем каждое окно
+						
+						layout.style.display 	= 'none'; // скрываем layout
+						item.style.opacity 		= "0"; // скрываем каждое окно
 
 						setTimeout(function() {
 							item.style.transform = "translate(0, -200%)"; // выносим за экран	
@@ -349,7 +352,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
 				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
-				layout.style.display 				= "none"; // скраваем элемент
+				layout.style.display 					= "none"; // скраваем элемент
 				modalWindowCity.style.opacity 			= '0'; // скраваем элемент
 
 				setTimeout(function() {
@@ -395,11 +398,11 @@ window.addEventListener('DOMContentLoaded', function() {
 				e.preventDefault(); // отключаем стандартное повидения браузеа при нажатии на кнопку 
 				
 				if (fieldSignUp[3].type == "password") { // проверяем чтобы тир input был password
-					fieldSignUp[3].type = "text"; // переводим его в тип password
+					fieldSignUp[3].type = "text"; // переводим его в тип text
 					spanShowPass.classList.remove('fa-eye'); // добавляем класс
 					spanShowPass.classList.add('fa-eye-slash'); // удаляем класс
 				} else {
-					fieldSignUp[3].type = "password"; // переводим его тип в text
+					fieldSignUp[3].type = "password"; // переводим его тип в password
 					spanShowPass.classList.add('fa-eye'); // добавляем класс
 					spanShowPass.classList.remove('fa-eye-slash'); // удаляем класс
 				}
@@ -408,10 +411,10 @@ window.addEventListener('DOMContentLoaded', function() {
 			// регистрируемся
 			signUpBtn[0].addEventListener('click', function() {
 				fieldSignUp.forEach(function(elem) { // перебираем массив
-					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 9) { // проверяме по условию input
+					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 10) { // проверяме по условию input
 						warningMassegeSignUp.style.display 		= "block"; // делаем видимым 
 						warningMassegeSignUp.textContent 		= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
-					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 9) { // проверяем по условию Input
+					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 10) { // проверяем по условию Input
 						warningMassegeSignUp.textContent = null;
 						layout.style.display 						= "none"; // делаем видимым элемент
 						signUpWindow.style.opacity 					= "0"; // скрываем элемент
@@ -454,8 +457,12 @@ window.addEventListener('DOMContentLoaded', function() {
 					}
 				}
 			});
-		},
+		}
 	};
 
-	Data.generalFuntion(); // Вызываем функцию в объекте 
+	// вызываем функции
+	page.header();
+	page.sideBar();
+	page.contentMainPage();
+	slider();
 });
