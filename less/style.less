@@ -2,7 +2,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Kufam' ,'San Francisco', Tahoma, Roboto;
+    font-family: Ubuntu, Tahoma, Roboto;
 }
 
 h1,
@@ -42,7 +42,7 @@ p {
     }
 
     &.active-layout {
-        display: block;
+        display: block!important;
     }
 }
 
@@ -149,7 +149,6 @@ p {
 
 .title-window {
     font-size: 25px;
-    border-bottom: 1px solid #e9e9e9;
     display: inline-block;
 }
 
@@ -270,7 +269,7 @@ p {
                 .btn;
                 border: 1px solid white;
                 margin: 0 5px;
-                padding: 10px;              
+                padding: 10px;            
             }
         }
     }
@@ -520,13 +519,6 @@ p {
         left: 50%;
         transform: translate(0, -200%);
 
-        &:last-child {
-            .forms {
-                form {
-                    width: 52%;
-                }
-            }
-        }
 
         .title-window {
             border-bottom: 0;
@@ -543,7 +535,7 @@ p {
                 border-right: 1px solid #e9e9e9;
                 text-align: -webkit-center;
                 padding-right: 20px;
-                width: 45%;
+                width: 50%;
 
                 .warning-messege-sign-in {
                     display: none;
@@ -585,7 +577,7 @@ p {
                 }
 
                 a {
-                    padding-left: 20px;
+                    padding-left: 4px;
                     color: #3e77aa;
                 }
             }
@@ -758,10 +750,16 @@ p {
         right: 11%;
         padding: 20px;
         border-radius: 5px;
+        display: none;
         z-index: 500;
         justify-content: space-between;
         transition: all 0.5s ease;
         border: 1px solid #eeeeee;  
+
+        &.active-lists {
+            transform: translate(0, 0);
+            display: flex;
+        }  
     }
 
     .premium-list {
@@ -861,7 +859,7 @@ p {
     }
 
     .select-city-list {
-        top: 214%;
+        top: 202%;
         left: 15%;
         display: none;
         position: absolute;

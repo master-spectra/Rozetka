@@ -4,7 +4,8 @@ window.addEventListener('DOMContentLoaded', function() {
 	// добавляем переменные
 	let
 		// header
-		selectorPhone 			= document.querySelector('a'),
+		btnOpenWindows 			= document.querySelectorAll('.btn-open-window'),
+		windowSpecial 			= document.querySelectorAll('.window-special'),
 		selectorCity 			= document.querySelector('.select-city'),
 		headerMenu 				= document.querySelector('.menu'),
 		downList 				= document.querySelectorAll('.lists'),
@@ -57,33 +58,27 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	let page = {
 		header: () => {
-			selectorPhone.addEventListener('click', function() { // открываем окно с номерами телефонов
-				layout.style.display 			= "block"; // делаем видимым
-				modalNumber.style.transform 	= "translate(-54%, 0)"; // центрируем
+			btnOpenWindows.forEach(function(elem) { // перебираем массив с кнопками 
+				elem.addEventListener('click', function(e) { // навешиваем событие 
+					let target = e.target; // записоваем в переменую кнопку
 
-				setTimeout(function() {
-					modalNumber.style.opacity 	= 1; // делаем видимым
-				}, 302); // делаем задержку в 302мс
-			});
+					for (let i = 0; i < btnOpenWindows.length; i++) {  // перебираем массив с кнопками
+						if (target == btnOpenWindows[i]) { // проверяем по условию
+							windowSpecial.forEach(function(elem) { // перебираем массив с окнами
+								// скрываем окна
+								elem.style.transform 	= "translate(0, -200%)";
+								elem.style.opacity 		= "0";
+							});
 
-			// открываем окно select-city
-			selectorCity.addEventListener('click', function() {
-				layout.style.display 			= "block"; // делаем видимым элемент
-				modalWindowCity.style.transform 		= "translate(-37%, 0)"; // центрируем
-
-				setTimeout(function() {
-					modalWindowCity.style.opacity 	= '1'; // делаем видимым элемень
-				}, 302); // задержка 302мс
-			});
-
-			// открываем окно sign-in
-			btnSignInHeader.addEventListener('click', function() {
-				layout.style.display 						= "block"; // делаем видимым элемент
-				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
-				
-				setTimeout(function() {
-					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302);
+							layout.classList.add('active-layout'); //выводим layout
+							windowSpecial[i].style.transform = "translate(-50%, 0%)"; // выводим окно 
+							
+							setTimeout(function() {
+								windowSpecial[i].style.opacity 		= "1"; // делаем окно видимым
+							}, 302);
+						}
+					}
+				});
 			});
 
 			// добавляем событие для открытие каталога
@@ -91,23 +86,15 @@ window.addEventListener('DOMContentLoaded', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
 					contentPage.classList.remove('special'); // удаляем класс
 					layout.classList.remove('catalog-mode'); // удаляем класс
-					layout.style.display = "none"; // скрываем layout
-		 			
-					// настраеваем каталог 
-					catalogMenu.style.top 		= "23%";
 					catalogMenu.style.opacity 	= "0"; // скрываем элемент
 					
 					setTimeout(function() {
 						catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
 					}, 510);
 				} else {
-					layout.style.display = "block"; // отображаем layout
 					contentPage.classList.add('special'); // добавляем класс
 					layout.classList.add('catalog-mode'); // добавляем класс
-					
-					// настраеваем каталог 
-					catalogMenu.style.top 		= "0";
-					catalogMenu.style.transform = "translate(0, 0%)"; // выводим на экран 
+					catalogMenu.style.transform = "translate(0, 0%)" // выводим на экран 
 
 					setTimeout(function() {
 						catalogMenu.style.opacity = "1"; // делаем видимым 
@@ -125,13 +112,11 @@ window.addEventListener('DOMContentLoaded', function() {
 							downList.forEach(function(elem) { // перебираем массив  с выподающими списками
 								// скрываем элемент
 								elem.style.opacity 		= "0";
-								elem.style.display 		= "none";
-								elem.style.transform	= "translate(0, -400%)";
+								elem.classList.remove('active-lists');
 							});
 
 							// выводим элемент
-							downList[i].style.display 		= "flex";
-							downList[i].style.transform 	= "translate(0, 0)";
+							downList[i].classList.add('active-lists');
 
 							setTimeout(function() {
 								downList[i].style.opacity = "1";								
@@ -144,7 +129,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			// добавляем событие на  ссылку
 			btnMenuVersus.addEventListener('click', function() {
 				// делаем видимыми элементы
-				layout.style.display = "block";
+				layout.classList.add('active-layout');
 				versusList.style.transform = "translate(50%, 0)";
 
 				setTimeout(function() {
@@ -155,18 +140,17 @@ window.addEventListener('DOMContentLoaded', function() {
 			// добавляем событие на ссылку
 			btnSignRedirect.addEventListener('click', function(e) {
 				e.preventDefault(); // отключаем стандартное повидение браузера
-
-				layout.style.display 						= "block"; // делаем видимым элемент
-				signInWindowHeader.style.transform 			= "translate(-50%, 0)"; // выводим на экран
+				layout.classList.add('active-layout'); // делаем видимым элемент
+				signInWindowHeader.style.transform = "translate(-50%, 0)"; // выводим на экран
 				
 				setTimeout(function() {
 					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302); // задужка в 302мс
+				}, 302); // задержка в 302мс
 			});
 
 			btnHeaderMenu[2].addEventListener('click', function() {
 				// делаем видимыми элементы
-				layout.style.display 			= "block";
+				layout.classList.add('active-layout');
 				basketWindow.style.transform 	= "translate(50%, 0)";
 
 				setTimeout(function() {
@@ -179,9 +163,8 @@ window.addEventListener('DOMContentLoaded', function() {
 				downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
 						// скрываем элемент
-						elem.style.opacity 		= "0";
-						elem.style.display 		= "none";
-						elem.style.transform	= "translate(0, -400%)";
+						elem.style.opacity 	= "0";
+						elem.classList.remove('active-lists');
 					});
 				});
 
@@ -189,9 +172,8 @@ window.addEventListener('DOMContentLoaded', function() {
 					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false) { // проверяем по условию событие
 						downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 							// скрываем элемент
-							elem.style.opacity 		= "0";
-							elem.style.display 		= "none";
-							elem.style.transform	= "translate(0, -400%)";
+							elem.style.opacity 	= "0";
+							elem.classList.remove('active-lists');
 						});
 					}
 				});
