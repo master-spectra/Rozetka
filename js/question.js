@@ -84,14 +84,15 @@ window.addEventListener('DOMContentLoaded', function() {
 			// добавляем событие для открытие каталога
 			btnShowCatalog.addEventListener('click', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
-					contentPage.classList.remove('special'); // удаляем класс
 					layout.classList.remove('catalog-mode'); // удаляем класс
 					catalogMenu.style.opacity 	= "0"; // скрываем элемент
 					
 					setTimeout(function() {
+						contentPage.classList.remove('special'); // удаляем класс
 						catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
 					}, 510);
 				} else {
+					catalogMenu.style.top 		= "0";
 					contentPage.classList.add('special'); // добавляем класс
 					layout.classList.add('catalog-mode'); // добавляем класс
 					catalogMenu.style.transform = "translate(0, 0%)" // выводим на экран 
@@ -213,12 +214,10 @@ window.addEventListener('DOMContentLoaded', function() {
 						for (let i = 0; i < link.length; i++) {
 							if (target == link[i]) {
 								accordionItem.forEach(function(elem) {
-									elem.style.opacity = "0";
-									elem.style.display = "none";
+									elem.classList.remove('active-accordion');
 								});
 
-								accordionItem[i].style.opacity = "1";
-								accordionItem[i].style.display = "block";
+								accordionItem[i].classList.add('active-accordion');
 							}
 						}
 					}
@@ -232,7 +231,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
 							elem.style.opacity 		= "0"; // скрываем каждое окно
-							layout.style.display 	= "none"; // cкрываем layout
+							layout.classList.remove('active-layout');
 							layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
 							
 							setTimeout(function() {
@@ -248,8 +247,9 @@ window.addEventListener('DOMContentLoaded', function() {
 			closeWindow.forEach(function(elem) { // получаем каждую кнопку из массива 
 				elem.addEventListener('click', function() { // присваеваем к кнопке событие 
 					modalWindows.forEach(function(item) { // перебираем массив с модальными окнами
-						layout.style.display = "none"; // скрываем layout
-						layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
+						// удаляем класс catalog-menu
+						layout.classList.remove('active-layout');
+						layout.classList.remove('catalog-mode');
 						item.style.opacity = "0"; // скрываем каждое окно
 
 						setTimeout(function() {
@@ -276,9 +276,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
-				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
-				layout.style.display 				= "none"; // скраваем элемент
-				modalWindowCity.style.opacity 			= '0'; // скраваем элемент
+				selectorCity.textContent 		= `Город ${t.textContent}`; // добавляем город в спан из кнопки
+				modalWindowCity.style.opacity 	= '0'; // скраваем элемент
+				layout.classList.remove('active-layout'); // скраваем элемент
 
 				setTimeout(function() {
 					modalWindowCity.style.transform 		= "translate(0, -200%)"; // выносим ха экран элемент 
@@ -293,8 +293,8 @@ window.addEventListener('DOMContentLoaded', function() {
 						warningMassegeSignIn.textContent 	= 'Введите 8 или более символов'; // добавляем текст в warning
 					} else if (elem.value.length > 7){
 						warningMassegeSignIn.textContent 	= null; // убираем текст в warning
-						layout.style.display 				= "none"; // скрываем элемент
 						signInWindowHeader.style.opacity 	= "0"; // скрываем элемент
+						layout.classList.remove('active-layout'); // скраваем элемент
 
 						setTimeout(function() {
 							signInWindowHeader.style.transform 		= "translate(0, -200%)"; // выносим за экран
@@ -339,10 +339,11 @@ window.addEventListener('DOMContentLoaded', function() {
 					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 9) { // проверяме по условию input
 						warningMassegeSignUp.style.display 		= "block"; // делаем видимым 
 						warningMassegeSignUp.textContent 		= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
+						fieldSignUp[3].style.width 				= "43%";
 					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 9) { // проверяем по условию Input
-						warningMassegeSignUp.textContent = null;
-						layout.style.display 						= "none"; // делаем видимым элемент
-						signUpWindow.style.opacity 					= "0"; // скрываем элемент
+						warningMassegeSignUp.textContent 	= null;
+						signUpWindow.style.opacity 			= "0"; // скрываем элемент
+						layout.classList.remove('active-layout'); // скраваем элемент
 
 						setTimeout(function() {
 							signUpWindow.style.transform 				= "translate(0, -200%)"; // выводим на экран

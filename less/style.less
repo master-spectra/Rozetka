@@ -327,6 +327,11 @@ p {
         transform: translate(0, -200%);
         padding: 20px;
 
+        &.active-catalog-menu {
+            transform: translate(0, 0%)!important;
+            top: 0;
+        }
+
         &:after {
             content: ' '; 
             position: absolute; 
@@ -518,7 +523,6 @@ p {
         transition: all .3s ease;
         left: 50%;
         transform: translate(0, -200%);
-
 
         .title-window {
             border-bottom: 0;
@@ -1462,6 +1466,11 @@ p {
                         display: none;
                         opacity: 0;
                         transition: all 0.3s ease;
+
+                        &.active-accordion {
+                            opacity: 1;
+                            display: block;
+                        }
 
                         p {
                             line-height: 170%;

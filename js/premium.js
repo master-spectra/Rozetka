@@ -286,6 +286,7 @@ let
 					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 10) { // проверяме по условию input
 						warningMassegeSignUp.style.display 		= "block"; // делаем видимым 
 						warningMassegeSignUp.textContent 		= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
+						fieldSignUp[3].style.width 				= "43%";
 					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 10) { // проверяем по условию Input
 						warningMassegeSignUp.textContent = null;
 						layout.classList.remove('active-layout'); // делаем невидимым элемент
