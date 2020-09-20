@@ -327,11 +327,6 @@ p {
         transform: translate(0, -200%);
         padding: 20px;
 
-        &.active-catalog-menu {
-            transform: translate(0, 0%)!important;
-            top: 0;
-        }
-
         &:after {
             content: ' '; 
             position: absolute; 
@@ -523,6 +518,7 @@ p {
         transition: all .3s ease;
         left: 50%;
         transform: translate(0, -200%);
+
 
         .title-window {
             border-bottom: 0;
@@ -1467,9 +1463,9 @@ p {
                         opacity: 0;
                         transition: all 0.3s ease;
 
-                        &.active-accordion {
-                            opacity: 1;
+                        &.active-accordion-item {
                             display: block;
+                            opacity: 1;
                         }
 
                         p {
@@ -1509,8 +1505,16 @@ p {
                                         .field {
                                             padding-bottom: 20px;
 
-                                            input {
-                                                transform: scale(1.5);
+                                            .checkbox {
+                                                border: 1px solid grey;
+                                                padding: 0px 10px;
+                                                padding: 3px 5px;
+                                                cursor: pointer;
+                                                transition: all 0.3s ease;
+                                                color: #fff;
+                                                border-radius: 5px;
+                                                font-size: 20px;
+                                                background: transparent;
                                             }
 
                                             span {

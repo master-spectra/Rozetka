@@ -8,6 +8,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		windowSpecial 			= document.querySelectorAll('.window-special'),
 		selectorCity 			= document.querySelector('.select-city'),
 		headerMenu 				= document.querySelector('.menu'),
+		btnForm					= document.querySelector('.btn-form'),
 		downList 				= document.querySelectorAll('.lists'),
 		btnHeaderMenu 			= document.querySelectorAll('.btn-menu'),
 		btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
@@ -48,6 +49,14 @@ window.addEventListener('DOMContentLoaded', function() {
 		// аккордион 
 		accordionItem 			= document.querySelectorAll('.accordion-item'),
 		link 					= document.querySelectorAll('.link'),
+
+		// отзывы 
+		checkbox				= document.querySelectorAll('.checkbox'),
+		selectorErrorItem		= document.querySelectorAll('.selector-error__item'),
+		selectorError			= document.querySelector('.selector-error'),
+		savigsFirst				= false,
+		savingsSecond			= false,
+
 
 		// другое 
 		layout					= document.querySelector('.layout'), 
@@ -92,10 +101,12 @@ window.addEventListener('DOMContentLoaded', function() {
 						catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
 					}, 510);
 				} else {
-					catalogMenu.style.top 		= "0";
 					contentPage.classList.add('special'); // добавляем класс
 					layout.classList.add('catalog-mode'); // добавляем класс
-					catalogMenu.style.transform = "translate(0, 0%)" // выводим на экран 
+
+					// выводим на экран
+					catalogMenu.style.transform = "translate(0, 0%)"; 
+					catalogMenu.style.top 		= "0"; 
 
 					setTimeout(function() {
 						catalogMenu.style.opacity = "1"; // делаем видимым 
@@ -205,24 +216,6 @@ window.addEventListener('DOMContentLoaded', function() {
 					target.classList.add('active'); // элементу на который мы нажали добавляем класс active 
 				}
 			});
-
-			tabContent.forEach(function(elem) {
-				elem.addEventListener('click', function(e) {
-					if (e.target && e.target.classList.contains('link')) {
-						let target = e.target;
-
-						for (let i = 0; i < link.length; i++) {
-							if (target == link[i]) {
-								accordionItem.forEach(function(elem) {
-									elem.classList.remove('active-accordion');
-								});
-
-								accordionItem[i].classList.add('active-accordion');
-							}
-						}
-					}
-				});
-			});
 		},
 
 		contentQuestionPage: () => {
@@ -256,6 +249,24 @@ window.addEventListener('DOMContentLoaded', function() {
 							item.style.transform = "translate(0, -200%)"; // выносим за экран	
 						}, 400); // задержка в 400мс
 					});
+				});
+			});
+
+			tabContent.forEach(function(elem) { // перебираем массив с tab-content 
+				elem.addEventListener('click', function(e) { // навешиваем каждому элементу событие
+					if (e.target && e.target.classList.contains('link')) { // проверяем о условию
+						let target = e.target; // создаем переменную и вписываем туда кнопку
+
+						for (let i = 0; i < link.length; i++) { // перебираем массив с tab-content 
+							if (target == link[i]) { // проверяем по условию
+								accordionItem.forEach(function(elem) { // перебираем массив с accordion-item
+									elem.classList.remove('active-accordion-item'); // скрываем все accordion-item
+								});
+
+								accordionItem[i].classList.add('active-accordion-item'); // выводим нужный accordion-item
+							}
+						}
+					}
 				});
 			});
 			
@@ -366,7 +377,55 @@ window.addEventListener('DOMContentLoaded', function() {
 					signInWindowHeader.style.opacity 			= "1"; // делаем видимым
 				}, 302); // задержка в 302мс
 			});	
-		}
+
+			let checkboxTest = () => {
+				checkbox[0].addEventListener('click', function(e) {
+					if (savigsFirst == false) {  // проверяем по условию
+						savigsFirst	 	= true; // присваеваем true переменной savigsFirst
+						savingsSecond 	= false; // присваеваем false переменной savingsSecond
+						
+						// включаем элемент
+						selectorError.removeAttribute('disabled'); 
+						btnForm.removeAttribute('disabled');
+
+						// меняем фон checkbox
+						e.target.style.background = "#3e77aa";
+						checkbox[1].style.background = "transparent";
+					} else {
+						savigsFirst = false; // присваеваем false переменной savigsFirst
+						e.target.style.background = "transparent"; // меняем фон checkbox
+						
+						// выключаем элемент
+						selectorError.setAttribute('disabled', 'disabled'); // выключаем select
+						btnForm.setAttribute('disabled', 'disabled');
+					};
+				}); 
+
+				checkbox[1].addEventListener('click', function(e) {
+					if (savingsSecond == false) { // проверяем по условию
+						savingsSecond = true; // присваеваем true переменной savigsFirst
+						savigsFirst = false; // присваеваем false переменной savingsSecond
+						
+						// включаем элемент
+						selectorError.removeAttribute('disabled'); 
+						btnForm.removeAttribute('disabled');
+						
+						// меняем фон checkbox
+						e.target.style.background = "#3e77aa";
+						checkbox[0].style.background = "transparent"; // меняем фон checkbox
+					} else {
+						savingsSecond = false; // присваеваем false переменной savigsFirst
+						e.target.style.background = "transparent"; // меняем фон  
+
+						// выключаем элемент
+						btnForm.setAttribute('disabled', 'disabled');
+						selectorError.setAttribute('disabled', 'disabled');// меняем фон checkbox
+					}
+				});
+			};
+
+			checkboxTest();
+		},
 	};
 
 	page.header();
