@@ -46,6 +46,11 @@ p {
     }
 }
 
+.title {
+    font-size: 25px;
+    padding: 20px 0;
+}
+
 .btn-close-window {
     float: right;
     background: transparent;
@@ -1441,7 +1446,7 @@ p {
                     }
 
                     .title-tab-content {
-                        font-size: 25px;
+                        font-size: 30px;
                     }
 
                     .sub-title-tab-content {
@@ -1454,12 +1459,6 @@ p {
                         justify-content: space-between;
                         padding: 50px 0;
                     }
-
-                    .title {
-                        font-size: 25px;
-                        padding: 20px 0;
-                    }
-
 
                     .table {
                         tbody {
@@ -1513,9 +1512,97 @@ p {
                         }
                     }
 
-                    a {
+                    .warning {
+                        background: #f7fbfd;
+                        padding: 20px;
+                        margin-top: 20px;
+                        border-radius: 5px;
+                        border: 1px solid #c5e0f7;
+
+                        span {
+                            opacity: .7;
+                            padding: 0 5px;
+                            font-size: 25px;
+                            display: inline-block;
+                            float: left;
+                        }
+
+                        p {
+                            padding-bottom: 20px;
+                            opacity: .7;
+                            line-height: 170%;
+                            padding-left: 50px;
+                        }
+                    }
+
+                    .deliver {
+                        .way-delivers {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+
+                            .way-deliver {
+                                padding: 20px 0;
+                                width: 27%;
+
+                                .name-way-deliver {
+                                    color: #3e77aa;
+                                }
+
+                                span {
+                                    opacity: 0.7;
+                                    display: block;
+                                    padding: 10px 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .pay {
+                        display: flex;
+                        flex-wrap: wrap;
+                        justify-content: space-between;
+
+                        .ways-pay {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+                           
+                            a {
+                                width: 27%;
+                                padding: 20px;
+                                color: #3e77aa;
+                            
+                                p {
+                                    opacity: 0.7;
+                                    padding: 10px 0;
+                                }
+                            }
+                        }
+                    }
+
+                    .buy-tickets {
+                        .trevel {
+                            float: left;
+                            width: 27%;
+
+                            span {
+                                display: block;
+                                color: #3e77aa;
+                                padding-bottom: 20px;
+
+
+                                &:last-child {
+                                    color: #000;
+                                    opacity: .7;
+                                    line-height: 170%;
+                                }
+                            }
+                        }
+                    }
+
+                    .link {
                         color: #3e77aa;
-                        cursor: pointer;
                         text-decoration-style: wavy;
                         display: block;
                         padding-bottom: 10px;
