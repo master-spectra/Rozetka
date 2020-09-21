@@ -214,14 +214,7 @@ p {
         display: flex;
         justify-content: space-between;
     
-        a {
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            padding: 0 10px;
-        }
-
-        span {
+        .link-header {
             color: #fff;
             font-size: 16px;
             cursor: pointer;
@@ -250,7 +243,7 @@ p {
         }
 
         form {
-            input {
+            .search-form-header {
                 background-color: #fff;
                 outline: none;
                 padding: 10px 50px 10px 5px;
@@ -258,14 +251,15 @@ p {
                 border-radius: 5px;
                 font-size: 16px;
                 margin: 0;
+            }
 
-                &:last-child {
-                    .btn;
-                    background-color: #00a046;
-                    padding: 10px 15px;
-                    margin: -10px;
-                    border-radius: 0px 5px 5px 0;
-                }
+            .btn-form-header {
+                .btn;
+                background-color: #00a046;
+                padding: 10px 15px;
+                border: 0;
+                margin: -10px;
+                border-radius: 0px 5px 5px 0;
             }
         }
 
@@ -309,7 +303,7 @@ p {
         form {
             padding: 20px;
 
-            input {
+            .search-form-help-window {
                 border: 1px solid grey;
                 outline: none;
                 padding: 10px 75px 10px 5px;
@@ -331,17 +325,6 @@ p {
         background: #ffff;
         transform: translate(0, -200%);
         padding: 20px;
-
-        &:after {
-            content: ' '; 
-            position: absolute; 
-            width: 0; 
-            height: 0; 
-            left: 38px; 
-            top: 100px; 
-            border: 15px solid; 
-            border-color: #fff transparent transparent #fff; 
-        }
 
         &:before {
             content: ' ';
@@ -382,12 +365,9 @@ p {
                 justify-content: center;
                 
                 .tab-content {
- 
+                    width: 30%;
 
-
-               width: 30%;
-
-                    p {
+                    .brand {
                         padding: 10px 0;
                         font-weight: 300;
                     }
@@ -419,7 +399,7 @@ p {
         transform: translate(0, -200%);
         
         .infos {
-            p {
+            .title-infos {
                 padding-bottom: 20px;
                 font-size: 17px;
             }
@@ -486,7 +466,7 @@ p {
                     border: 1px solid #e9e9e9;
                 }
 
-                p {
+                .text-form-selector-city {
                     padding-bottom: 40px;
                     display: inline-block;
                     opacity: 0.7;
@@ -505,7 +485,7 @@ p {
             .footer-window {
                 padding-top: 20px;
 
-                p {
+                .text-footer-window {
                     line-height: 170%;
                 }
             }
@@ -542,48 +522,69 @@ p {
                 padding-right: 20px;
                 width: 50%;
 
-                .warning-messege-sign-in {
+                .warning-messege-sign {
                     display: none;
                     color: #e90000;
                     padding-bottom: 20px;
                     text-transform: uppercase;
                 }
 
-                input {
-                    outline: 0;
-                    display: block;
-                    margin-bottom: 10px;
-                    padding: 10px 30px;
-                    border-radius: 5px;
-                    border: 1px solid #e9e9e9;
+                .fields {
+                    .field-sign {
+                        outline: 0;
+                        display: inline-block;
+                        margin-bottom: 10px;
+                        padding: 10px 30px;
+                        border-radius: 5px;
+                        border: 1px solid #e9e9e9;
 
-                    &.remember-checkbox {
+                        &:nth-child(4) {
+                            width: 44%;
+                        }
+                    }
+
+                    .btn-show-pass {
+                        background: transparent;
+                        cursor: pointer;
+                        border: 0;
+                        margin-left: 5px;
+                        outline: none;
+                    }
+                }
+
+                .other-field {
+                    .remember-checkbox {
                         display: inline-block;
                     }
-                }
 
-                .sign-in-button {
-                    .btn;
-                    background: #00a046;
-                    margin-top: 20px;
-
-                    &:active {
-                        transform: scale(0.95);
+                    .safe-me {
+                        font-size: 16px;
                     }
 
-                    &:last-child {
-                        color: #000;
-                        background-color: transparent;
+                    a {
+                        padding-left: 4px;
+                        color: #3e77aa;
                     }
                 }
 
-                span {
-                    font-size: 16px;
-                }
+                .field-btn {
+                    .sign-button {
+                        .btn;
+                        background: #00a046;
+                        margin-top: 20px;
+                        border: 0;
+                        padding: 10px 20px;
+                        display: block;
 
-                a {
-                    padding-left: 4px;
-                    color: #3e77aa;
+                        &:active {
+                            transform: scale(0.95);
+                        }
+
+                        &:last-child {
+                            color: #000;
+                            background-color: transparent;
+                        }
+                    }
                 }
             }
 
@@ -627,47 +628,6 @@ p {
                             }
                         }
                     }
-                }
-            }
-        }
-    }
-
-    .sign-up-window {
-        .forms {
-            form {
-                .warning-messege-sign-up {
-                    display: none;
-                    color: #e90000;
-                    padding-bottom: 20px;
-                    text-transform: uppercase;
-                }
-
-                input {
-                    display: block;
-
-                    &:nth-child(5) {
-                        width: 48%;
-                        display: inline-block;
-                    }
-                }
-
-                .sign-up-button {
-                    .btn;
-                    background: #00a046;
-                    margin-top: 20px;
-
-                    &:last-child {
-                        color: #000;
-                        background-color: transparent;
-                    }
-                }
-
-                .btn-show-pass {
-                    background: transparent;
-                    cursor: pointer;
-                    border: 0;
-                    margin-left: 5px;
-                    outline: none;
                 }
             }
         }
@@ -874,7 +834,7 @@ p {
         transform: translate(0, 0%);
         padding: 10px 50px 0 0;
 
-        p {
+        .city {
             font-size: 16px;
             width: 156%;
             padding: 5px;
@@ -961,7 +921,7 @@ p {
                     padding-bottom: 20px;
                 }
 
-                a {
+                .link-app {
                     padding: 0 10px;
                 }
             }
@@ -977,7 +937,7 @@ p {
                     display: inline-block;
                 }
 
-                span {
+                .side-bar-select-city {
                     font-weight: bold;
                     font-size: 15px;
                     cursor: pointer;
@@ -1043,7 +1003,7 @@ p {
                     padding-bottom: 20px;
                 }
 
-                a {
+                .link-mini-info {
                     display: block;
                     color: #3e77aa;
                     text-align: start;
@@ -1060,7 +1020,7 @@ p {
                     padding-bottom: 20px;
                 }
 
-                p {
+                .text-card {
                     line-height: 170%;
                     font-size: 15px;
                     padding-bottom: 20px;
@@ -1102,7 +1062,7 @@ p {
                     .card {
                         width: 18%;
 
-                        p {
+                        .text-card {
                             text-align: start;
                             font-size: 15px;
                             padding-bottom: 10px;
@@ -1141,7 +1101,7 @@ p {
                     box-shadow: 0 0 2px 2px rgba(50,0,78,.75);
                     
                 
-                    p {
+                    .image-about-text {
                         color: #fff;
                         font-size: 16px;
                         font-weight: bold;
@@ -1209,7 +1169,7 @@ p {
                     }
                 }
 
-                p {
+                .more-info-suscribe {
                     padding: 10px 0;
                     font-size: 16px;
                     color: #999;
@@ -1414,13 +1374,13 @@ p {
                 width: 25%;
                 padding-bottom: 20px;
 
-                a {
+                .tab {
                     color: #3e77aa;
-                    cursor: pointer;
                     display: block;
                     padding-bottom: 20px;
                     font-size: 16px;
                     width: fit-content;
+                    cursor: pointer;
                     padding: 5px;
 
                     &.active {
@@ -1507,7 +1467,7 @@ p {
                             padding-bottom: 20px;
                         }
 
-                        p {
+                        .about-of-bank {
                             padding-bottom: 20px;
                         }
                     }
@@ -1527,7 +1487,7 @@ p {
                             float: left;
                         }
 
-                        p {
+                        .warning-messege {
                             padding-bottom: 20px;
                             opacity: .7;
                             line-height: 170%;
@@ -1568,12 +1528,12 @@ p {
                             flex-wrap: wrap;
                             justify-content: space-between;
                            
-                            a {
+                            .way-pay {
                                 width: 27%;
                                 padding: 20px;
                                 color: #3e77aa;
                             
-                                p {
+                                .text-way-pay {
                                     opacity: 0.7;
                                     padding: 10px 0;
                                 }
@@ -1586,7 +1546,7 @@ p {
                             float: left;
                             width: 27%;
 
-                            span {
+                            .text-trevel {
                                 display: block;
                                 color: #3e77aa;
                                 padding-bottom: 20px;
@@ -1668,7 +1628,7 @@ p {
                                                 background: transparent;
                                             }
 
-                                            span {
+                                            .name-part {
                                                 font-size: 16px;
                                                 padding-left: 10px;
                                             }
@@ -1680,11 +1640,11 @@ p {
                                     display: flex;
                                     justify-content: space-between;
 
-                                    span {
+                                    .cause {
                                         font-size: 16px;
                                     }
 
-                                    select {
+                                    .selector-error {
                                         background: transparent;
                                         border: 1px solid #eeeeee;
                                         outline: none;
@@ -1697,7 +1657,7 @@ p {
                             }
 
                             .messege {
-                                p {
+                                .sub-title-messege {
                                     font-size: 16px;
                                     padding: 20px 0;
                                 }
@@ -1710,12 +1670,11 @@ p {
                                 }
                             }
 
-
                             .user-info {
                                 .field-info {
                                     padding: 10px 0;
 
-                                    span {
+                                    .text-fiel-info {
                                         font-size: 16px;
                                     }
 

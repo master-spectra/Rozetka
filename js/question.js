@@ -33,11 +33,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
 		fieldSignIn				= document.querySelectorAll('.field-sign-in'),
 		fieldSignUp				= document.querySelectorAll('.field-sign-up'),
-		warningMassegeSignIn	= document.querySelector('.warning-messege-sign-in'),
+		warningMassegeSign		= document.querySelectorAll('.warning-messege-sign'),
 		formSign 				= document.querySelectorAll('.form-sign'),
 		applySetting			= document.querySelector('.ready'),
 		inputCity 				= document.querySelector('.city-input'),
-		warningMassegeSignUp	= document.querySelector('.warning-messege-sign-up'),
 		signUpBtn				= document.querySelectorAll('.sign-up-button'),
 		signInBtn				= document.querySelectorAll('.sign-in-button'),
 
@@ -300,10 +299,10 @@ window.addEventListener('DOMContentLoaded', function() {
 			signInBtn[0].addEventListener('click', function() {
 				fieldSignIn.forEach(function(elem) { // перебираем массив
 					if (elem.value.length < 7) { // если меньше 7 символов то выбьет предупреждение 
-						warningMassegeSignIn.style.display 	= "block"; // делаем видимым 
-						warningMassegeSignIn.textContent 	= 'Введите 8 или более символов'; // добавляем текст в warning
+						warningMassegeSign[0].style.display 	= "block"; // делаем видимым 
+						warningMassegeSign[0].textContent 		= 'Введите 8 или более символов'; // добавляем текст в warning
 					} else if (elem.value.length > 7){
-						warningMassegeSignIn.textContent 	= null; // убираем текст в warning
+						warningMassegeSign[0].textContent 	= null; // убираем текст в warning
 						signInWindowHeader.style.opacity 	= "0"; // скрываем элемент
 						layout.classList.remove('active-layout'); // скраваем элемент
 
@@ -348,11 +347,10 @@ window.addEventListener('DOMContentLoaded', function() {
 			signUpBtn[0].addEventListener('click', function() {
 				fieldSignUp.forEach(function(elem) { // перебираем массив
 					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 9) { // проверяме по условию input
-						warningMassegeSignUp.style.display 		= "block"; // делаем видимым 
-						warningMassegeSignUp.textContent 		= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
-						fieldSignUp[3].style.width 				= "43%";
+						warningMassegeSign[1].style.display 		= "block"; // делаем видимым 
+						warningMassegeSign[1].textContent 			= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
 					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 9) { // проверяем по условию Input
-						warningMassegeSignUp.textContent 	= null;
+						warningMassegeSign[1].textContent 	= null;
 						signUpWindow.style.opacity 			= "0"; // скрываем элемент
 						layout.classList.remove('active-layout'); // скраваем элемент
 

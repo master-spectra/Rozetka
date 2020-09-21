@@ -15,15 +15,15 @@
 			<div class="wrapper">
 				<div class="top-header">
 					<div class="left">
-						<a class="fas fa-phone-alt btn-open-window">(097)-988-0784</a>
-						<a href="question.html">Контакты</a>
-						<a href="help.html">Помощь</a>
-						<a href="">Наш ответ COVID-19</a>
+						<a class="link-header fas fa-phone-alt btn-open-window">(097)-988-0784</a>
+						<a  class="link-header" href="question.html">Контакты</a>
+						<a  class="link-header" href="help.html">Помощь</a>
+						<a class="link-header">Наш ответ COVID-19</a>
 					</div>
-					<div class="rigth">
-						<span>RU | UA</span>
-						<span class="select-city btn-open-window">Город</span>
-						<span class="sign-in btn-open-window">Здраствуйте войдите в личный кабинет</span>
+					<div class="right">
+						<span class="link-header">RU | UA</span>
+						<span class="link-header select-city btn-open-window">Город</span>
+						<span class="link-header sign-in btn-open-window">Здраствуйте войдите в личный кабинет</span>
 					</div>
 				</div>
 				<div class="down-header">
@@ -33,8 +33,8 @@
 						</a>
 					</div>
 					<form action="post">
-						<input type="search" placeholder="Я ищу..." class="test">
-						<input type="button" value="Найти">	
+						<input type="search" placeholder="Я ищу..." class="search-form-header">
+						<input type="button" value="Найти" class="btn-form-header">	
 					</form>
 					<div class="menu">
 						<a class="fas fa-balance-scale btn-menu-versus"></a>
@@ -51,9 +51,8 @@
 					<div class="description-about">
 						<div class="image-about">
 							<img src="https://i.rozetka.ua/design/premium/prem_info_truck.png" alt="">
-							<p>бесплатно</p>
+							<p class="image-about-text">бесплатно</p>
 						</div>
-						
 						<div class="text-info-description-about">
 							<h2 class="title-description-about">Премиум-покупателям <br> бесплатная доставка всегда <br> любым удобным способом!</h2>
 							<p class="text-description-about">Бесплатная доставка товаров продавца Rozetka без <br> ограничения количества заказов.</p>
@@ -67,10 +66,11 @@
 							</div>
 							<button class="btn-buy-subscribe">Оплатить подписку</button>
 						</div>
-						<p>Нажав на кнопку, вы перейдете на страницу для оплаты подписки</p>
+						<p class="more-info-suscribe">Нажав на кнопку, вы перейдете на страницу для оплаты подписки</p>
 					</div>
 					<div class="more-info">
-						<p class="text-more-info">Для бесплатной доставки заказа весь товар в заказе должен попадать под условие действия подписки, т.е. быть отмеченным специальным значком Premium.
+						<p class="text-more-info">
+							Для бесплатной доставки заказа весь товар в заказе должен попадать под условие действия подписки, т.е. быть отмеченным специальным значком Premium.
 							Бесплатная доставка доступна для заказов, которые доставляются по всей территории Украины любым способом доставки.
 							Сумма заказа Premium должна быть не меньше чем 100 грн для бесплатной доставки по г.Киев и не менее 500 грн для бесплатной доставки в другие населенные пункты. При выборе доставки до магазинов и точек самовывоза Rozetka доставка бесплатно независимо от суммы заказа.
 							Подписка активируется в течение 15 минут после ее оплаты и вам становятся доступны все преимущества Rozetka Premium.
@@ -157,12 +157,12 @@
 				<button class="btn-close-window"><span class="fas fa-times"></span></button>
 				<div class="infos">
 					<div class="order">
-						<p>Консультации и заказ по телефонам</p>
+						<p class="title-infos">Консультации и заказ по телефонам</p>
 						<a href="tel:+38 (044) 537-02-22">+38 (044) 503-80-80</a>
 						<a href="tel:+38 (044) 503-80-80">+38 (044) 503-80-80</a>
 					</div>
 					<div class="other">
-						<p>Другие продавцы:</p>
+						<p class="title-infos">Другие продавцы:</p>
 						<a href="tel:+38 (044) 537-02-22">+38 (044) 503-80-80</a>
 					</div>
 					<div class="call-center">
@@ -196,11 +196,11 @@
 					<form action="post">
 						<h4 class="title-form">Введите населённый пункт</h4>
 						<input type="text" class="city-input">
-						<p>Например, Котюжный</p>
+						<p class="text-form-selector-city">Например, Котюжный</p>
 						<input type="button" class="ready" value="Применить">
 					</form>
 					<div class="footer-window">
-						<p>Выбор города поможет предоставить актуальную информацию о наличии товара, его цены и способов доставки в вашем городе! Это поможет сохранить больше свободного времени для вас!</p>
+						<p class="text-footer-window">Выбор города поможет предоставить актуальную информацию о наличии товара, его цены и способов доставки в вашем городе! Это поможет сохранить больше свободного времени для вас!</p>
 					</div>
 				</div>
 			</div>
@@ -209,14 +209,20 @@
 				<button class="btn-close-window"><span class="fas fa-times"></span></button>
 				<div class="forms">
 					<form action="post" class="form-sign">
-						<h4 class="warning-messege-sign-in"></h4>
-						<input type="email" placeholder="Эл. почта или телефон" class="field-sign-in">
-						<input type="password" placeholder="Пароль" class="field-sign-in">
-						<input type="checkbox" class="remember-checkbox">
-						<span>Запомнить меня</span>
-						<a href="">Напомнить пароль</a>
-						<input type="button" class="sign-in-button" value="Войти">
-						<input type="button" class="sign-in-button" value="Зарегистрироваться">
+						<h4 class="warning-messege-sign"></h4>
+						<div class="fields">
+							<input type="email" placeholder="Эл. почта или телефон" class="field-sign-in field-sign">
+							<input type="password" placeholder="Пароль" class="field-sign-in field-sign">
+						</div>
+						<div class="other-field">
+							<input type="checkbox" class="remember-checkbox">
+							<span class="safe-me">Запомнить меня</span>
+							<a href="">Напомнить пароль</a>
+						</div>
+						<div class="field-btn">
+							<input type="button" class="sign-in-button sign-button" value="Войти">
+							<input type="button" class="sign-in-button sign-button" value="Зарегистрироваться">
+						</div>
 					</form>
 					<div class="social-sign-in">
 						<span class="auth-modal">или</span>
@@ -233,14 +239,18 @@
 				<button class="btn-close-window"><span class="fas fa-times"></span></button>
 				<div class="forms">
 					<form action="post" class="form-sign">
-						<h4 class="warning-messege-sign-up"></h4>
-						<input type="text" placeholder="Фамилия" class="field-sign-up">
-						<input type="text" placeholder="Имя" class="field-sign-up">
-						<input type="email" placeholder="Эл. почта или телефон" class="field-sign-up">
-						<input type="password" placeholder="Придумайте пароль" class="field-sign-up">
-						<button class="btn-show-pass"><span class="eye fas fa-eye"></span></button>
-						<input type="button" class="sign-up-button" value="Зарегистрироваться">
-						<input type="button" class="sign-up-button" value="Войти">
+						<h4 class="warning-messege-sign"></h4>
+						<div class="fields">
+							<input type="text" placeholder="Фамилия" class="field-sign-up field-sign">
+							<input type="text" placeholder="Имя" class="field-sign-up field-sign">
+							<input type="email" placeholder="Эл. почта или телефон" class="field-sign-up field-sign">
+							<input type="password" placeholder="Придумайте пароль" class="field-sign-up field-sign">
+							<button class="btn-show-pass"><span class="eye fas fa-eye"></span></button>
+						</div>
+						<div class="field-btn">							
+							<input type="button" class="sign-up-button sign-button" value="Зарегистрироваться">
+							<input type="button" class="sign-up-button sign-button" value="Войти">
+						</div>
 					</form>
 					<div class="social-sign-in">
 						<span class="auth-modal">или</span>
@@ -276,7 +286,7 @@
 					<span class="hide-help-window fas fa-minus"></span>
 				</div>
 				<form action="post">
-					<input type="search">
+					<input type="search" class="search-form-help-window">
 				</form>
 			</div>
 		</div>
