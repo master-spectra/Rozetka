@@ -349,14 +349,14 @@ window.addEventListener('DOMContentLoaded', function() {
 				fieldSignIn.forEach(function(elem) { // перебираем массив
 					if (elem.value.length < 7) { // если меньше 7 символов то выбьет предупреждение 
 						warningMassegeSign[0].style.display 	= "block"; // делаем видимым 
-						warningMassegeSign[0].textContent 	= 'Введите 8 или более символов'; // добавляем текст в warning
+						warningMassegeSign[0].textContent 		= 'Введите 8 или более символов'; // добавляем текст в warning
 					} else if (elem.value.length > 7){
 						warningMassegeSign[0].textContent 	= null; // убираем текст в warning
-						layout.classList.remove('active-layout'); // скрываем элемент
 						signInWindowHeader.style.opacity 	= "0"; // скрываем элемент
+						layout.classList.remove('active-layout'); // скрываем элемент
 
 						setTimeout(function() {
-							signInWindowHeader.style.transform 		= "translate(0, -200%)"; // выносим за экран
+							signInWindowHeader.style.transform 	= "translate(0, -200%)"; // выносим за экран
 						}, 302); // задержка в 302мс
 						
 						setTimeout(function() {

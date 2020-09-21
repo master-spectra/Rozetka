@@ -323,7 +323,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				signUpWindow.style.transform 			= "translate(-52%, 0)"; // скрываем элемент
 
 				setTimeout(function() {
-					signInWindowHeader.style.transform 		= "translate(0, 0)"; // скрываем элемент
+					signInWindowHeader.style.transform 		= "translate(0, -200%)"; // скрываем элемент
 					signUpWindow.style.opacity 				= "1"; // делаем видимым элемент
 				}, 302); // задержку в 302мс
 			});
