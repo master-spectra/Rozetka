@@ -52,21 +52,6 @@ let
 
 	let page = { // используем инкапсуляцию 
 		header: () => {
-			setTimeout(function() {
-				fixedBtn.style.transform = "translateY(0)"; // выводим кнопку
-			}, 3000); // задержка в 3с
-
-			fixedBtn.addEventListener('click', function() {
-				fixedBtn.style.transform = "translateY(200%)"; // скрываем кнопку
-				helpWindow.style.transform = "translateY(0)"; // выводим help-window
-			});
-
-			btnHideHelpWindow.addEventListener('click', function() {
-				helpWindow.style.transform = "translateY(200%)"; // скрываем help-window
-				fixedBtn.style.transform = "translateY(0%)"; // выводим кнопку
-			});
-
-			// header 
 			btnOpenWindows.forEach(function(elem) { // перебираем массив с кнопками 
 				elem.addEventListener('click', function(e) { // навешиваем событие 
 					let target = e.target; // записоваем в переменую кнопку
@@ -75,16 +60,11 @@ let
 						if (target == btnOpenWindows[i]) { // проверяем по условию
 							windowSpecial.forEach(function(elem) { // перебираем массив с окнами
 								// скрываем окна
-								elem.style.transform 	= "translate(0, -200%)";
-								elem.style.opacity 		= "0";
+								elem.classList.remove('animate');
 							});
 
 							layout.classList.add('active-layout'); //выводим layout
-							windowSpecial[i].style.transform 	= "translate(-50%, 0%)"; // выводим окно 
-							
-							setTimeout(function() {
-								windowSpecial[i].style.opacity 		= "1"; // делаем окно видимым
-							}, 302);
+							windowSpecial[i].classList.add('animate');
 						}
 					}
 				});
@@ -99,16 +79,11 @@ let
 						if (targets == btnHeaderMenu[i]) { // проверяем цель с кнопкой
 							downList.forEach(function(elem) { // перебираем массив  с выподающими списками
 								// скрываем элемент
-								elem.style.opacity 		= "0";
-								elem.classList.remove('active-lists');
+								elem.classList.remove('animate-lists');
 							});
 
 							// выводим элемент
-							downList[i].classList.add('active-lists');
-
-							setTimeout(function() {
-								downList[i].style.opacity = "1";								
-							}, 302); // задержка в 302мс
+							downList[i].classList.add('animate-lists');
 						}
 					}
 				};
@@ -118,32 +93,20 @@ let
 			btnMenuVersus.addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.classList.add('active-layout');
-				versusList.style.transform = "translate(50%, 0)";
-
-				setTimeout(function() {
-					versusList.style.opacity = "1";
-				}, 302); // задежка в 302мс
+				versusList.classList.add('animate');
 			});
 
 			// добавляем событие на ссылку
 			btnSignRedirect.addEventListener('click', function(e) {
 				e.preventDefault(); // отключаем стандартное повидение браузера
 				layout.classList.add('active-layout'); // делаем видимым элемент
-				signInWindowHeader.style.transform = "translate(-50%, 0)"; // выводим на экран
-				
-				setTimeout(function() {
-					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302); // задержка в 302мс
+				signInWindowHeader.classList.add('animate');
 			});
 
 			btnHeaderMenu[1].addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.classList.add('active-layout');
-				basketWindow.style.transform = "translate(50%, 0)";
-
-				setTimeout(function() {
-					basketWindow.style.opacity = "1";
-				}, 302); // задежка в 302мс
+				basketWindow.classList.add('animate');
 			});
 
 			// создаем анонимную функцию
@@ -151,8 +114,7 @@ let
 				downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
 						// скрываем элемент
-						elem.style.opacity 	= "0";
-						elem.classList.remove('active-lists');
+						elem.classList.remove('animate-lists');
 					});
 				});
 
@@ -160,8 +122,7 @@ let
 					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false) { // проверяем по условию событие
 						downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 							// скрываем элемент
-							elem.style.opacity 	= "0";
-							elem.classList.remove('active-lists');
+							elem.classList.remove('animate-lists');
 						});
 					}
 				});
@@ -176,14 +137,11 @@ let
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-							layout.classList.remove('active-layout'); // скрываем layout
-							layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
-							elem.style.opacity 	= "0"; // скрываем каждое окно
-
-							setTimeout(function() {
-								elem.style.transform = "translate(0, -200%)"; // выносим за экран	
-							}, 500); // задержка в 400мс
-						};
+							elem.classList.remove('animate'); // скрываем каждое окно
+							// удаляем классы
+							layout.classList.remove('active-layout');
+							layout.classList.remove('catalog-mode');
+						}
 					});
 				});
 			});
@@ -192,13 +150,10 @@ let
 			closeWindow.forEach(function(elem) { // получаем каждую кнопку из массива 
 				elem.addEventListener('click', function() { // присваеваем к кнопке событие 
 					modalWindows.forEach(function(item) { // перебираем массив с модальными окнами
-						layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
-						layout.classList.remove('active-layout'); // скрываем layout
-						item.style.opacity = "0"; // скрываем каждое окно
-
-						setTimeout(function() {
-							item.style.transform = "translate(0, -200%)"; // выносим за экран	
-						}, 400); // задержка в 400мс
+						// удаляем класс catalog-menu
+						layout.classList.remove('active-layout');
+						layout.classList.remove('catalog-mode');
+						item.classList.remove('animate'); // скрываем каждое окно
 					});
 				});
 			});

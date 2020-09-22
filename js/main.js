@@ -78,16 +78,11 @@ window.addEventListener('DOMContentLoaded', function() {
 						if (target == btnOpenWindows[i]) { // проверяем по условию
 							windowSpecial.forEach(function(elem) { // перебираем массив с окнами
 								// скрываем окна
-								elem.style.transform 	= "translate(0, -200%)";
-								elem.style.opacity 		= "0";
+								elem.classList.remove('animate');
 							});
 
 							layout.classList.add('active-layout'); //выводим layout
-							windowSpecial[i].style.transform 	= "translate(-50%, 0%)"; // выводим окно 
-							
-							setTimeout(function() {
-								windowSpecial[i].style.opacity 		= "1"; // делаем окно видимым
-							}, 302);
+							windowSpecial[i].classList.add('animate');
 						}
 					}
 				});
@@ -96,21 +91,16 @@ window.addEventListener('DOMContentLoaded', function() {
 			// добавляем событие для открытие каталога
 			btnShowCatalog.addEventListener('click', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
-					contentPage.classList.remove('special'); // удаляем класс
 					layout.classList.remove('catalog-mode'); // удаляем класс
-					catalogMenu.style.opacity 	= "0"; // скрываем элемент
-					
-					setTimeout(function() {
-						catalogMenu.style.transform = "translate(0, -200%)"; // выносим за экран 
-					}, 510);
+					catalogMenu.classList.remove('animate');
 				} else {
 					contentPage.classList.add('special'); // добавляем класс
 					layout.classList.add('catalog-mode'); // добавляем класс
-					catalogMenu.style.transform = "translate(0, 0%)" // выводим на экран 
 
 					setTimeout(function() {
-						catalogMenu.style.opacity = "1"; // делаем видимым 
-					}, 400);
+						catalogMenu.classList.add('animate');
+					}, 302);
+
 				};
 			});
 
@@ -123,16 +113,11 @@ window.addEventListener('DOMContentLoaded', function() {
 						if (targets == btnHeaderMenu[i]) { // проверяем цель с кнопкой
 							downList.forEach(function(elem) { // перебираем массив  с выподающими списками
 								// скрываем элемент
-								elem.style.opacity 		= "0";
-								elem.classList.remove('active-lists');
+								elem.classList.remove('animate-lists');
 							});
 
 							// выводим элемент
-							downList[i].classList.add('active-lists');
-
-							setTimeout(function() {
-								downList[i].style.opacity = "1";								
-							}, 302); // задержка в 302мс
+							downList[i].classList.add('animate-lists');
 						}
 					}
 				};
@@ -142,32 +127,20 @@ window.addEventListener('DOMContentLoaded', function() {
 			btnMenuVersus.addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.classList.add('active-layout');
-				versusList.style.transform = "translate(50%, 0)";
-
-				setTimeout(function() {
-					versusList.style.opacity = "1";
-				}, 302); // задежка в 302мс
+				versusList.classList.add('animate');
 			});
 
 			// добавляем событие на ссылку
 			btnSignRedirect.addEventListener('click', function(e) {
 				e.preventDefault(); // отключаем стандартное повидение браузера
 				layout.classList.add('active-layout'); // делаем видимым элемент
-				signInWindowHeader.style.transform = "translate(-50%, 0)"; // выводим на экран
-				
-				setTimeout(function() {
-					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302); // задержка в 302мс
+				signInWindowHeader.classList.add('animate');
 			});
 
 			btnHeaderMenu[2].addEventListener('click', function() {
 				// делаем видимыми элементы
 				layout.classList.add('active-layout');
-				basketWindow.style.transform 	= "translate(50%, 0)";
-
-				setTimeout(function() {
-					basketWindow.style.opacity = "1";
-				}, 302); // задежка в 302мс
+				basketWindow.classList.add('animate');
 			});
 
 			// создаем анонимную функцию
@@ -175,8 +148,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
 						// скрываем элемент
-						elem.style.opacity 	= "0";
-						elem.classList.remove('active-lists');
+						elem.classList.remove('animate-lists');
 					});
 				});
 
@@ -184,8 +156,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false) { // проверяем по условию событие
 						downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 							// скрываем элемент
-							elem.style.opacity 	= "0";
-							elem.classList.remove('active-lists');
+							elem.classList.remove('animate-lists');
 						});
 					}
 				});
@@ -197,11 +168,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		sideBar: () => {
 			btnSignInSideBar.addEventListener('click', function() {
 				layout.classList.add('active-layout'); // делаем видимым элемент
-				signInWindowHeader.style.transform = "translate(-50%, 0)"; // выводим на экран
-				
-				setTimeout(function() {
-					signInWindowHeader.style.opacity = "1"; // делаем видимым элемент
-				}, 302);  // задержку в 302мс
+				signInWindowHeader.classList.add('animate')
 			});
 
 			sideBarSelectorCity.addEventListener('click', function() {
@@ -287,14 +254,11 @@ window.addEventListener('DOMContentLoaded', function() {
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-							elem.style.opacity 		= "0"; // скрываем каждое окно
+							elem.classList.remove('animate'); // скрываем каждое окно
+							// удаляем классы
 							layout.classList.remove('active-layout');
-							layout.classList.remove('catalog-mode'); // удаляем класс catalog-menu
-							
-							setTimeout(function() {
-								contentPage.classList.remove('special'); 
-								elem.style.transform = "translate(0, -200%)"; // выносим за экран	
-							}, 400); // задержка в 400мс
+							layout.classList.remove('catalog-mode');
+							contentPage.classList.remove('special');
 						}
 					});
 				});
@@ -307,11 +271,7 @@ window.addEventListener('DOMContentLoaded', function() {
 						// удаляем класс catalog-menu
 						layout.classList.remove('active-layout');
 						layout.classList.remove('catalog-mode');
-						item.style.opacity = "0"; // скрываем каждое окно
-
-						setTimeout(function() {
-							item.style.transform = "translate(0, -200%)"; // выносим за экран	
-						}, 400); // задержка в 400мс
+						item.classList.remove('animate'); // скрываем каждое окно
 					});
 				});
 			});
@@ -352,12 +312,8 @@ window.addEventListener('DOMContentLoaded', function() {
 						warningMassegeSign[0].textContent 		= 'Введите 8 или более символов'; // добавляем текст в warning
 					} else if (elem.value.length > 7){
 						warningMassegeSign[0].textContent 	= null; // убираем текст в warning
-						signInWindowHeader.style.opacity 	= "0"; // скрываем элемент
-						layout.classList.remove('active-layout'); // скрываем элемент
-
-						setTimeout(function() {
-							signInWindowHeader.style.transform 	= "translate(0, -200%)"; // выносим за экран
-						}, 302); // задержка в 302мс
+						layout.classList.remove('active-layout'); // скраваем элемент
+						signInWindowHeader.classList.remove('animate');
 						
 						setTimeout(function() {
 							formSign[0].reset(); // очищаем форму
@@ -368,13 +324,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// показываем окно регистрации 
 			signInBtn[1].addEventListener('click', function() {
-				signInWindowHeader.style.opacity 		= "0"; // скрываем элемент
-				signUpWindow.style.transform 			= "translate(-52%, 0)"; // скрываем элемент
-
-				setTimeout(function() {
-					signInWindowHeader.style.transform 	= "translate(0, 0)"; // скрываем элемент
-					signUpWindow.style.opacity 			= "1"; // делаем видимым элемент
-				}, 302); // задержку в 302мс
+				signInWindowHeader.classList.remove('animate'); // скрываем элемент
+				signUpWindow.classList.add('animate');; // скрываем элемент
 			});
 
 			// показываем value input
@@ -382,11 +333,11 @@ window.addEventListener('DOMContentLoaded', function() {
 				e.preventDefault(); // отключаем стандартное повидения браузеа при нажатии на кнопку 
 				
 				if (fieldSignUp[3].type == "password") { // проверяем чтобы тир input был password
-					fieldSignUp[3].type = "text"; // переводим его в тип text
+					fieldSignUp[3].type = "text"; // переводим его в тип password
 					spanShowPass.classList.remove('fa-eye'); // добавляем класс
 					spanShowPass.classList.add('fa-eye-slash'); // удаляем класс
 				} else {
-					fieldSignUp[3].type = "password"; // переводим его тип в password
+					fieldSignUp[3].type = "password"; // переводим его тип в text
 					spanShowPass.classList.add('fa-eye'); // добавляем класс
 					spanShowPass.classList.remove('fa-eye-slash'); // удаляем класс
 				}
@@ -395,17 +346,13 @@ window.addEventListener('DOMContentLoaded', function() {
 			// регистрируемся
 			signUpBtn[0].addEventListener('click', function() {
 				fieldSignUp.forEach(function(elem) { // перебираем массив
-					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 10) { // проверяме по условию input
+					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 9) { // проверяме по условию input
 						warningMassegeSign[1].style.display 		= "block"; // делаем видимым 
 						warningMassegeSign[1].textContent 			= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
-					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 10) { // проверяем по условию Input
-						warningMassegeSign[1].textContent = null;
-						layout.classList.remove('active-layout'); // делаем невидимым элемент
-						signUpWindow.style.opacity = "0"; // скрываем элемент
-
-						setTimeout(function() {
-							signUpWindow.style.transform = "translate(0, -200%)"; // выводим на экран
-						}, 302); // задержка в 302мс
+					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 9) { // проверяем по условию Input
+						warningMassegeSign[1].textContent 	= null;
+						signUpWindow.classList.remove('animate'); // скрываем элемент
+						layout.classList.remove('active-layout'); // скраваем элемент
 
 						setTimeout(function() {
 							formSign[0].reset(); // очищаем форму
@@ -416,14 +363,9 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// показываем окно входа
 			signUpBtn[1].addEventListener('click', function() {
-				signUpWindow.style.opacity 			= "0"; // скрываем элемент
-				signInWindowHeader.style.transform 	= "translate(-50%, 0)"; // выводим на экран
-
-				setTimeout(function() {
-					signUpWindow.style.transform 		= "translate(0, -200%)"; // выносим за экран
-					signInWindowHeader.style.opacity 	= "1"; // делаем видимым
-				}, 302); // задержка в 302мс
-			});
+				signUpWindow.classList.remove('animate');
+				signInWindowHeader.classList.add('animate'); // выводим на экран
+			});	
 
 			// табы 
 			tabs.addEventListener('mouseover', function(e) {

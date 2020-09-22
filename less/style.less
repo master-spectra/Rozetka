@@ -43,6 +43,7 @@ p {
 
     &.active-layout {
         display: block!important;
+        position: fixed;
     }
 }
 
@@ -81,6 +82,83 @@ p {
 
     &:active {
         transform: scale(0.95);
+    }
+}
+
+.title-window {
+    font-size: 25px;
+    display: inline-block;
+}
+
+
+.image {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.title { 
+    font-size: 30px;
+    padding: 20px 0;
+}
+
+.text {
+    line-height: 170%;
+    padding-bottom: 20px;
+    font-size: 15px;
+}
+
+.content-page {
+    padding-top: 20px;
+    
+    &.special {
+        position: relative;
+    }
+}
+
+.sub-title {
+    font-size: 20px;
+    padding-bottom: 20px; 
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.animate-lists {
+    animation-name: active-list; 
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+    display: flex!important;
+}
+
+@keyframes active-list {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.animate {
+    animation-name: active-modal;
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+    opacity: 1!important;
+    transform: translate(0, 0)!important;
+}
+
+@keyframes active-modal {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        display: block;
+        transform: scale(1);
     }
 }
 
@@ -159,16 +237,6 @@ p {
     }
 }
 
-.title-window {
-    font-size: 25px;
-    display: inline-block;
-}
-
-.wrapper {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
 .call-center {
     padding: 20px 0;
     border-bottom: 1px solid #e9e9e9;
@@ -194,23 +262,6 @@ p {
             line-height: 31px;
         }
     }
-}
-
-.image {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.title { 
-    font-size: 30px;
-    padding: 20px 0;
-}
-
-.text {
-    line-height: 170%;
-    padding-bottom: 20px;
-    font-size: 15px;
 }
 
 .header {
@@ -402,7 +453,7 @@ p {
         padding: 20px;
         top: 23%;
         transition: all .3s ease;
-        left: 50%;
+        left: 28%;
         transform: translate(0, -200%);
         
         .infos {
@@ -427,8 +478,9 @@ p {
         padding: 20px;
         top: 19%;
         transition: all .3s ease;
-        left: 50%;
+        left: 23%;
         transform: translate(0, -200%);
+        width: 50%;
         
         .infos {
             padding-top: 20px;
@@ -508,7 +560,8 @@ p {
         padding: 20px;
         top: 20%;
         transition: all .3s ease;
-        left: 50%;
+        left: 24%;
+        width: 50%;
         transform: translate(0, -200%);
 
 
@@ -642,7 +695,7 @@ p {
 
     .versus-list {
         top: 23%;
-        right: 51%;
+        right: 32%;
         position: fixed;
         width: 36%;
         background: #ffff;
@@ -680,7 +733,7 @@ p {
     .basket-window {
         position: absolute;
         top: 10%;
-        right: 50%;
+        right: 17%;
         opacity: 0;
         transform: translate(0, -400%);
         background: #fff;
@@ -717,8 +770,6 @@ p {
         position: absolute;
         top: 24%;
         background: #fff;
-        opacity: 0;
-        transform: translate(0, -400%);
         right: 11%;
         padding: 20px;
         border-radius: 5px;
@@ -727,11 +778,6 @@ p {
         justify-content: space-between;
         transition: all 0.5s ease;
         border: 1px solid #eeeeee;  
-
-        &.active-lists {
-            transform: translate(0, 0);
-            display: flex;
-        }  
     }
 
     .premium-list {
@@ -854,19 +900,6 @@ p {
             }
         }
     }
-}
-
-.content-page {
-    padding-top: 20px;
-    
-    &.special {
-        position: relative;
-    }
-}
-
-.sub-title {
-    font-size: 20px;
-    padding-bottom: 20px; 
 }
 
 .graphic {
