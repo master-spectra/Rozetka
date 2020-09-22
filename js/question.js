@@ -31,6 +31,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		btns 					= document.querySelector('.btns'),
 		btnCity 				= document.querySelectorAll('.btn-city'),
 		btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
+		warningMessegeSubscribe = document.querySelector('.warning-messege-footer-subscribe'), 
+		formSubscribeFooter 	= document.querySelector('.form-subscribe-footer'),
+		fieldSubscribeFooter 	= document.querySelector('.field-form-subscribe-footer'),
+		btnFormFooter 			= document.querySelector('.btn-form-subscribe-footer'),
 		fieldSignIn				= document.querySelectorAll('.field-sign-in'),
 		fieldSignUp				= document.querySelectorAll('.field-sign-up'),
 		warningMassegeSign		= document.querySelectorAll('.warning-messege-sign'),
@@ -93,6 +97,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					// добавляем класс
 					contentPage.classList.add('special'); 
 					layout.classList.add('catalog-mode');
+					catalogMenu.style.top = "0"; // меняем значение top 
 
 					setTimeout(function() {
 						catalogMenu.classList.add('animate'); // выводим каталог
@@ -360,9 +365,26 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			checkboxTest();
 		},
+
+		footer: () => {
+			btnFormFooter.addEventListener('click', function() {
+				if (fieldSubscribeFooter.value.length < 9) { // проверяем по условию инпут
+					// делаем видимым элемент и добавляем текст
+					warningMessegeSubscribe.style.display = "block";
+					warningMessegeSubscribe.style.color = "red";
+					warningMessegeSubscribe.textContent = "Введите 10 и более символов!";
+				} else {
+					// скрываем элемент и удаляе текст
+					warningMessegeSubscribe.style.display 	= "none";
+					warningMessegeSubscribe.textContent 	= null;
+					formSubscribeFooter.reset();
+				}
+			});
+		}
 	};
 
 	page.header();
 	page.sideBar();
 	page.contentQuestionPage();
+	page.footer();
 });
