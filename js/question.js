@@ -51,7 +51,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		// отзывы 
 		checkbox				= document.querySelectorAll('.checkbox'),
-		selectorErrorItem		= document.querySelectorAll('.selector-error__item'),
 		selectorError			= document.querySelector('.selector-error'),
 		savigsFirst				= false,
 		savingsSecond			= false,
