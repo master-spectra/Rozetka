@@ -59,12 +59,11 @@ let
 					for (let i = 0; i < btnOpenWindows.length; i++) {  // перебираем массив с кнопками
 						if (target == btnOpenWindows[i]) { // проверяем по условию
 							windowSpecial.forEach(function(elem) { // перебираем массив с окнами
-								// скрываем окна
-								elem.classList.remove('animate');
+								elem.classList.remove('animate'); // скрываем окна
 							});
 
 							layout.classList.add('active-layout'); //выводим layout
-							windowSpecial[i].classList.add('animate');
+							windowSpecial[i].classList.add('animate'); // выводим окна
 						}
 					}
 				});
@@ -78,12 +77,10 @@ let
 					for (let i = 0; i < btnHeaderMenu.length; i++) { // перебираем массив с кнопками 
 						if (targets == btnHeaderMenu[i]) { // проверяем цель с кнопкой
 							downList.forEach(function(elem) { // перебираем массив  с выподающими списками
-								// скрываем элемент
-								elem.classList.remove('animate-lists');
+								elem.classList.remove('animate-lists'); // скрываем элемент
 							});
 
-							// выводим элемент
-							downList[i].classList.add('animate-lists');
+							downList[i].classList.add('animate-lists'); // выводим элемент
 						}
 					}
 				};
@@ -100,7 +97,7 @@ let
 			btnSignRedirect.addEventListener('click', function(e) {
 				e.preventDefault(); // отключаем стандартное повидение браузера
 				layout.classList.add('active-layout'); // делаем видимым элемент
-				signInWindowHeader.classList.add('animate');
+				signInWindowHeader.classList.add('animate'); // выводим элемент
 			});
 
 			btnHeaderMenu[1].addEventListener('click', function() {
@@ -113,16 +110,14 @@ let
 			let hideLists = () => { 
 				downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
-						// скрываем элемент
-						elem.classList.remove('animate-lists');
+						elem.classList.remove('animate-lists'); // скрываем элемент
 					});
 				});
 
 				document.addEventListener('click', function(e) {
 					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false) { // проверяем по условию событие
 						downList.forEach(function(elem) { // перебираем массив с выпадающими списками
-							// скрываем элемент
-							elem.classList.remove('animate-lists');
+							elem.classList.remove('animate-lists'); // скрываем элемент
 						});
 					}
 				});
@@ -137,10 +132,10 @@ let
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-							elem.classList.remove('animate'); // скрываем каждое окно
 							// удаляем классы
 							layout.classList.remove('active-layout');
 							layout.classList.remove('catalog-mode');
+							elem.classList.remove('animate'); // скрываем каждое окно
 						}
 					});
 				});
@@ -177,9 +172,7 @@ let
 			applySetting.addEventListener('click', function() { 
 				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
 				modalWindowCity.style.opacity = '0'; // скраваем элемент
-				
-				// скраваем элемент
-				layout.classList.remove('active-layout');
+				layout.classList.remove('active-layout'); // скраваем элемент
 
 				setTimeout(function() {
 					modalWindowCity.style.transform = "translate(0, -200%)"; // выносим ха экран элемент 
@@ -241,7 +234,7 @@ let
 						warningMassegeSign[1].style.display 		= "block"; // делаем видимым 
 						warningMassegeSign[1].textContent 			= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
 					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 10) { // проверяем по условию Input
-						warningMassegeSign[1].textContent = null;
+						warningMassegeSign[1].textContent = null; // удаляем контент с h2
 						layout.classList.remove('active-layout'); // делаем невидимым элемент
 						signUpWindow.style.opacity = "0"; // скрываем элемент
 

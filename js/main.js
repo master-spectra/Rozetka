@@ -77,12 +77,12 @@ window.addEventListener('DOMContentLoaded', function() {
 					for (let i = 0; i < btnOpenWindows.length; i++) {  // перебираем массив с кнопками
 						if (target == btnOpenWindows[i]) { // проверяем по условию
 							windowSpecial.forEach(function(elem) { // перебираем массив с окнами
-								// скрываем окна
-								elem.classList.remove('animate');
+								elem.classList.remove('animate'); // скрываем окна
 							});
 
-							layout.classList.add('active-layout'); //выводим layout
-							windowSpecial[i].classList.add('animate');
+							//выводим элементы
+							layout.classList.add('active-layout');
+							windowSpecial[i].classList.add('animate'); 
 						}
 					}
 				});
@@ -91,16 +91,17 @@ window.addEventListener('DOMContentLoaded', function() {
 			// добавляем событие для открытие каталога
 			btnShowCatalog.addEventListener('click', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
-					layout.classList.remove('catalog-mode'); // удаляем класс
+					// удаляем классы
+					layout.classList.remove('catalog-mode');
 					catalogMenu.classList.remove('animate');
 				} else {
-					contentPage.classList.add('special'); // добавляем класс
-					layout.classList.add('catalog-mode'); // добавляем класс
+					// добавляем класс
+					contentPage.classList.add('special'); 
+					layout.classList.add('catalog-mode');
 
 					setTimeout(function() {
-						catalogMenu.classList.add('animate');
+						catalogMenu.classList.add('animate'); // выводим каталог
 					}, 302);
-
 				};
 			});
 
@@ -112,12 +113,10 @@ window.addEventListener('DOMContentLoaded', function() {
 					for (let i = 0; i < btnHeaderMenu.length; i++) { // перебираем массив с кнопками 
 						if (targets == btnHeaderMenu[i]) { // проверяем цель с кнопкой
 							downList.forEach(function(elem) { // перебираем массив  с выподающими списками
-								// скрываем элемент
-								elem.classList.remove('animate-lists');
+								elem.classList.remove('animate-lists'); // скрываем элемент
 							});
 
-							// выводим элемент
-							downList[i].classList.add('animate-lists');
+							downList[i].classList.add('animate-lists'); // выводим элемент
 						}
 					}
 				};
@@ -133,7 +132,8 @@ window.addEventListener('DOMContentLoaded', function() {
 			// добавляем событие на ссылку
 			btnSignRedirect.addEventListener('click', function(e) {
 				e.preventDefault(); // отключаем стандартное повидение браузера
-				layout.classList.add('active-layout'); // делаем видимым элемент
+				// делаем видимым элемент
+				layout.classList.add('active-layout');
 				signInWindowHeader.classList.add('animate');
 			});
 
@@ -147,18 +147,16 @@ window.addEventListener('DOMContentLoaded', function() {
 			let hideLists = () => { 
 				downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
-						// скрываем элемент
-						elem.classList.remove('animate-lists');
+						elem.classList.remove('animate-lists'); // скрываем элемент
 					});
 				});
 
 				document.addEventListener('click', function(e) {
 					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false) { // проверяем по условию событие
 						downList.forEach(function(elem) { // перебираем массив с выпадающими списками
-							// скрываем элемент
-							elem.classList.remove('animate-lists');
+							elem.classList.remove('animate-lists'); // скрываем элемент
 						});
-					}
+					};
 				});
 			};
 
@@ -167,16 +165,19 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		sideBar: () => {
 			btnSignInSideBar.addEventListener('click', function() {
-				layout.classList.add('active-layout'); // делаем видимым элемент
+				// делаем видимым элементы
+				layout.classList.add('active-layout'); 
 				signInWindowHeader.classList.add('animate')
 			});
 
 			sideBarSelectorCity.addEventListener('click', function() {
-				selectCityList.style.display = "block"; // делаем видимым элемент
+				selectCityList.classList.add('special-animate-list'); // добавляем класс с анимациями
+			});
 
-				setTimeout(function() {
-					selectCityList.style.opacity = "1"; // делаем видимым элемент
-				}, 302); // задержка в 302мс
+			document.addEventListener('click', function(e) {
+				if (e.target != sideBarSelectorCity && e.target != selectCityList) { // проверяем по условию
+					selectCityList.classList.remove('special-animate-list'); // удаляем класс с анимациями
+				}
 			});
 
 			city.forEach(function(elem) { // перебраем массив 
@@ -215,7 +216,6 @@ window.addEventListener('DOMContentLoaded', function() {
 						address[0].style.display = "block";
 						address[1].style.display = "block";
 						address[2].style.display = "block"
-
 						address[3].style.display = "none"; // скрываем элемент
 					} else if (e.target.textContent == "Львов") {  // проверяем по условию 
 						// выводим соответсвущии значения
@@ -227,7 +227,6 @@ window.addEventListener('DOMContentLoaded', function() {
 						address[0].style.display = "block";
 						address[1].style.display = "block";
 						address[2].style.display = "block"
-				
 						address[3].style.display = "none"; // скрываем элемент
  					} else if (e.target.textContent == "Херсон") { // проверяем по условию 
 						address[0].textContent = "Запорожское шоссе, 2"; // выводим соответсвущии значения 
@@ -240,11 +239,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					};
 
 					sideBarSelectorCity.textContent = elem.textContent; // добавялем значение того элемента на который нажали
-					selectCityList.style.opacity 	= "0"; // скрываем список
- 
-					setTimeout(function() {
-					 	selectCityList.style.display = "none"  // скрываем список
-					}, 302); // задежка в 302мс 
+					selectCityList.classList.remove('special-animate-list'); // удаляем класс с анимациями
 				});
 			});
 		},
@@ -254,8 +249,8 @@ window.addEventListener('DOMContentLoaded', function() {
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-							elem.classList.remove('animate'); // скрываем каждое окно
 							// удаляем классы
+							elem.classList.remove('animate');
 							layout.classList.remove('active-layout');
 							layout.classList.remove('catalog-mode');
 							contentPage.classList.remove('special');
@@ -295,13 +290,11 @@ window.addEventListener('DOMContentLoaded', function() {
 			applySetting.addEventListener('click', function() { 
 				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
 				modalWindowCity.style.opacity = '0'; // скраваем элемент
-				
-				// скраваем элемент
-				layout.classList.remove('active-layout');
+				layout.classList.remove('active-layout'); // скраваем элемент
 
 				setTimeout(function() {
 					modalWindowCity.style.transform = "translate(0, -200%)"; // выносим ха экран элемент 
-				}, 302); // задежка в 302мс
+				}, 302); // задержка в 302мс
 			});
 
 			// входим в систему
@@ -313,7 +306,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					} else if (elem.value.length > 7){
 						warningMassegeSign[0].textContent 	= null; // убираем текст в warning
 						layout.classList.remove('active-layout'); // скраваем элемент
-						signInWindowHeader.classList.remove('animate');
+						signInWindowHeader.classList.remove('animate'); // удаляем класс
 						
 						setTimeout(function() {
 							formSign[0].reset(); // очищаем форму
@@ -363,7 +356,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// показываем окно входа
 			signUpBtn[1].addEventListener('click', function() {
-				signUpWindow.classList.remove('animate');
+				signUpWindow.classList.remove('animate'); // удаляем предыдущее окно
 				signInWindowHeader.classList.add('animate'); // выводим на экран
 			});	
 
@@ -374,8 +367,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 					for (let i = 0; i < tab.length; i++) { // перебираем массив с табам
 						if (target == tab[i]) { // если элемент на которы нажали совпадает с тем который есть в массив...
-							tabConteiner.forEach(function(elem) {   // перебираю массив с tabConteiner
-								elem.classList.remove('active');	// удаляю класс active
+							tabConteiner.forEach(function(elem) { // перебираю массив с tabConteiner
+								elem.classList.remove('active'); // удаляю класс active
 							});
 
 							tabConteiner[i].classList.add('active'); // добавляю класс active элементу который мы вызвали

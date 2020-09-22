@@ -143,6 +143,23 @@ p {
     }
 }
 
+.special-animate-list {
+    animation-name: special-active-list; 
+    animation-duration: 0.3s;
+    animation-timing-function: ease;
+    display: block!important;
+}
+
+@keyframes special-active-list {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
 .animate {
     animation-name: active-modal;
     animation-duration: 0.3s;

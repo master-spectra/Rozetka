@@ -72,12 +72,12 @@ window.addEventListener('DOMContentLoaded', function() {
 					for (let i = 0; i < btnOpenWindows.length; i++) {  // перебираем массив с кнопками
 						if (target == btnOpenWindows[i]) { // проверяем по условию
 							windowSpecial.forEach(function(elem) { // перебираем массив с окнами
-								// скрываем окна
-								elem.classList.remove('animate');
+								elem.classList.remove('animate'); // скрываем окна
 							});
 
-							layout.classList.add('active-layout'); //выводим layout
-							windowSpecial[i].classList.add('animate');
+							//выводим элементы
+							layout.classList.add('active-layout');
+							windowSpecial[i].classList.add('animate'); 
 						}
 					}
 				});
@@ -86,19 +86,17 @@ window.addEventListener('DOMContentLoaded', function() {
 			// добавляем событие для открытие каталога
 			btnShowCatalog.addEventListener('click', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
-					layout.classList.remove('catalog-mode'); // удаляем класс
+					// удаляем классы
+					layout.classList.remove('catalog-mode');
 					catalogMenu.classList.remove('animate');
 				} else {
-					contentPage.classList.add('special'); // добавляем класс
-					layout.classList.add('catalog-mode'); // добавляем класс
+					// добавляем класс
+					contentPage.classList.add('special'); 
+					layout.classList.add('catalog-mode');
 
-					// выводим на экран
-					catalogMenu.style.top = '0';
-					
 					setTimeout(function() {
-						catalogMenu.classList.add('animate');
+						catalogMenu.classList.add('animate'); // выводим каталог
 					}, 302);
-
 				};
 			});
 
@@ -110,12 +108,10 @@ window.addEventListener('DOMContentLoaded', function() {
 					for (let i = 0; i < btnHeaderMenu.length; i++) { // перебираем массив с кнопками 
 						if (targets == btnHeaderMenu[i]) { // проверяем цель с кнопкой
 							downList.forEach(function(elem) { // перебираем массив  с выподающими списками
-								// скрываем элемент
-								elem.classList.remove('animate-lists');
+								elem.classList.remove('animate-lists'); // скрываем элемент
 							});
 
-							// выводим элемент
-							downList[i].classList.add('animate-lists');
+							downList[i].classList.add('animate-lists'); // выводим элемент
 						}
 					}
 				};
@@ -131,7 +127,8 @@ window.addEventListener('DOMContentLoaded', function() {
 			// добавляем событие на ссылку
 			btnSignRedirect.addEventListener('click', function(e) {
 				e.preventDefault(); // отключаем стандартное повидение браузера
-				layout.classList.add('active-layout'); // делаем видимым элемент
+				// делаем видимым элемент
+				layout.classList.add('active-layout');
 				signInWindowHeader.classList.add('animate');
 			});
 
@@ -145,18 +142,16 @@ window.addEventListener('DOMContentLoaded', function() {
 			let hideLists = () => { 
 				downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 					elem.addEventListener('mouseleave', function(e) { // каждому выпадающими списками добавляем событие 
-						// скрываем элемент
-						elem.classList.remove('animate-lists');
+						elem.classList.remove('animate-lists'); // скрываем элемент
 					});
 				});
 
 				document.addEventListener('click', function(e) {
 					if (e.target && e.target.classList.contains('lists') == false && e.target.classList.contains('lists-child') == false) { // проверяем по условию событие
 						downList.forEach(function(elem) { // перебираем массив с выпадающими списками
-							// скрываем элемент
-							elem.classList.remove('animate-lists');
+							elem.classList.remove('animate-lists'); // скрываем элемент
 						});
-					}
+					};
 				});
 			};
 
@@ -192,11 +187,11 @@ window.addEventListener('DOMContentLoaded', function() {
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
-							elem.classList.remove('animate'); // скрываем каждое окно
 							// удаляем классы
 							layout.classList.remove('active-layout');
 							layout.classList.remove('catalog-mode');
 							contentPage.classList.remove('special');
+							elem.classList.remove('animate'); // скрываем каждое окно
 						}
 					});
 				});
@@ -263,7 +258,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					} else if (elem.value.length > 7){
 						warningMassegeSign[0].textContent 	= null; // убираем текст в warning
 						layout.classList.remove('active-layout'); // скраваем элемент
-						signInWindowHeader.classList.remove('animate');
+						signInWindowHeader.classList.remove('animate'); // скраваем элемент
 						
 						setTimeout(function() {
 							formSign[0].reset(); // очищаем форму
@@ -300,7 +295,7 @@ window.addEventListener('DOMContentLoaded', function() {
 						warningMassegeSign[1].style.display 		= "block"; // делаем видимым 
 						warningMassegeSign[1].textContent 			= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
 					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 9) { // проверяем по условию Input
-						warningMassegeSign[1].textContent 	= null;
+						warningMassegeSign[1].textContent 	= null; // удаляем контент с h2
 						signUpWindow.classList.remove('animate'); // скрываем элемент
 						layout.classList.remove('active-layout'); // скраваем элемент
 
@@ -313,7 +308,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// показываем окно входа
 			signUpBtn[1].addEventListener('click', function() {
-				signUpWindow.classList.remove('animate');
+				signUpWindow.classList.remove('animate'); // скраваем элемент
 				signInWindowHeader.classList.add('animate'); // выводим на экран
 			});	
 
@@ -335,7 +330,7 @@ window.addEventListener('DOMContentLoaded', function() {
 						e.target.style.background = "transparent"; // меняем фон checkbox
 						
 						// выключаем элемент
-						selectorError.setAttribute('disabled', 'disabled'); // выключаем select
+						selectorError.setAttribute('disabled', 'disabled'); 
 						btnForm.setAttribute('disabled', 'disabled');
 					};
 				}); 
@@ -358,7 +353,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 						// выключаем элемент
 						btnForm.setAttribute('disabled', 'disabled');
-						selectorError.setAttribute('disabled', 'disabled');// меняем фон checkbox
+						selectorError.setAttribute('disabled', 'disabled');
 					}
 				});
 			};
