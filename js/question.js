@@ -373,14 +373,13 @@ window.addEventListener('DOMContentLoaded', function() {
 			let filteBrand = () => {
 				btnWord.forEach(function(elem) {
 					elem.addEventListener('click', function(e) {
-						let filter 			= e.target.textContent.toLowerCase();
-						console.log(filter)
+						let filter = e.target.textContent.toLowerCase(); // получаем textContent нажатой кнопки 
 
-						brandList.forEach(function(elem) {
-							if (elem.textContent.toLowerCase().indexOf(filter) > -1) {
-								elem.style.display = '';
+						brandList.forEach(function(elem) { // перебираем масссив
+							if (elem.textContent.toLowerCase().indexOf(filter) > -1) { // сверяем название с нажатой кнопкой 
+								elem.style.display = ''; // выводим на экран
 							} else {
-								elem.style.display = "none";
+								elem.style.display = "none"; // скрываем с экрана
 							}
 						});
 					});
