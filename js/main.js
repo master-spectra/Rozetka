@@ -289,12 +289,8 @@ window.addEventListener('DOMContentLoaded', function() {
 			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
 				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
-				modalWindowCity.style.opacity = '0'; // скраваем элемент
 				layout.classList.remove('active-layout'); // скраваем элемент
-
-				setTimeout(function() {
-					modalWindowCity.style.transform = "translate(0, -200%)"; // выносим ха экран элемент 
-				}, 302); // задержка в 302мс
+				modalWindowCity.classList.remove('animate');
 			});
 
 			// входим в систему

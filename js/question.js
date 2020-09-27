@@ -25,24 +25,22 @@ window.addEventListener('DOMContentLoaded', function() {
 		modalNumber				= document.querySelector('.numbers-modal-window'),
 		basketWindow 			= document.querySelector('.basket-window'),
 
-		// form и её элементы
+		// form sign
 		btnShowPass 			= document.querySelector('.btn-show-pass'),
 		spanShowPass 			= document.querySelector('.eye'),
-		btns 					= document.querySelector('.btns'),
-		btnCity 				= document.querySelectorAll('.btn-city'),
 		btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
-		warningMessegeSubscribe = document.querySelector('.warning-messege-footer-subscribe'), 
-		formSubscribeFooter 	= document.querySelector('.form-subscribe-footer'),
-		fieldSubscribeFooter 	= document.querySelector('.field-form-subscribe-footer'),
-		btnFormFooter 			= document.querySelector('.btn-form-subscribe-footer'),
 		fieldSignIn				= document.querySelectorAll('.field-sign-in'),
 		fieldSignUp				= document.querySelectorAll('.field-sign-up'),
-		warningMassegeSign		= document.querySelectorAll('.warning-messege-sign'),
 		formSign 				= document.querySelectorAll('.form-sign'),
-		applySetting			= document.querySelector('.ready'),
-		inputCity 				= document.querySelector('.city-input'),
 		signUpBtn				= document.querySelectorAll('.sign-up-button'),
 		signInBtn				= document.querySelectorAll('.sign-in-button'),
+		warningMassegeSign		= document.querySelectorAll('.warning-messege-sign'),
+
+		// form city 
+		btnCity 				= document.querySelectorAll('.btn-city'),
+		applySetting			= document.querySelector('.ready'),
+		inputCity 				= document.querySelector('.city-input'),
+		btns 					= document.querySelector('.btns'),
 
 		// таб элементы
 		tabs 					= document.querySelector('.tabs'),
@@ -59,6 +57,15 @@ window.addEventListener('DOMContentLoaded', function() {
 		savigsFirst				= false,
 		savingsSecond			= false,
 
+		// filter
+		btnsFilter 				= document.querySelector('.btns-filter'),
+		btnWord 				= document.querySelectorAll('.btn-word'),
+		brandList				= document.querySelectorAll('.list-brand-device-item'),
+
+		// footer-subscribe 
+		formSubscribeFooter 	= document.querySelectorAll('.form-subscribe-footer'),
+		fieldSubscribeFooter 	= document.querySelectorAll('.field-form-subscribe-footer'),
+		btnFormFooter 			= document.querySelectorAll('.btn-form-subscribe-footer'),
 
 		// другое 
 		layout					= document.querySelector('.layout'), 
@@ -363,23 +370,47 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			};
 
+			let filteBrand = () => {
+				btnWord.forEach(function(elem) {
+					elem.addEventListener('click', function(e) {
+						let filter 			= e.target.textContent.toLowerCase();
+						console.log(filter)
+
+						brandList.forEach(function(elem) {
+							if (elem.textContent.toLowerCase().indexOf(filter) > -1) {
+								elem.style.display = '';
+							} else {
+								elem.style.display = "none";
+							}
+						});
+					});
+				});
+			};
+
+			filteBrand();
 			checkboxTest();
 		},
 
 		footer: () => {
-			btnFormFooter.addEventListener('click', function() {
-				if (fieldSubscribeFooter.value.length < 9) { // проверяем по условию инпут
-					// делаем видимым элемент и добавляем текст
-					warningMessegeSubscribe.style.display = "block";
-					warningMessegeSubscribe.style.color = "red";
-					warningMessegeSubscribe.textContent = "Введите 10 и более символов!";
+			setTimeout(function checkFirstEmail() {
+				if (fieldSubscribeFooter[0].value.match(/\S+@\S+\.\S+/ig)) { // проверяем по условию
+					btnFormFooter[0].removeAttribute('disabled'); // включаем кнопку
 				} else {
-					// скрываем элемент и удаляе текст
-					warningMessegeSubscribe.style.display 	= "none";
-					warningMessegeSubscribe.textContent 	= null;
-					formSubscribeFooter.reset();
-				}
-			});
+					btnFormFooter[0].setAttribute('disabled', 'disabled'); // выключаем  кнопку
+				};
+
+				setTimeout(checkFirstEmail, 10); // рекурсивный setTimeout
+			}, 1000);
+
+			setTimeout(function checkSecondEmail() {
+				if (fieldSubscribeFooter[1].value.match(/\S+@\S+\.\S+/ig)) { // проверяем по условию
+					btnFormFooter[1].removeAttribute('disabled'); // включаем кнопку
+				} else {
+					btnFormFooter[1].setAttribute('disabled', 'disabled'); // выключаем  кнопку
+				};
+
+				setTimeout(checkSecondEmail, 10); // рекурсивный setTimeout
+			}, 1000);
 		}
 	};
 
@@ -387,4 +418,4 @@ window.addEventListener('DOMContentLoaded', function() {
 	page.sideBar();
 	page.contentQuestionPage();
 	page.footer();
-});
+});	

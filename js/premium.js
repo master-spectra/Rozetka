@@ -23,25 +23,23 @@ let
 	fixedBtn 				= document.querySelector('.btn-fixed'),
 	basketWindow 			= document.querySelector('.basket-window'),
 
-	// form и её элементы
-	btnHideHelpWindow 		= document.querySelector('.hide-help-window'),
+	// form sign
 	btnShowPass 			= document.querySelector('.btn-show-pass'),
-	formSubscribeFooter 	= document.querySelector('.form-subscribe-footer'),
-	fieldSubscribeFooter 	= document.querySelector('.field-form-subscribe-footer'),
-	btnFormFooter 			= document.querySelector('.btn-form-subscribe-footer'),
 	spanShowPass 			= document.querySelector('.eye'),
-	btns 					= document.querySelector('.btns'),
-	btnCity 				= document.querySelectorAll('.btn-city'),
-	warningMessegeSubscribe = document.querySelector('.warning-messege-footer-subscribe'), 	
 	btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
 	fieldSignIn				= document.querySelectorAll('.field-sign-in'),
 	fieldSignUp				= document.querySelectorAll('.field-sign-up'),
-	warningMassegeSign		= document.querySelectorAll('.warning-messege-sign'),
 	formSign 				= document.querySelectorAll('.form-sign'),
-	applySetting			= document.querySelector('.ready'),
-	inputCity 				= document.querySelector('.city-input'),
 	signUpBtn				= document.querySelectorAll('.sign-up-button'),
 	signInBtn				= document.querySelectorAll('.sign-in-button'),
+	warningMassegeSign		= document.querySelectorAll('.warning-messege-sign'),
+
+	// form city 
+	btnCity 				= document.querySelectorAll('.btn-city'),
+	applySetting			= document.querySelector('.ready'),
+	inputCity 				= document.querySelector('.city-input'),
+		btns 					= document.querySelector('.btns'),
+
 
 	// другое 
 	layout					= document.querySelector('.layout'), 
@@ -171,12 +169,8 @@ let
 			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
 				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
-				modalWindowCity.style.opacity = '0'; // скраваем элемент
 				layout.classList.remove('active-layout'); // скраваем элемент
-
-				setTimeout(function() {
-					modalWindowCity.style.transform = "translate(0, -200%)"; // выносим ха экран элемент 
-				}, 302); // задежка в 302мс
+				modalWindowCity.classList.remove('animate');
 			});
 
 			// входим в систему
@@ -187,12 +181,8 @@ let
 						warningMassegeSign[0].textContent 		= 'Введите 8 или более символов'; // добавляем текст в warning
 					} else if (elem.value.length > 7){
 						warningMassegeSign[0].textContent 	= null; // убираем текст в warning
-						signInWindowHeader.style.opacity 	= "0"; // скрываем элемент
-						layout.classList.remove('active-layout'); // скрываем элемент
-
-						setTimeout(function() {
-							signInWindowHeader.style.transform 	= "translate(0, -200%)"; // выносим за экран
-						}, 302); // задержка в 302мс
+						layout.classList.remove('active-layout'); // скраваем элемент
+						signInWindowHeader.classList.remove('animate'); // удаляем класс
 						
 						setTimeout(function() {
 							formSign[0].reset(); // очищаем форму
@@ -203,13 +193,8 @@ let
 
 			// показываем окно регистрации 
 			signInBtn[1].addEventListener('click', function() {
-				signInWindowHeader.style.opacity 		= "0"; // скрываем элемент
-				signUpWindow.style.transform 			= "translate(-52%, 0)"; // скрываем элемент
-
-				setTimeout(function() {
-					signInWindowHeader.style.transform 	= "translate(0, 0)"; // скрываем элемент
-					signUpWindow.style.opacity 			= "1"; // делаем видимым элемент
-				}, 302); // задержку в 302мс
+				signInWindowHeader.classList.remove('animate'); // скрываем элемент
+				signUpWindow.classList.add('animate');; // скрываем элемент
 			});
 
 			// показываем value input
@@ -230,17 +215,13 @@ let
 			// регистрируемся
 			signUpBtn[0].addEventListener('click', function() {
 				fieldSignUp.forEach(function(elem) { // перебираем массив
-					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 10) { // проверяме по условию input
+					if (elem.value.length < 3 ||fieldSignUp[3].value.length < 7 || fieldSignUp[2].value.length < 9) { // проверяме по условию input
 						warningMassegeSign[1].style.display 		= "block"; // делаем видимым 
 						warningMassegeSign[1].textContent 			= 'Введите 4 или более символов, но для пароля 8, и более'; // добавляем текст в warning
-					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 10) { // проверяем по условию Input
-						warningMassegeSign[1].textContent = null; // удаляем контент с h2
-						layout.classList.remove('active-layout'); // делаем невидимым элемент
-						signUpWindow.style.opacity = "0"; // скрываем элемент
-
-						setTimeout(function() {
-							signUpWindow.style.transform = "translate(0, -200%)"; // выводим на экран
-						}, 302); // задержка в 302мс
+					} else if (elem.value.length > 3 && fieldSignUp[3].value.length > 7 && fieldSignUp[2].value.length > 9) { // проверяем по условию Input
+						warningMassegeSign[1].textContent 	= null;
+						signUpWindow.classList.remove('animate'); // скрываем элемент
+						layout.classList.remove('active-layout'); // скраваем элемент
 
 						setTimeout(function() {
 							formSign[0].reset(); // очищаем форму
@@ -251,30 +232,21 @@ let
 
 			// показываем окно входа
 			signUpBtn[1].addEventListener('click', function() {
-				signUpWindow.style.opacity 			= "0"; // скрываем элемент
-				signInWindowHeader.style.transform 	= "translate(-50%, 0)"; // выводим на экран
-
-				setTimeout(function() {
-					signUpWindow.style.transform 		= "translate(0, -200%)"; // выносим за экран
-					signInWindowHeader.style.opacity 	= "1"; // делаем видимым
-				}, 302); // задержка в 302мс
-			});
+				signUpWindow.classList.remove('animate'); // удаляем предыдущее окно
+				signInWindowHeader.classList.add('animate'); // выводим на экран
+			});	
 		},
 
 		footer: () => {
-			btnFormFooter.addEventListener('click', function() {
-				if (fieldSubscribeFooter.value.length < 9) { // проверяем по условию инпут
-					// делаем видимым элемент и добавляем текст
-					warningMessegeSubscribe.style.display = "block";
-					warningMessegeSubscribe.style.color = "red";
-					warningMessegeSubscribe.textContent = "Введите 10 и более символов!";
+			setTimeout(function testEmail() {
+				if (fieldSubscribeFooter.value.match(/\S+@\S+\.\S+/ig)) { // проверяем по условию
+					btnFormFooter.removeAttribute('disabled'); // включаем кнопку
 				} else {
-					// скрываем элемент и удаляе текст
-					warningMessegeSubscribe.style.display 	= "none";
-					warningMessegeSubscribe.textContent 	= null;
-					formSubscribeFooter.reset();
-				}
-			});
+					btnFormFooter.setAttribute('disabled', 'disabled'); // выключаем  кнопку
+				};
+
+				setTimeout(testEmail, 10); // рекурсивный setTimeout
+			}, 1000);
 		}
 	};
 
