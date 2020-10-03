@@ -639,7 +639,7 @@ p {
                     }
 
                     a {
-                        padding-left: 4px;
+                        padding-left: 40px;
                         color: #3e77aa;
                     }
                 }
@@ -1486,40 +1486,42 @@ p {
                     }
 
                     .title-tab-content {
+                        padding-bottom: 20px;
                         font-size: 30px;
                     }
 
-                    .sub-title-tab-content {
-                        font-size: 16px;
-                        padding: 10px 0;
-                    }
-
-                    .link {
-                        color: #3e77aa;
-                        text-decoration-style: wavy;
-                        display: block;
-                        padding-bottom: 10px;
-                        cursor: pointer;
-                        font-size: 16px;
-                    }
-
-                    .accordion-item {
-                        display: none;
-                        opacity: 0;
-                        transition: all 0.3s ease;
-
-                        &.active-accordion-item {
-                            display: block;
-                            opacity: 1;
-                        }
-
-                        p {
-                            line-height: 170%;
+                    .accordions-infos {
+                        .accordion-info {
                             padding-bottom: 10px;
-                        }
 
-                        a {
-                            display: inline-block;
+                            .link {
+                                color: #3e77aa;
+                                text-decoration-style: wavy;
+                                display: block;
+                                padding-bottom: 10px;
+                                cursor: pointer;
+                                font-size: 16px;
+                            }
+
+                            .accordion-item {
+                                display: none;
+                                opacity: 0;
+                                transition: all 0.3s ease;
+
+                                &.active-accordion-item {
+                                    display: block;
+                                    opacity: 1;
+                                }
+
+                                p {
+                                    line-height: 170%;
+                                    padding-bottom: 10px;
+                                }
+
+                                a {
+                                    display: inline-block;
+                                }
+                            }
                         }
                     }
 
@@ -2150,6 +2152,74 @@ p {
                         .list-brand-device-item {
                             color: #3e77e3; 
                             font-size: 16px;
+                        }
+                    }
+
+                    .sub-title_green {
+                        padding-top: 10px;
+                        color: #00a046; 
+                    }
+
+                    .text-info-tab-content {
+                        .text-present {
+                            padding-bottom: 10px;
+                            font-size: 20px;
+                            opacity: .7;
+                        }
+                    }
+
+                    .presents-certificate {
+                        padding-top: 50px;
+
+                        .warning {
+                            .term-warning {
+                                .text-term-warning {
+                                    font-size: 16px;
+                                    line-height: 170%;
+                                    padding-bottom: 20px;
+                                }
+                            }
+                        }
+
+                        .accordion-tab-content {
+                            padding-top: 50px;
+
+                            .link_big-size {
+                                font-size: 20px;
+                            }
+
+                            .gift-scratch {
+                                padding-top: 50px;
+                            }
+
+                            .accordion-item_special {
+                                line-height: 170%;
+                                padding-bottom: 20px;
+                                font-size: 16px;
+                                padding-left: 30px;
+                            }
+                        }
+
+                        .cards-pays {
+                            padding-top: 50px;
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: space-between;
+
+                            .card-pay {
+                                width: 30%;
+                                padding: 20px 0;
+                            }
+                        }
+                    }
+
+                    .terms-use {
+                        .term-use {
+                            .text-term-use {
+                                line-height: 170%;
+                                font-size: 15px;
+                                padding-bottom: 20px;
+                            }
                         }
                     }
                 }

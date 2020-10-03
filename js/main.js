@@ -23,7 +23,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
 		btnShowCatalog 			= document.querySelector('.btn-show-catalog'),
 
-
 		// side-bar
 		btnSignInSideBar 		= document.querySelector('.btn-sign-in'),
 		sideBarSelectorCity		= document.querySelector('.side-bar-select-city'),
