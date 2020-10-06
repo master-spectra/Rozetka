@@ -73,10 +73,21 @@ window.addEventListener('DOMContentLoaded', function() {
 					fixedBtn.classList.add('animate-lists');
 				} else {
 					fixedBtn.classList.remove('animate-lists');
-				}
+				};
 
 				setTimeout(cycle, 10);
 			}, 1000);
+		},
+
+		scrollingTopAnimate: () => {
+			$(document).ready( () => {
+				$(".overlay-fixed-btn").on("click","a", function (event) {
+			        event.preventDefault();
+			        var id  = $(this).attr('href'),
+			            top = $(id).offset().top;
+			        $('body,html').animate({scrollTop: top}, 300);
+			    });
+			})
 		},
  
 		header: () => {
@@ -308,4 +319,5 @@ window.addEventListener('DOMContentLoaded', function() {
 	page.slider();
 	page.contentMainPage();
 	page.showFixedBtn();
+	page.scrollingTopAnimate();
 });
