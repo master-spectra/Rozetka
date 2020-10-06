@@ -140,6 +140,7 @@ p {
     animation-duration: 0.3s;
     animation-timing-function: ease;
     display: flex!important;
+    opacity: 1!important;
 }
 
 @keyframes active-list {
@@ -2228,7 +2229,7 @@ p {
 }
 
 .page-product {
-    .content-page-product {
+    .content-page {
         text-align: -webkit-center;
         padding: 50px 0;
 
@@ -2289,7 +2290,7 @@ p {
                         .reviews-stat {
                             font-size: 16px;
                             padding-left: 20px;
-                            color: #3e77e3; 
+                            color: #3e77e3  ; 
                         }
                     }
 
@@ -2322,6 +2323,32 @@ p {
                         font-size: 16px;
                     }
                 }
+            }
+        }
+    }
+
+    .overlay-fixed-btn {
+        .btn-fixed {
+            bottom: 20px;
+            position: fixed;
+            right: 70px;
+            border: 0;
+            background: #3e77e3;
+            outline: none;
+            cursor: pointer;
+            padding: 20px;
+            border-radius: 100%;
+            transition: all 0.3s ease;
+            opacity: 0;
+            display: none;
+
+            &:active {
+                transform: scale(0.95);
+            }
+
+            span {
+                color: #fff;
+                font-size: 16px;
             }
         }
     }
