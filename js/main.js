@@ -92,7 +92,11 @@ window.addEventListener('DOMContentLoaded', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
 					// удаляем классы
 					layout.classList.remove('catalog-mode');
-					catalogMenu.classList.remove('animate');
+					catalogMenu.style.display = "none";
+
+					setTimeout(function() {
+						catalogMenu.classList.remove('animate');
+					}, 500);
 				} else {
 					// добавляем класс
 					contentPage.classList.add('special'); 
