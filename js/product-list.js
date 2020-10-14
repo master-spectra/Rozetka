@@ -1,15 +1,4 @@
 window.addEventListener('DOMContentLoaded', function() {
-	'use strict';
-	// jQuery
-	let slider = () => {
-		$('.carusel').slick({
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 5000,
-		});
-	};
-
 	// JS
 	let // Добавляем переменные
  
@@ -23,13 +12,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		btnMenuVersus 			= document.querySelector('.btn-menu-versus'),
 		btnShowCatalog 			= document.querySelector('.btn-show-catalog'),
 
-		// side-bar
-		btnSignInSideBar 		= document.querySelector('.btn-sign-in'),
-		sideBarSelectorCity		= document.querySelector('.side-bar-select-city'),
-		selectCityList 			= document.querySelector('.select-city-list'),
-		address 				= document.querySelectorAll('.address-text'),
-		city 					= document.querySelectorAll('.city'),
-
 		// Modal-window
 		catalogMenu				= document.querySelector('.catalog-menu'),
 		modalWindows 			= document.querySelectorAll('.window'),
@@ -39,6 +21,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		versusList 				= document.querySelector('.versus-list'),
 		modalNumber				= document.querySelector('.numbers-modal-window'),
 		basketWindow 			= document.querySelector('.basket-window'),
+
+		// fixed-btn
+		fixedBtn 				= document.querySelector('.btn-fixed'),
 
 		// form и её элементы
 		btnShowPass 			= document.querySelector('.btn-show-pass'),
@@ -67,7 +52,44 @@ window.addEventListener('DOMContentLoaded', function() {
 		contentPage				= document.querySelector('.content-page'),
 		t;
 
-	let page = { // используем инкапсуляцию 
+	let page  = {
+		slider: () => {
+			$('.carusel').slick({
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 5000,
+			});
+
+			$('.list-top-product').slick({
+				slidesToShow: 4,
+				slidesToScroll: 1,
+			});
+		},
+
+		showFixedBtn: () => {
+			setTimeout(function cycle() {
+				if (document.documentElement.scrollTop > 100) { // проверяем по условию 
+					fixedBtn.classList.add('animate-lists'); // добавляем класс
+				} else {
+					fixedBtn.classList.remove('animate-lists'); // удаляем класс
+				};
+
+				setTimeout(cycle, 10); // рекурсивный setTimeOut
+			}, 1000);
+		},
+
+		scrollingTopAnimate: () => {
+			$(document).ready( () => {
+				$(".overlay-fixed-btn").on("click","a", function (event) {
+			        event.preventDefault();
+			        var id  = $(this).attr('href'),
+			            top = $(id).offset().top;
+			        $('body,html').animate({scrollTop: top}, 300);
+			    });
+			});
+		},
+ 
 		header: () => {
 			btnOpenWindows.forEach(function(elem) { // перебираем массив с кнопками 
 				elem.addEventListener('click', function(e) { // навешиваем событие 
@@ -160,87 +182,6 @@ window.addEventListener('DOMContentLoaded', function() {
 			};
 
 			hideLists(); // вызываем функцию
-		},
-
-		sideBar: () => {
-			btnSignInSideBar.addEventListener('click', function() {
-				// делаем видимым элементы
-				layout.classList.add('active-layout'); 
-				signInWindowHeader.classList.add('animate')
-			});
-
-			sideBarSelectorCity.addEventListener('click', function() {
-				selectCityList.classList.add('special-animate-list'); // добавляем класс с анимациями
-			});
-
-			document.addEventListener('click', function(e) {
-				if (e.target != sideBarSelectorCity && e.target != selectCityList) { // проверяем по условию
-					selectCityList.classList.remove('special-animate-list'); // удаляем класс с анимациями
-				}
-			});
-
-			city.forEach(function(elem) { // перебраем массив 
-				elem.addEventListener('click', function(e) { // каждому элементу добавляем событие
-					if (e.target.textContent == "Киев") { // проверяем по условию 
-						// выводим соответсвущии значения
-						address[0].textContent = "пр-т. С. Бандеры, 6"; 
-						address[1].textContent = "ул. Крещатик, 20-22";
-						address[2].textContent = "ул. Киото, 25";
-						address[3].textContent = "пр-т. Победы, 24";
-							
-						// делаем видимыми элементы
-						address[0].style.display = "block";
-						address[1].style.display = "block";
-						address[2].style.display = "block"
-						address[3].style.display = "block";
-					} else if (e.target.textContent == "Одесса") {  // проверяем по условию 
-						// выводим соответсвущии значения
-						address[0].textContent = "пер. Семафорный, 4Т";
-						address[1].textContent = "ул. Ивана и Юрия Лип, 13А";
-						address[2].textContent = "ул. Академика Сахарова, 1Б";
-						address[3].textContent = "пр-т. Академика Глушко, 17";
-						
-						// делаем видимыми элементы
-						address[0].style.display = "block";
-						address[1].style.display = "block";
-						address[2].style.display = "block"
-						address[3].style.display = "block";
-					} else if (e.target.textContent == "Харьков") { // проверяем по условию 
-						// выводим соответсвущии значения
-						address[0].textContent = "ул. Героев Труда, 29Г";
-						address[1].textContent = "ул. Полтавский Шлях, 140А";
-						address[2].textContent = "ул. Нетеченская, 25";
-
-						// делаем видимыми элементы
-						address[0].style.display = "block";
-						address[1].style.display = "block";
-						address[2].style.display = "block"
-						address[3].style.display = "none"; // скрываем элемент
-					} else if (e.target.textContent == "Львов") {  // проверяем по условию 
-						// выводим соответсвущии значения
-						address[0].textContent = "ул. Кульпарковская, 226А";
-						address[1].textContent = "ул. Гетьмана Мазепы, 1Б";
-						address[2].textContent = "пр-т. Красной Калины, 36";
-						
-						// делаем видимыми элементы
-						address[0].style.display = "block";
-						address[1].style.display = "block";
-						address[2].style.display = "block"
-						address[3].style.display = "none"; // скрываем элемент
- 					} else if (e.target.textContent == "Херсон") { // проверяем по условию 
-						address[0].textContent = "Запорожское шоссе, 2"; // выводим соответсвущии значения 
-						address[0].style.display = "block"; // делаем видимыми элементы
-
-						// скрываем элемент
-						address[1].style.display = "none";
-						address[2].style.display = "none"
-						address[3].style.display = "none";
-					};
-
-					sideBarSelectorCity.textContent = elem.textContent; // добавялем значение того элемента на который нажали
-					selectCityList.classList.remove('special-animate-list'); // удаляем класс с анимациями
-				});
-			});
 		},
 
 		contentMainPage: () => {
@@ -378,9 +319,9 @@ window.addEventListener('DOMContentLoaded', function() {
 		}
 	};
 
-	// вызываем функции
 	page.header();
-	page.sideBar();
+	page.slider();
 	page.contentMainPage();
-	slider();
+	page.showFixedBtn();
+	page.scrollingTopAnimate();
 });

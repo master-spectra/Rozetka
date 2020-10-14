@@ -22,9 +22,6 @@ window.addEventListener('DOMContentLoaded', function() {
 		modalNumber				= document.querySelector('.numbers-modal-window'),
 		basketWindow 			= document.querySelector('.basket-window'),
 
-		// fixed-btn
-		fixedBtn 				= document.querySelector('.btn-fixed'),
-
 		// form и её элементы
 		btnShowPass 			= document.querySelector('.btn-show-pass'),
 		spanShowPass 			= document.querySelector('.eye'),
@@ -40,10 +37,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		signUpBtn				= document.querySelectorAll('.sign-up-button'),
 		signInBtn				= document.querySelectorAll('.sign-in-button'),
 
-		// табы
-		tabs 					= document.querySelector('.tabs'),
-		tab 					= document.querySelectorAll('.tab'),
-		tabConteiner 			= document.querySelectorAll('.tab-conteiner'),
+		// filter-side-bar
+		checkbox 				= document.querySelectorAll('.checkbox-category'),
+		nameProduct				= document.querySelectorAll('.name-product'),
+		productDevice			= document.querySelectorAll('.list-top-product-item'),
 
 		// другое 
 		layout					= document.querySelector('.layout'), 
@@ -52,44 +49,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		contentPage				= document.querySelector('.content-page'),
 		t;
 
-	let page  = {
-		slider: () => {
-			$('.carusel').slick({
-				slidesToShow: 1,
-				slidesToScroll: 1,
-				autoplay: true,
-				autoplaySpeed: 5000,
-			});
-
-			$('.list-top-product').slick({
-				slidesToShow: 4,
-				slidesToScroll: 1,
-			});
-		},
-
-		showFixedBtn: () => {
-			setTimeout(function cycle() {
-				if (document.documentElement.scrollTop > 100) {
-					fixedBtn.classList.add('animate-lists');
-				} else {
-					fixedBtn.classList.remove('animate-lists');
-				};
-
-				setTimeout(cycle, 10);
-			}, 1000);
-		},
-
-		scrollingTopAnimate: () => {
-			$(document).ready( () => {
-				$(".overlay-fixed-btn").on("click","a", function (event) {
-			        event.preventDefault();
-			        var id  = $(this).attr('href'),
-			            top = $(id).offset().top;
-			        $('body,html').animate({scrollTop: top}, 300);
-			    });
-			})
-		},
- 
+	let page  = { 
 		header: () => {
 			btnOpenWindows.forEach(function(elem) { // перебираем массив с кнопками 
 				elem.addEventListener('click', function(e) { // навешиваем событие 
@@ -114,14 +74,14 @@ window.addEventListener('DOMContentLoaded', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
 					// удаляем классы
 					layout.classList.remove('catalog-mode');
-					catalogMenu.classList.remove('animate');
+					catalogMenu.classList.remove('animate-special');
 				} else {
 					// добавляем класс
 					contentPage.classList.add('special'); 
 					layout.classList.add('catalog-mode');
 
 					setTimeout(function() {
-						catalogMenu.classList.add('animate'); // выводим каталог
+						catalogMenu.classList.add('animate-special'); // выводим каталог
 					}, 302);
 				};
 			});
@@ -177,7 +137,7 @@ window.addEventListener('DOMContentLoaded', function() {
 						downList.forEach(function(elem) { // перебираем массив с выпадающими списками
 							elem.classList.remove('animate-lists'); // скрываем элемент
 						});
-					};
+						};
 				});
 			};
 
@@ -189,11 +149,14 @@ window.addEventListener('DOMContentLoaded', function() {
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
+							catalogMenu.style.display = "none"; // скрываем элемент
+
 							// удаляем классы
 							elem.classList.remove('animate');
 							layout.classList.remove('active-layout');
 							layout.classList.remove('catalog-mode');
 							contentPage.classList.remove('special');
+							elem.classList.remove('animate-special');
 						}
 					});
 				});
@@ -207,6 +170,7 @@ window.addEventListener('DOMContentLoaded', function() {
 						layout.classList.remove('active-layout');
 						layout.classList.remove('catalog-mode');
 						item.classList.remove('animate'); // скрываем каждое окно
+						item.classList.remove('animate-special'); // скрываем каждое окно
 					});
 				});
 			});
@@ -295,29 +259,9 @@ window.addEventListener('DOMContentLoaded', function() {
 				signUpWindow.classList.remove('animate'); // удаляем предыдущее окно
 				signInWindowHeader.classList.add('animate'); // выводим на экран
 			});	
-
-			// табы 
-			tabs.addEventListener('mouseover', function(e) {
-				if (e.target && e.target.classList.contains('tab')) {
-					let target = e.target; // получаем элемент на который нажали
-
-					for (let i = 0; i < tab.length; i++) { // перебираем массив с табам
-						if (target == tab[i]) { // если элемент на которы нажали совпадает с тем который есть в массив...
-							tabConteiner.forEach(function(elem) { // перебираю массив с tabConteiner
-								elem.classList.remove('active'); // удаляю класс active
-							});
-
-							tabConteiner[i].classList.add('active'); // добавляю класс active элементу который мы вызвали
-						}
-					}
-				}
-			});
 		}
 	};
 
 	page.header();
-	page.slider();
 	page.contentMainPage();
-	page.showFixedBtn();
-	page.scrollingTopAnimate();
 });

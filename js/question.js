@@ -36,6 +36,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		signInBtn				= document.querySelectorAll('.sign-in-button'),
 		warningMassegeSign		= document.querySelectorAll('.warning-messege-sign'),
 
+		// input search address
+		searchCity 				= document.querySelector('.point-form-search'),
+		addressPoint 			= document.querySelectorAll('.addres-point'),
+
 		// form city 
 		btnCity 				= document.querySelectorAll('.btn-city'),
 		applySetting			= document.querySelector('.ready'),
@@ -99,15 +103,14 @@ window.addEventListener('DOMContentLoaded', function() {
 				if (getComputedStyle(catalogMenu).opacity == "1") { // проверяем по условию стиль элемента
 					// удаляем классы
 					layout.classList.remove('catalog-mode');
-					catalogMenu.classList.remove('animate');
+					catalogMenu.classList.remove('animate-special');
 				} else {
 					// добавляем класс
 					contentPage.classList.add('special'); 
 					layout.classList.add('catalog-mode');
-					catalogMenu.style.top = "0"; // меняем значение top 
 
 					setTimeout(function() {
-						catalogMenu.classList.add('animate'); // выводим каталог
+						catalogMenu.classList.add('animate-special'); // выводим каталог
 					}, 302);
 				};
 			});
@@ -194,16 +197,35 @@ window.addEventListener('DOMContentLoaded', function() {
 			});
 		},
 
+		filter: () => {
+			searchCity.addEventListener('keydown', function() {
+				let filter 			= searchCity.value.toLowerCase();
+
+				addressPoint.forEach(function(elem) {
+					if (elem.textContent.toLowerCase().indexOf(filter) > -1) {
+						let grandParent 			= elem.parentElement.parentElement;
+						grandParent.style.display 	= "";
+					} else {
+						let grandParent 	= elem.parentElement.parentElement;
+						grandParent.style.display 	= "none";
+					}
+				});
+			});
+		},
+
 		contentQuestionPage: () => {
 			closeAllWindow.forEach(function(item) { // перебираем массив 
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
 					modalWindows.forEach(function(elem) { // перебираем массив с модальными окнами
 						if (getComputedStyle(elem).opacity == "1") { // получаем стиль из модального окна 
+							catalogMenu.style.display = "none"; // скрываем элемент
+
 							// удаляем классы
+							elem.classList.remove('animate');
 							layout.classList.remove('active-layout');
 							layout.classList.remove('catalog-mode');
 							contentPage.classList.remove('special');
-							elem.classList.remove('animate'); // скрываем каждое окно
+							elem.classList.remove('animate-special');
 						}
 					});
 				});
@@ -217,6 +239,7 @@ window.addEventListener('DOMContentLoaded', function() {
 						layout.classList.remove('active-layout');
 						layout.classList.remove('catalog-mode');
 						item.classList.remove('animate'); // скрываем каждое окно
+						item.classList.remove('animate-special'); // скрываем каждое окно
 					});
 				});
 			});
@@ -415,6 +438,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	page.header();
 	page.sideBar();
+	page.filter();
 	page.contentQuestionPage();
 	page.footer();
 });	

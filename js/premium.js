@@ -28,6 +28,8 @@ let
 	spanShowPass 			= document.querySelector('.eye'),
 	btnSignRedirect 		= document.querySelector('.sign-in-redirect'),
 	fieldSignIn				= document.querySelectorAll('.field-sign-in'),
+	fieldSubscribeFooter 	= document.querySelector('.field-form-subscribe-footer'),
+	btnFormFooter 			= document.querySelector('.btn-form-subscribe-footer'),
 	fieldSignUp				= document.querySelectorAll('.field-sign-up'),
 	formSign 				= document.querySelectorAll('.form-sign'),
 	signUpBtn				= document.querySelectorAll('.sign-up-button'),
