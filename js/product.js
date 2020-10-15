@@ -37,10 +37,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		signUpBtn				= document.querySelectorAll('.sign-up-button'),
 		signInBtn				= document.querySelectorAll('.sign-in-button'),
 
-		// filter-side-bar
-		checkbox 				= document.querySelectorAll('.checkbox-category'),
-		nameProduct				= document.querySelectorAll('.name-product'),
-		productDevice			= document.querySelectorAll('.list-top-product-item'),
+		// аккордион 
+		tabContent 				= document.querySelectorAll('.category-filter'),
+		iconArrow 				= document.querySelectorAll('.icon-arrow'),
+		accordionItem 			= document.querySelectorAll('.accordion-item'),
+		link 					= document.querySelectorAll('.link'),
 
 		// другое 
 		layout					= document.querySelector('.layout'), 
@@ -144,6 +145,23 @@ window.addEventListener('DOMContentLoaded', function() {
 			hideLists(); // вызываем функцию
 		},
 
+		sidePanel: ()	=> {
+			tabContent.forEach(function(elem) { // перебираем массив с tab-content 
+				elem.addEventListener('click', function(e) { // навешиваем каждому элементу событие
+					if (e.target && e.target.classList.contains('link')) { // проверяем о условию
+						let target = e.target; // создаем переменную и вписываем туда кнопку
+
+						for (let i = 0; i < link.length; i++) { // перебираем массив с tab-content 
+							if (target == link[i]) { // проверяем по условию
+								accordionItem[i].classList.toggle('hide');
+								iconArrow[i].classList.toggle('rotate-arrow');
+							}
+						}
+					}
+				});
+			});
+		},	
+
 		contentMainPage: () => {
 			closeAllWindow.forEach(function(item) { // перебираем массив 
 				item.addEventListener('click', function() { // каждому элементу даем событие клик
@@ -162,7 +180,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			});
 
-			// настраемваем кнопку закрыть
+			// настраемваем кнопку закрыть 
 			closeWindow.forEach(function(elem) { // получаем каждую кнопку из массива 
 				elem.addEventListener('click', function() { // присваеваем к кнопке событие 
 					modalWindows.forEach(function(item) { // перебираем массив с модальными окнами
@@ -263,5 +281,6 @@ window.addEventListener('DOMContentLoaded', function() {
 	};
 
 	page.header();
+	page.sidePanel();
 	page.contentMainPage();
 });

@@ -73,7 +73,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 		// другое 
 		layout					= document.querySelector('.layout'), 
-		contentPage 			= document.querySelector('.content-page'),
 		closeWindow				= document.querySelectorAll('.btn-close-window'),
 		closeAllWindow 			= document.querySelectorAll('.close-all-window'),		
 		t;
@@ -106,7 +105,6 @@ window.addEventListener('DOMContentLoaded', function() {
 					catalogMenu.classList.remove('animate-special');
 				} else {
 					// добавляем класс
-					contentPage.classList.add('special'); 
 					layout.classList.add('catalog-mode');
 
 					setTimeout(function() {
@@ -224,7 +222,6 @@ window.addEventListener('DOMContentLoaded', function() {
 							elem.classList.remove('animate');
 							layout.classList.remove('active-layout');
 							layout.classList.remove('catalog-mode');
-							contentPage.classList.remove('special');
 							elem.classList.remove('animate-special');
 						}
 					});
