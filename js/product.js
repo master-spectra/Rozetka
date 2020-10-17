@@ -37,6 +37,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		signUpBtn				= document.querySelectorAll('.sign-up-button'),
 		signInBtn				= document.querySelectorAll('.sign-in-button'),
 
+		// product
+		listTopProductItem		= document.querySelectorAll('.list-top-product-item'),
+		imgProdcutItem			= document.querySelectorAll('.img-product-item'),
+
 		// аккордион 
 		tabContent 				= document.querySelectorAll('.category-filter'),
 		iconArrow 				= document.querySelectorAll('.icon-arrow'),
@@ -180,7 +184,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				});
 			});
 
-			// настраемваем кнопку закрыть 
+			// настраемваем кнопку закрыть  
 			closeWindow.forEach(function(elem) { // получаем каждую кнопку из массива 
 				elem.addEventListener('click', function() { // присваеваем к кнопке событие 
 					modalWindows.forEach(function(item) { // перебираем массив с модальными окнами
@@ -282,5 +286,6 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	page.header();
 	page.sidePanel();
+	page.switchImage();
 	page.contentMainPage();
 });
