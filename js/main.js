@@ -291,9 +291,66 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			// сохраняем настройки
 			applySetting.addEventListener('click', function() { 
-				selectorCity.textContent = `Город ${t.textContent}`; // добавляем город в спан из кнопки
+				selectorCity.textContent = t.textContent; // добавляем город в спан из кнопки
+				sideBarSelectorCity.textContent = t.textContent;
 				layout.classList.remove('active-layout'); // скраваем элемент
 				modalWindowCity.classList.remove('animate');
+
+				if (sideBarSelectorCity.textContent == "Киев") { // проверяем по условию 
+					// выводим соответсвущии значения
+					address[0].textContent = "пр-т. С. Бандеры, 6"; 
+					address[1].textContent = "ул. Крещатик, 20-22";
+					address[2].textContent = "ул. Киото, 25";
+					address[3].textContent = "пр-т. Победы, 24";
+						
+					// делаем видимыми элементы
+					address[0].style.display = "block";
+					address[1].style.display = "block";
+					address[2].style.display = "block"
+					address[3].style.display = "block";
+				} else if (sideBarSelectorCity.textContent == "Одесса") {  // проверяем по условию 
+					// выводим соответсвущии значения
+					address[0].textContent = "пер. Семафорный, 4Т";
+					address[1].textContent = "ул. Ивана и Юрия Лип, 13А";
+					address[2].textContent = "ул. Академика Сахарова, 1Б";
+					address[3].textContent = "пр-т. Академика Глушко, 17";
+					
+					// делаем видимыми элементы
+					address[0].style.display = "block";
+					address[1].style.display = "block";
+					address[2].style.display = "block"
+					address[3].style.display = "block";
+				} else if (sideBarSelectorCity.textContent == "Харьков") { // проверяем по условию 
+					// выводим соответсвущии значения
+					address[0].textContent = "ул. Героев Труда, 29Г";
+					address[1].textContent = "ул. Полтавский Шлях, 140А";
+					address[2].textContent = "ул. Нетеченская, 25";
+
+					// делаем видимыми элементы
+					address[0].style.display = "block";
+					address[1].style.display = "block";
+					address[2].style.display = "block"
+					address[3].style.display = "none"; // скрываем элемент
+				} else if (sideBarSelectorCity.textContent == "Львов") {  // проверяем по условию 
+					// выводим соответсвущии значения
+					address[0].textContent = "ул. Кульпарковская, 226А";
+					address[1].textContent = "ул. Гетьмана Мазепы, 1Б";
+					address[2].textContent = "пр-т. Красной Калины, 36";
+					
+					// делаем видимыми элементы
+					address[0].style.display = "block";
+					address[1].style.display = "block";
+					address[2].style.display = "block"
+					address[3].style.display = "none"; // скрываем элемент
+					} else if (sideBarSelectorCity.textContent == "Херсон") { // проверяем по условию 
+					address[0].textContent = "Запорожское шоссе, 2"; // выводим соответсвущии значения 
+					address[0].style.display = "block"; // делаем видимыми элементы
+
+					// скрываем элемент
+					address[1].style.display = "none";
+					address[2].style.display = "none"
+					address[3].style.display = "none";
+				};
 			});
 
 			// входим в систему

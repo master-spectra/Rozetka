@@ -286,6 +286,5 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	page.header();
 	page.sidePanel();
-	page.switchImage();
 	page.contentMainPage();
 });
