@@ -411,25 +411,21 @@ window.addEventListener('DOMContentLoaded', function() {
 		},
 
 		footer: () => {
-			setTimeout(function checkFirstEmail() {
+			fieldSubscribeFooter[0].addEventListener('input', function() {
 				if (fieldSubscribeFooter[0].value.match(/\S+@\S+\.\S+/ig)) { // проверяем по условию
 					btnFormFooter[0].removeAttribute('disabled'); // включаем кнопку
 				} else {
 					btnFormFooter[0].setAttribute('disabled', 'disabled'); // выключаем  кнопку
 				};
+			});
 
-				setTimeout(checkFirstEmail, 10); // рекурсивный setTimeout
-			}, 1000);
-
-			setTimeout(function checkSecondEmail() {
+			fieldSubscribeFooter[1].addEventListener('input', function() {
 				if (fieldSubscribeFooter[1].value.match(/\S+@\S+\.\S+/ig)) { // проверяем по условию
 					btnFormFooter[1].removeAttribute('disabled'); // включаем кнопку
 				} else {
 					btnFormFooter[1].setAttribute('disabled', 'disabled'); // выключаем  кнопку
 				};
-
-				setTimeout(checkSecondEmail, 10); // рекурсивный setTimeout
-			}, 1000);
+			});
 		}
 	};
 

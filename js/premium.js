@@ -240,15 +240,13 @@ let
 		},
 
 		footer: () => {
-			setTimeout(function testEmail() {
+			fieldSubscribeFooter.addEventListener('input', function() {
 				if (fieldSubscribeFooter.value.match(/\S+@\S+\.\S+/ig)) { // проверяем по условию
 					btnFormFooter.removeAttribute('disabled'); // включаем кнопку
 				} else {
 					btnFormFooter.setAttribute('disabled', 'disabled'); // выключаем  кнопку
 				};
-
-				setTimeout(testEmail, 10); // рекурсивный setTimeout
-			}, 1000);
+			});
 		}
 	};
 
